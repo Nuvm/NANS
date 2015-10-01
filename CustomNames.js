@@ -47,5 +47,12 @@ function cfnm(){
       //document.getElementById('icon-03NANS'+i).style.backgroundImage = "url('http://i.imgur.com/BSky1IS.png')";
       unamestuff.style.color='#B20DA5';
     }
+    if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Elitehunter47'){
+      i++;
+      unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
+      $(unamestuff).before('<i id='+("icon-04NANS"+i)+' class="icon" style="background-image:none"></i>');
+      document.getElementById('icon-04NANS'+i).style.backgroundImage = "url('http://i.imgur.com/Wyh8Mbv.png')";
+      unamestuff.style.color='#EA6900';
+    }
   } 
 }
