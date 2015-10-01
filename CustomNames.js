@@ -40,5 +40,12 @@ function cfnm(){
       document.getElementById('icon-02NANS'+i).style.backgroundImage = "url('http://i.imgur.com/BSky1IS.png')";
       unamestuff.style.color='#9966FF';
     }
+    if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Pro Hop'){
+      i++;
+      unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
+      //$(unamestuff).before('<i id='+("icon-03NANS"+i)+' class="icon" style="background-image:none"></i>');
+      //document.getElementById('icon-03NANS'+i).style.backgroundImage = "url('http://i.imgur.com/BSky1IS.png')";
+      unamestuff.style.color='#B20DA5';
+    }
   } 
 }
