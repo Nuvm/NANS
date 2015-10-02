@@ -1,3 +1,6 @@
+var version = '0.01-4';
+var startUpMsg = 'Welcome to ANS version ' + version + '!';
+
 //Default vars
 var prevObj = 0;
 var status = 'Not loaded';
@@ -43,8 +46,8 @@ function cfnm(){
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Pro Hop'){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
-      //$(unamestuff).before('<i id='+("icon-03NANS"+i)+' class="icon" style="background-image:none"></i>');
-      //document.getElementById('icon-03NANS'+i).style.backgroundImage = "url('http://i.imgur.com/BSky1IS.png')";
+      $(unamestuff).before('<i id='+("icon-03NANS"+i)+' class="icon" style="background-image:none"></i>');
+      document.getElementById('icon-03NANS'+i).style.backgroundImage = "url('http://imgur.com/f5HTF9D.png')";
       unamestuff.style.color='#B20DA5';
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Elitehunter47'){
@@ -56,3 +59,4 @@ function cfnm(){
     }
   } 
 }
+$('#messages').append('<div id="ANS-startupmsg" class="cm log" style="color:whitesmoke;text-align:center;font-weight:200;font-size:38;">'+startUpMsg+'</div>');
