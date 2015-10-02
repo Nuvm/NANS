@@ -1,4 +1,4 @@
-var version = '0.03.1-5';
+var version = '0.03.2-5';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
 
 //Default vars
@@ -74,7 +74,7 @@ function cfnm(){
 
 /* NCS MENU STUFF*/
 $('.navbar.footer').append('<button id="NCS-btn" class="nav-form nav-right">NCS Menu</button>');
-$('body').append('<div id="NCS-menu" class="animated" style="visibility:hidden;position:absolute;bottom:52px;left:-50px;background-color:#0a0a0a;height:80px;width:200px;color:gray;border:2px #1B1B1B solid;text-align:left;z-index:10;"><span class="animated infinite bounce" style="text-align:center">Whoa, Animations!</span></div>');
+$('body').append('<div id="NCS-menu" class="animated" style="visibility:hidden;position:absolute;bottom:52px;left:-50px;background-color:#0a0a0a;height:80px;width:200px;color:gray;border:2px #1B1B1B solid;text-align:left;z-index:3;"><span class="animated infinite bounce" style="text-align:center">Whoa, Animations!</span></div>');
 $('#NCS-menu').css('left',($('#NCS-btn').offset().left-($('#NCS-btn').css('width').split('px')[0]/2))+'px');
 $('#NCS-btn').on('click',function(){$('#NCS-menu').css('left',($('#NCS-btn').offset().left+($('#NCS-btn').css('width').split('px')[0]/2))+'px');if($('#NCS-menu').css('visibility')!=='hidden'){$('#NCS-menu').addClass('slideOutDown');$('#NCS-menu').removeClass('slideInUp');}else{$('#NCS-menu').addClass('slideInUp');$('#NCS-menu').removeClass('sideOutDown');}});
 window.onresize = function(){$('#NCS-menu').css('left',($('#NCS-btn').offset().left+($('#NCS-btn').css('width').split('px')[0]/2))+'px');};
