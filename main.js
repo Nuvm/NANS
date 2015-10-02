@@ -1,4 +1,4 @@
-var version = '0.03.3-5';
+var version = '0.0.3-3';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
 
 //Default vars
