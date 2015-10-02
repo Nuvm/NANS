@@ -1,4 +1,4 @@
-var version = '0.01-4';
+var version = '0.02-4';
 var startUpMsg = 'Welcome to ANS version ' + version + '!';
 
 //Default vars
@@ -13,9 +13,9 @@ setTimeout(function(){checkIfReady = setInterval(function(){if(document.getEleme
 function start(s){
   clearInterval(checkIfReady);
   if(s!=='ready'){
-    console.warn("Woops! Seems like NANS couldn't start somehow. Sorry about the issue! Try refreshing; If it still doesn't work, report the bug on our forums. Thanks!");
+    console.warn("Woops! Seems like ANS couldn't start somehow. Sorry about the issue! Try refreshing; If it still doesn't work, report the bug on our forums. Thanks!");
   } else {
-    console.log('[NANS] Started!');
+    console.log('[ANS] Started!');
     status = 'ready';
     scfnm();
   }
@@ -59,4 +59,14 @@ function cfnm(){
     }
   } 
 }
+
+/* ANS MENU STUFF*/
+$('.navbar.footer').append('<button id="ANS-btn" class="nav-form nav-right">ANS Menu</button>');
+$('body').append('<div id="ANS-menu" style="display:none;position:absolute;bottom:52px;left:-50px;background-color:#0a0a0a;height:80px;width:200px;color:gray;border:2px #1B1B1B solid;text-align:left;z-index:10;"></div>');
+$('#ANS-menu').css('left',($('#ANS-btn').offset().left+($('#ANS-btn').css('width').split('px')[0]/2))+'px');
+$('#ANS-btn').on('click',function(){$('#ANS-menu').css('left',($('#ANS-btn').offset().left+($('#ANS-btn').css('width').split('px')[0]/2))+'px');if($('#ANS-menu').css('display')!=='block'){$('#ANS-menu').css('display','block');}else{$('#ANS-menu').css('display','none');}});
+window.onresize = function(){$('#ANS-menu').css('left',($('#ANS-btn').offset().left+($('#ANS-btn').css('width').split('px')[0]/2))+'px');};
+
+
 $('#messages').append('<div id="ANS-startupmsg" class="cm log" style="color:whitesmoke;text-align:center;font-weight:200;font-size:38;">'+startUpMsg+'</div>');
+
