@@ -1,5 +1,5 @@
-var version = '0.02-4';
-var startUpMsg = 'Welcome to ANS version ' + version + '!';
+var version = '0.03-5';
+var startUpMsg = 'Welcome to NCS version ' + version + '!';
 
 //Default vars
 var prevObj = 0;
@@ -13,10 +13,11 @@ setTimeout(function(){checkIfReady = setInterval(function(){if(document.getEleme
 function start(s){
   clearInterval(checkIfReady);
   if(s!=='ready'){
-    console.warn("Woops! Seems like ANS couldn't start somehow. Sorry about the issue! Try refreshing; If it still doesn't work, report the bug on our forums. Thanks!");
+    console.warn("Woops! Seems like NCS couldn't start somehow. Sorry about the issue! Try refreshing; If it still doesn't work, report the bug on our forums. Thanks!");
   } else {
-    console.log('[ANS] Started!');
+    console.log('[NCS] Started!');
     status = 'ready';
+    $('head').append('<link rel="stylesheet" href="https://rawgit.com/daneden/animate.css/master/animate.min.css">');
     scfnm();
   }
 }
@@ -32,41 +33,52 @@ function cfnm(){
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='CSxKING'){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
-      $(unamestuff).before('<i id='+("icon-01NANS"+i)+' class="icon" style="background-image:none"></i>');
-      document.getElementById('icon-01NANS'+i).style.backgroundImage = "url('http://imgur.com/3hN3fNi.png')";
+      $(unamestuff).before('<i id='+("icon-01NCS"+i)+' class="icon" style="background-image:none"></i>');
+      document.getElementById('icon-01NCS'+i).style.backgroundImage = "url('http://imgur.com/3hN3fNi.png')";
       unamestuff.style.color='#A1BA00';
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Loli'){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
-      $(unamestuff).before('<i id='+("icon-02NANS"+i)+' class="icon" style="background-image:none"></i>');
-      document.getElementById('icon-02NANS'+i).style.backgroundImage = "url('http://i.imgur.com/BSky1IS.png')";
+      $(unamestuff).before('<i id='+("icon-02NCS"+i)+' class="icon" style="background-image:none"></i>');
+      document.getElementById('icon-02NCS'+i).style.backgroundImage = "url('http://i.imgur.com/BSky1IS.png')";
       unamestuff.style.color='#9966FF';
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Pro Hop'){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
-      $(unamestuff).before('<i id='+("icon-03NANS"+i)+' class="icon" style="background-image:none"></i>');
-      document.getElementById('icon-03NANS'+i).style.backgroundImage = "url('http://imgur.com/f5HTF9D.png')";
+      $(unamestuff).before('<i id='+("icon-03NCS"+i)+' class="icon" style="background-image:none"></i>');
+      document.getElementById('icon-03NCS'+i).style.backgroundImage = "url('http://imgur.com/f5HTF9D.png')";
       unamestuff.style.color='#B20DA5';
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Elitehunter47'){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
-      $(unamestuff).before('<i id='+("icon-04NANS"+i)+' class="icon" style="background-image:none"></i>');
-      document.getElementById('icon-04NANS'+i).style.backgroundImage = "url('http://i.imgur.com/Wyh8Mbv.png')";
+      $(unamestuff).before('<i id='+("icon-04NCS"+i)+' class="icon" style="background-image:none"></i>');
+      document.getElementById('icon-04NCS'+i).style.backgroundImage = "url('http://i.imgur.com/Wyh8Mbv.png')";
       unamestuff.style.color='#EA6900';
+    }
+    if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Nuvm'){
+      i++;
+      unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
+      var unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-3');
+      $(unameicon).before('<i id='+("icon-00NCS"+i)+' class="icon icon-rank-10"></i>');
+      //document.getElementById('icon-04NCS'+i).style.backgroundImage = "url('http://i.imgur.com/Wyh8Mbv.png')";
+      //unamestuff.style.color='#EA6900';
+      $(unamestuff).removeClass('.rank-3');
+      $(unamestuff).addClass('.rank-10');
+      
     }
   } 
 }
 
-/* ANS MENU STUFF*/
-$('.navbar.footer').append('<button id="ANS-btn" class="nav-form nav-right">ANS Menu</button>');
-$('body').append('<div id="ANS-menu" style="display:none;position:absolute;bottom:52px;left:-50px;background-color:#0a0a0a;height:80px;width:200px;color:gray;border:2px #1B1B1B solid;text-align:left;z-index:10;"></div>');
-$('#ANS-menu').css('left',($('#ANS-btn').offset().left+($('#ANS-btn').css('width').split('px')[0]/2))+'px');
-$('#ANS-btn').on('click',function(){$('#ANS-menu').css('left',($('#ANS-btn').offset().left+($('#ANS-btn').css('width').split('px')[0]/2))+'px');if($('#ANS-menu').css('display')!=='block'){$('#ANS-menu').css('display','block');}else{$('#ANS-menu').css('display','none');}});
-window.onresize = function(){$('#ANS-menu').css('left',($('#ANS-btn').offset().left+($('#ANS-btn').css('width').split('px')[0]/2))+'px');};
+/* NCS MENU STUFF*/
+$('.navbar.footer').append('<button id="NCS-btn" class="nav-form nav-right">NCS Menu</button>');
+$('body').append('<div id="NCS-menu" class="animated" style="visibility:hidden;position:absolute;bottom:52px;left:-50px;background-color:#0a0a0a;height:80px;width:200px;color:gray;border:2px #1B1B1B solid;text-align:left;z-index:10;"><span class="animated infinite bounce" style="text-align:center">Whoa, Animations!</span></div>');
+$('#NCS-menu').css('left',($('#NCS-btn').offset().left-($('#NCS-btn').css('width').split('px')[0]/2))+'px');
+$('#NCS-btn').on('click',function(){$('#NCS-menu').css('left',($('#NCS-btn').offset().left+($('#NCS-btn').css('width').split('px')[0]/2))+'px');if($('#NCS-menu').css('visibility')!=='hidden'){$('#NCS-menu').addClass('slideOutDown');$('#NCS-menu').removeClass('slideInUp');}else{$('#NCS-menu').addClass('slideInUp');$('#NCS-menu').removeClass('sideOutDown');}});
+window.onresize = function(){$('#NCS-menu').css('left',($('#NCS-btn').offset().left+($('#NCS-btn').css('width').split('px')[0]/2))+'px');};
 
 
-$('#messages').append('<div id="ANS-startupmsg" class="cm log" style="color:whitesmoke;text-align:center;font-weight:200;font-size:38;">'+startUpMsg+'</div>');
+$('#messages').append('<div id="NCS-startupmsg" class="cm log mention" style="color:whitesmoke;text-align:center;font-weight:200;font-size:38;">'+startUpMsg+'</div>');
 
