@@ -1,4 +1,4 @@
-var version = '0.03-5';
+var version = '0.03.1-5';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
 
 //Default vars
@@ -80,5 +80,5 @@ $('#NCS-btn').on('click',function(){$('#NCS-menu').css('left',($('#NCS-btn').off
 window.onresize = function(){$('#NCS-menu').css('left',($('#NCS-btn').offset().left+($('#NCS-btn').css('width').split('px')[0]/2))+'px');};
 
 
-$('#messages').append('<div id="NCS-startupmsg" class="cm log mention" style="color:whitesmoke;text-align:center;font-weight:200;font-size:38;">'+startUpMsg+'</div>');
+$('#messages').append('<div id="NCS-startupmsg" class="cm log mention animated tada" style="color:whitesmoke;text-align:center;font-weight:200;font-size:38;">'+startUpMsg+'</div>');
 
