@@ -1,4 +1,4 @@
-var version = '0.0.3-3';
+var version = '0.0.3-19';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
 
 //Default vars
@@ -6,6 +6,7 @@ var prevObj = 0;
 var status = 'Not loaded';
 var i = 0;
 var unamestuff;
+var unameicon;
 
 //Check if ready
 var checkIfReady;
@@ -17,8 +18,9 @@ function start(s){
   } else {
     console.log('[NCS] Started!');
     status = 'ready';
-    $('head').append('<link rel="stylesheet" href="https://rawgit.com/Nuvm/animate.css/Nuvm-patch-1/animate.min.css">');
+    $('head').append('<link rel="stylesheet" href="https://rawgit.com/daneden/animate.css/master/animate.min.css">');
     scfnm();
+    NCSinit();
   }
 }
 
@@ -61,7 +63,7 @@ function cfnm(){
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Nuvm'){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
-      var unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-3');
+      unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-3');
       $(unameicon).before('<i id='+("icon-00NCS"+i)+' class="icon icon-rank-10"></i>');
       //document.getElementById('icon-04NCS'+i).style.backgroundImage = "url('http://i.imgur.com/Wyh8Mbv.png')";
       //unamestuff.style.color='#EA6900';
@@ -73,12 +75,11 @@ function cfnm(){
 }
 
 /* NCS MENU STUFF*/
-$('.navbar.footer').append('<button id="NCS-btn" class="nav-form nav-right">NCS Menu</button>');
-$('body').append('<div id="NCS-menu" class="animated" style="display:none;position:absolute;bottom:52px;left:-50px;background-color:#0a0a0a;height:80px;width:200px;color:gray;border:2px #1B1B1B solid;text-align:left;z-index:3;"><center class="animated infinite flip" style="text-align:center">Whoa, Animations!</center></div>');
-$('#NCS-menu').css('left',($('#NCS-btn').offset().left-($('#NCS-btn').css('width').split('px')[0]/2))+'px');
-$('#NCS-btn').on('click',function(){$('#NCS-menu').css('left',($('#NCS-btn').offset().left-($('#NCS-btn').css('width').split('px')[0]/2))+'px');if($('#NCS-menu').css('display')==='block'){$('#NCS-menu').addClass('fadeOutRight');$('#NCS-menu').removeClass('fadeInLeft');$('#NCS-menu').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){$('#NCS-menu').css('display','none');$('#NCS-menu').css('left',($('#NCS-btn').offset().left-($('#NCS-btn').css('width').split('px')[0]/2))+'px');});}else{$('#NCS-menu').addClass('fadeInLeft');$('#NCS-menu').css('display','block');$('#NCS-menu').removeClass('fadeOutRight');}});
-window.onresize = function(){$('#NCS-menu').css('left',($('#NCS-btn').offset().left-($('#NCS-btn').css('width').split('px')[0]/2))+'px');};
-
-
-$('#messages').append('<div id="NCS-startupmsg" class="cm log mention animated flip" style="color:whitesmoke;text-align:center;font-weight:200;font-size:38;">'+startUpMsg+'</div>');
-
+function NCSinit(){
+  $('.navbar.footer').append('<button id="NCS-btn" class="nav-form nav-right">NCS Menu</button>');
+  $('body').append('<div id="NCS-menu" class="animated" style="display:none;position:absolute;bottom:52px;left:-50px;background-color:#0a0a0a;height:80px;width:200px;color:gray;border:2px #1B1B1B solid;text-align:left;z-index:3;"><center class="animated infinite flip" style="text-align:center">Whoa, Animations!</center></div>');
+  $('#NCS-menu').css('left',($('#NCS-btn').offset().left-($('#NCS-btn').css('width').split('px')[0]/2))+'px');
+  $('#NCS-btn').on('click',function(){$('#NCS-menu').css('left',($('#NCS-btn').offset().left-($('#NCS-btn').css('width').split('px')[0]/2))+'px');if($('#NCS-menu').css('display')==='block'){$('#NCS-menu').addClass('fadeOutRight');$('#NCS-menu').removeClass('fadeInLeft');setTimeout(function(){$('#NCS-menu').css('display','none');$('#NCS-menu').css('left',($('#NCS-btn').offset().left-($('#NCS-btn').css('width').split('px')[0]/2))+'px');},500);}else{$('#NCS-menu').addClass('fadeInLeft');$('#NCS-menu').css('display','block');$('#NCS-menu').removeClass('fadeOutRight');}});
+  window.onresize = function(){$('#NCS-menu').css('left',($('#NCS-btn').offset().left-($('#NCS-btn').css('width').split('px')[0]/2))+'px');};
+  $('#messages').append('<div id="NCS-startupmsg" class="cm log mention animated flip" style="color:whitesmoke;text-align:center;font-weight:200;font-size:38;">'+startUpMsg+'</div>');
+}
