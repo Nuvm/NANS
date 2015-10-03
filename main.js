@@ -17,7 +17,7 @@ function start(s){
   } else {
     console.log('[NCS] Started!');
     status = 'ready';
-    $('head').append('<link rel="stylesheet" href="https://rawgit.com/daneden/animate.css/master/animate.min.css">');
+    $('head').append('<link rel="stylesheet" href="https://rawgit.com/Nuvm/animate.css/Nuvm-patch-1/animate.min.css">');
     scfnm();
   }
 }
