@@ -1,4 +1,4 @@
-var version = '0.0.4-2';
+var version = '0.0.4-3';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
 
 //Default vars
@@ -49,7 +49,7 @@ function cfnm(){
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Pro Hop'){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
-      unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-3');
+      unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
       $(unameicon).before('<i id='+("icon-03NCS"+i)+' class="icon" style="background-image:none"></i>');
       document.getElementById('icon-03NCS'+i).style.backgroundImage = "url('http://imgur.com/f5HTF9D.png')";
       $(unamestuff).removeClass('rank-2');
