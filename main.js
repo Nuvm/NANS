@@ -1,4 +1,4 @@
-var version = '0.0.3-19';
+var version = '0.0.4-2';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
 
 //Default vars
@@ -49,8 +49,10 @@ function cfnm(){
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Pro Hop'){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
-      $(unamestuff).before('<i id='+("icon-03NCS"+i)+' class="icon" style="background-image:none"></i>');
+      unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-3');
+      $(unameicon).before('<i id='+("icon-03NCS"+i)+' class="icon" style="background-image:none"></i>');
       document.getElementById('icon-03NCS'+i).style.backgroundImage = "url('http://imgur.com/f5HTF9D.png')";
+      $(unamestuff).removeClass('rank-2');
       unamestuff.style.color='#B20DA5';
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Elitehunter47'){
@@ -67,14 +69,30 @@ function cfnm(){
       $(unameicon).before('<i id='+("icon-00NCS"+i)+' class="icon icon-rank-10"></i>');
       //document.getElementById('icon-04NCS'+i).style.backgroundImage = "url('http://i.imgur.com/Wyh8Mbv.png')";
       //unamestuff.style.color='#EA6900';
-      $(unamestuff).removeClass('.rank-3');
-      $(unamestuff).addClass('.rank-10');
-      
+      $(unamestuff).removeClass('rank-3');
+      $(unamestuff).addClass('rank-10');
+    }
+    if(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.slice(0,4)==='/NCS'){
+      NCScommandSorter(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML,document.getElementById('messages').lastChild.getElementsByClassName('uname')[0],document.getElementById('messages').lastChild);
     }
   } 
 }
+function NCScommandSorter(msg,user,element){
+  msg = msg.slice(4,255);
+  if(msg==='updateAlert'){
+    if(user.innerHTML==='Nuvm'){
+      $('#messages').append('<center class="NCSalert cm log mention animated fadeInLeftBig" style="color:whitesmoke;text-align:center;font-weight:200;font-size:46;padding:5px;">A new update is available for NCS!<br><span style="font-weight:100;font-size:28">Refresh your page to get the latest update!</span></center>');
+      $(element).remove();
+    }
+  } else if(msg.slice(0,13)==='globalMessage'){
+    if(user.innerHTML==='Nuvm'){
+      $('#messages').append('<center class="NCSalert cm log mention animated fadeInLeftBig" style="color:whitesmoke;text-align:center;font-weight:150;font-size:30;">['+user.innerHTML+'] says: '+msg.slice(13,255)+'</center>');
+      $(element).remove();
+    }
+  }
+}
 
-/* NCS MENU STUFF*/
+/*NCS MENU STUFF*/
 function NCSinit(){
   $('.navbar.footer').append('<button id="NCS-btn" class="nav-form nav-right">NCS Menu</button>');
   $('body').append('<div id="NCS-menu" class="animated" style="display:none;position:absolute;bottom:52px;left:-50px;background-color:#0a0a0a;height:80px;width:200px;color:gray;border:2px #1B1B1B solid;text-align:left;z-index:3;"><center class="animated infinite flip" style="text-align:center">Whoa, Animations!</center></div>');
