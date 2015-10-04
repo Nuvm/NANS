@@ -154,4 +154,3 @@ function NCSfeatures(eventData){
     }
   }
 }
-.
