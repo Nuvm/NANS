@@ -1,6 +1,6 @@
-var version = '0.0.5-12';
+var version = '0.0.6';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
-var newFeaturesMsg = 'You can now hide the player via the NCS menu!';
+var newFeaturesMsg = 'You can now toggle our theme!';
 var username;
 
 //Default vars
@@ -97,35 +97,59 @@ function NCScommandSorter(msg,user,element){
     }
   }
 }
-var featureList = {
-  hidePlayer: false,
-  customTheme: false
-};
+var NCSsettings= [false,true];
+window.addEventListener('beforeunload',function(){localStorage.NCSlocalSettings = JSON.stringify(featureList);});
+if(typeof(Storage) === "undefined"){
+  alert("Unfortunately, your browser does not support local storage. Your NCS settings will not be saved. Please use a modern version of Chrome, Firefox, Safari or Opera.");
+}
+if(typeof localStorage.NCSlocalSettings!==undefined){var localSettings = JSON.parse(localStorage.NCSlocalSettings);NCSsettings[0]=localSettings[0];NCSsettings[1]=localSettings[1];}
+
 /*NCS MENU STUFF*/
 function NCSinit(){
   $('.navbar.footer').append('<button id="NCS-btn" class="nav-form nav-right">NCS Menu</button>');
   $('body').append('<div id="NCS-menu" class="animated" style="display:none;position:absolute;bottom:52px;left:-50px;background-color:#0a0a0a;height:80px;width:200px;color:gray;border:2px #1B1B1B solid;text-align:left;z-index:3;opacity:0.8"><!--<center class="animated infinite flip" style="text-align:center">Whoa, Animations!</center>--></div>');
-  $('#NCS-menu').append('<button id="NCS-f1" class="NCSbutton disabled animated" style="float:left;text-align:center;word-wrap:break-word;opacity:0.8">Hide YT player</button>');
+  $('#NCS-menu').append('<button id="NCS-f1" class="disabled animated" style="float:left;text-align:center;word-wrap:break-word;opacity:0.8">Hide YT player</button>');
+  $('#NCS-menu').append('<button id="NCS-f2" class="disabled animated" style="float:right;text-align:center;word-wrap:break-word;opacity:0.8">Theme</button>');
   $('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left)*-1+'px');
   $('#NCS-btn').on('click',function(){$('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left)*-1+'px');if($('#NCS-menu').css('display')==='block'){$('#NCS-menu').addClass('fadeOutRight');$('#NCS-menu').removeClass('fadeInLeft');setTimeout(function(){$('#NCS-menu').css('display','none');$('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left)*-1+'px');},500);}else{$('#NCS-menu').addClass('fadeInLeft');$('#NCS-menu').css('display','block');$('#NCS-menu').removeClass('fadeOutRight');}});
   window.onresize = function(){$('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left*-1)+'px');};
-  $('#messages').append('<center id="NCS-startupmsg" class="cm log mention animated flip" style="color:whitesmoke;text-align:center;font-weight:200;font-size:38;padding:30px;">'+startUpMsg+'<br><span style="font-weight:100;font-size:16">'+newFeaturesMsg+'</span></center>');
   $('#NCS-f1').on('click',NCSfeatures);
-  $('head').append('<style type="text/css">.enabled{background-color:#B4CFEC;color:black}#NCS-menu{padding:3px}</style>');
-  
+  $('#NCS-f2').on('click',NCSfeatures);
+  $('head').append('<style type="text/css">.enabled{background-color:#B4CFEC;color:white; !important}.disabled{color:black; !important}#NCS-menu{padding:3px}</style>');
+  $('#app-right').css('z-index',5);
+  if(NCSsettings[0]){
+    $('#NCS-f1').click();
+  }
+  if(NCSsettings[1]){
+    $('#NCS-f2').click();
+  }
+  $('#messages').append('<center id="NCS-startupmsg" class="cm log mention animated flip" style="color:whitesmoke;text-align:center;font-weight:200;font-size:120%;padding:30px;">'+startUpMsg+'<br><span style="font-weight:100;font-size:85%">'+newFeaturesMsg+'</span></center>');
+  $('#messages')[0].scrollIntoView(false);
 }
 function NCSfeatures(eventData){
   if(eventData.target.id==='NCS-f1'){
     if($('#NCS-f1').hasClass('disabled')){
       document.getElementById('player').style.display = 'none';
-      featureList.hidePlayer = true;
+      NCSsettings[0] = true;
       $('#NCS-f1').removeClass('disabled').addClass('enabled');
       $('#NCS-f1').removeClass('shake').addClass('bounce');
     } else {
       document.getElementById('player').style.display = 'block';
-      featureList.hidePlayer = false;
+      NCSsettings[0] = false;
       $('#NCS-f1').removeClass('enabled').addClass('disabled');
       $('#NCS-f1').removeClass('bounce').addClass('shake');
+    }
+  } else if(eventData.target.id==='NCS-f2'){
+    if($('#NCS-f2').hasClass('disabled')){
+      $('head').append('<link id="CSxKINGtheme" rel="stylesheet" href="http://sb.codeanywhere.com/~434542/css/NC-331_Style.css">');
+      NCSsettings[1] = true;
+      $('#NCS-f2').removeClass('disabled').addClass('enabled');
+      $('#NCS-f2').removeClass('shake').addClass('bounce');
+    } else {
+      $('#CSxKINGtheme').remove();
+      NCSsettings[1] = false;
+      $('#NCS-f2').removeClass('enabled').addClass('disabled');
+      $('#NCS-f2').removeClass('bounce').addClass('shake');
     }
   }
 }
