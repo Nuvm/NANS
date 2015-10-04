@@ -127,7 +127,7 @@ function NCSinit(){
   $('#NCS-f1').on('click',NCSfeatures);
   $('#NCS-f2').on('click',NCSfeatures);
   $('head').append('<style type="text/css">.enabled{background-color:#B4CFEC;color:white; !important}.disabled{color:black; !important}#NCS-menu{padding:3px}</style>');
-  $('#app-right').css('z-index',5);
+  $('#app-right').css('z-index',1);
   if(NCSsettings[0]){
     $('#NCS-f1').click();
   }
