@@ -1,5 +1,7 @@
-var version = '0.0.4-3';
+var version = '0.0.5-12';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
+var newFeaturesMsg = 'You can now hide the player via the NCS menu!';
+var username;
 
 //Default vars
 var prevObj = 0;
@@ -18,6 +20,7 @@ function start(s){
   } else {
     console.log('[NCS] Started!');
     status = 'ready';
+    username = document.getElementsByClassName('navbar header')[0].getElementsByClassName('nav-form nav-right')[0].getElementsByTagName('p')[0].innerHTML;
     $('head').append('<link rel="stylesheet" href="https://rawgit.com/daneden/animate.css/master/animate.min.css">');
     scfnm();
     NCSinit();
@@ -35,8 +38,10 @@ function cfnm(){
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='CSxKING'){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
-      $(unamestuff).before('<i id='+("icon-01NCS"+i)+' class="icon" style="background-image:none"></i>');
+      unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
+      $(unameicon).before('<i id='+("icon-01NCS"+i)+' class="icon" style="background-image:none"></i>');
       document.getElementById('icon-01NCS'+i).style.backgroundImage = "url('http://imgur.com/3hN3fNi.png')";
+      $(unamestuff).removeClass('rank-2');
       unamestuff.style.color='#A1BA00';
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Loli'){
@@ -80,24 +85,47 @@ function cfnm(){
 function NCScommandSorter(msg,user,element){
   msg = msg.slice(4,255);
   if(msg==='updateAlert'){
-    if(user.innerHTML==='Nuvm'){
+    if(user.innerHTML==='Nuvm'||user.innerHTML==='CSxKING'){
       $('#messages').append('<center class="NCSalert cm log mention animated fadeInLeftBig" style="color:whitesmoke;text-align:center;font-weight:200;font-size:46;padding:5px;">A new update is available for NCS!<br><span style="font-weight:100;font-size:28">Refresh your page to get the latest update!</span></center>');
-      $(element).remove();
+      if(username==='Nuvm')
+      setTimeout(function(){$(element).remove();},50);
     }
   } else if(msg.slice(0,13)==='globalMessage'){
-    if(user.innerHTML==='Nuvm'){
+    if(user.innerHTML==='Nuvm'||user.innerHTML==='CSxKING'){
       $('#messages').append('<center class="NCSalert cm log mention animated fadeInLeftBig" style="color:whitesmoke;text-align:center;font-weight:150;font-size:30;">['+user.innerHTML+'] says: '+msg.slice(13,255)+'</center>');
-      $(element).remove();
+      setTimeout(function(){$(element).remove();},50);
     }
   }
 }
-
+var featureList = {
+  hidePlayer: false,
+  customTheme: false
+};
 /*NCS MENU STUFF*/
 function NCSinit(){
   $('.navbar.footer').append('<button id="NCS-btn" class="nav-form nav-right">NCS Menu</button>');
-  $('body').append('<div id="NCS-menu" class="animated" style="display:none;position:absolute;bottom:52px;left:-50px;background-color:#0a0a0a;height:80px;width:200px;color:gray;border:2px #1B1B1B solid;text-align:left;z-index:3;"><center class="animated infinite flip" style="text-align:center">Whoa, Animations!</center></div>');
-  $('#NCS-menu').css('left',($('#NCS-btn').offset().left-($('#NCS-btn').css('width').split('px')[0]/2))+'px');
-  $('#NCS-btn').on('click',function(){$('#NCS-menu').css('left',($('#NCS-btn').offset().left-($('#NCS-btn').css('width').split('px')[0]/2))+'px');if($('#NCS-menu').css('display')==='block'){$('#NCS-menu').addClass('fadeOutRight');$('#NCS-menu').removeClass('fadeInLeft');setTimeout(function(){$('#NCS-menu').css('display','none');$('#NCS-menu').css('left',($('#NCS-btn').offset().left-($('#NCS-btn').css('width').split('px')[0]/2))+'px');},500);}else{$('#NCS-menu').addClass('fadeInLeft');$('#NCS-menu').css('display','block');$('#NCS-menu').removeClass('fadeOutRight');}});
-  window.onresize = function(){$('#NCS-menu').css('left',($('#NCS-btn').offset().left-($('#NCS-btn').css('width').split('px')[0]/2))+'px');};
-  $('#messages').append('<div id="NCS-startupmsg" class="cm log mention animated flip" style="color:whitesmoke;text-align:center;font-weight:200;font-size:38;">'+startUpMsg+'</div>');
+  $('body').append('<div id="NCS-menu" class="animated" style="display:none;position:absolute;bottom:52px;left:-50px;background-color:#0a0a0a;height:80px;width:200px;color:gray;border:2px #1B1B1B solid;text-align:left;z-index:3;opacity:0.8"><!--<center class="animated infinite flip" style="text-align:center">Whoa, Animations!</center>--></div>');
+  $('#NCS-menu').append('<button id="NCS-f1" class="NCSbutton disabled animated" style="float:left;text-align:center;word-wrap:break-word;opacity:0.8">Hide YT player</button>');
+  $('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left)*-1+'px');
+  $('#NCS-btn').on('click',function(){$('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left)*-1+'px');if($('#NCS-menu').css('display')==='block'){$('#NCS-menu').addClass('fadeOutRight');$('#NCS-menu').removeClass('fadeInLeft');setTimeout(function(){$('#NCS-menu').css('display','none');$('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left)*-1+'px');},500);}else{$('#NCS-menu').addClass('fadeInLeft');$('#NCS-menu').css('display','block');$('#NCS-menu').removeClass('fadeOutRight');}});
+  window.onresize = function(){$('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left*-1)+'px');};
+  $('#messages').append('<center id="NCS-startupmsg" class="cm log mention animated flip" style="color:whitesmoke;text-align:center;font-weight:200;font-size:38;padding:30px;">'+startUpMsg+'<br><span style="font-weight:100;font-size:16">'+newFeaturesMsg+'</span></center>');
+  $('#NCS-f1').on('click',NCSfeatures);
+  $('head').append('<style type="text/css">.enabled{background-color:#B4CFEC;color:black}#NCS-menu{padding:3px}</style>');
+  
+}
+function NCSfeatures(eventData){
+  if(eventData.target.id==='NCS-f1'){
+    if($('#NCS-f1').hasClass('disabled')){
+      document.getElementById('player').style.display = 'none';
+      featureList.hidePlayer = true;
+      $('#NCS-f1').removeClass('disabled').addClass('enabled');
+      $('#NCS-f1').removeClass('shake').addClass('bounce');
+    } else {
+      document.getElementById('player').style.display = 'block';
+      featureList.hidePlayer = false;
+      $('#NCS-f1').removeClass('enabled').addClass('disabled');
+      $('#NCS-f1').removeClass('bounce').addClass('shake');
+    }
+  }
 }
