@@ -1,6 +1,6 @@
-var version = '0.0.7';
+var version = '0.0.7 Patch 1';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
-var newFeaturesMsg = 'You can now toggle our theme!<br>We fixed the bug with images not scrolling!';
+var newFeaturesMsg = 'You can now toggle our theme!<br>We fixed the scrolling bug (Sorry about it :( )!';
 var username;
 
 //Default vars
@@ -32,7 +32,7 @@ function scfnm(){
   setInterval(function(){cfnm();},10);
 }
 function cfnm(){
-  $('#messages')[0].scrollIntoView(false);
+  //$('#messages')[0].scrollIntoView(false);
   if(document.getElementById('messages').children.length!==prevObj){
     i++;
     prevObj = document.getElementById('messages').children.length;
