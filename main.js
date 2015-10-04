@@ -78,6 +78,16 @@ function cfnm(){
       $(unamestuff).removeClass('rank-3');
       $(unamestuff).addClass('rank-10');
     }
+    if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Pixel'){
+      i++;
+      unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
+      unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-3');
+      $(unameicon).before('<i id='+("icon-00NCS"+i)+' class="icon icon-rank-10"></i>');
+      //document.getElementById('icon-04NCS'+i).style.backgroundImage = "url('http://i.imgur.com/Wyh8Mbv.png')";
+      //unamestuff.style.color='#EA6900';
+      $(unamestuff).removeClass('rank-3');
+      $(unamestuff).addClass('rank-10');
+    }
     if(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.slice(0,4)==='/NCS'){
       NCScommandSorter(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML,document.getElementById('messages').lastChild.getElementsByClassName('uname')[0],document.getElementById('messages').lastChild);
     }
