@@ -1,0 +1,728 @@
+/*
+CSS For ANC331
+    Sections Are Organized By Aplphabetical Order, 
+    Elements>ID>Class>Extra.
+    
+    Origonal file by TheBanHammer and his team, modded by CSxKING
+    http://electricgaming.ga
+*/
+
+/************/
+/*ANIMATIONS*/
+/************/
+
+@keyframes fadein {
+    from {
+        opacity:                0;
+    }
+    to {
+        opacity:                1;
+    }
+}
+
+/**********/
+/*APP-LEFT*/
+/**********/
+
+#app-left {
+    position:                   absolute;
+    top:                        51px;
+    z-index:                    2;
+    width:                      calc(100% - 400px);
+    height:                     calc(100% - 102px);
+}
+/* Idk what this is */
+#dance {
+    overflow:                   hidden;
+    text-align:                 center;
+    vertical-align:             middle;
+    margin:                     50px auto 0 auto;
+    z-index:                    2;
+    width:                      854px;
+    height:                     calc(100% - 552px);
+}
+
+/* Background image */
+#img{
+    position:                   absolute;
+    z-index:                    -5;
+    background-image:           url("http://i.imgur.com/N82wzhY.png");
+    background-size:            cover;
+    background-position:        center;
+    height:                     100%;
+    width:                      100%;
+}
+
+/* Video player */
+#player {
+    margin:                     0 auto;
+    background:                 #0a0a0a;
+    width:                      854px;
+    height:                     480px;
+    z-index:                    2;
+    box-shadow:                 0px 0px 30px 20px rgba(0,0,0,0.7);
+    text-align:                 center;
+    vertical-align:             middle;
+    line-height:                450px;
+    position:                   relative;
+    font-size:                  x-large;
+    font-weight:                bold;
+    
+}
+
+/* Video thats played */
+#video{
+    position:                   absolute;
+    top:                        0;
+    left:                       0;
+}
+
+#volume {
+    z-index:                    3;
+    top:                        19px;
+    position:                   absolute;
+    float:                      right;
+    right:                      555px;
+    padding:                    0px;
+    margin:                     0px;
+}
+
+#volumePercent {
+    z-index:                    -1;
+    top:                        15px;
+    position:                   absolute;
+    float:                      right;
+    right:                      520px;
+}
+
+.media-info {
+    display:                    inline-block;
+    text-align:                 left;
+    float:                      left;
+    margin-left:                50px;
+    margin-top:                 5px;
+}
+
+.media-info>div>div{
+    display:                    inline-block;
+}
+
+.media-title {
+    width:                      80px;
+}
+
+/***********/
+/*APP-RIGHT*/
+/***********/
+
+#app-right {
+    position:                   absolute;
+    z-index:                    1;
+    right:                      0;
+    background:                 #0a0a0a;
+    width:                      400px;
+    top:                        51px;
+    bottom:                     51px;
+    box-shadow:                 0px 0px 30px 20px rgba(0,0,0,0.7);
+}
+
+/* The Chat! */
+#chat {
+    position:                   absolute;
+    z-index:                    0;
+    overflow-x:                 hidden;
+    overflow-y:                 auto;
+    word-wrap:                  break-word;
+    height:                     calc(100% - 40px);
+    width:                      100%;
+    font:                       14px 'Noto Sans', sans-serif !important;
+}
+
+/* Messages.... */
+#messages {
+    margin:                     0;
+    padding:                    0;
+}
+
+#messages .cm {
+    padding:                    7px 15px;
+    animation:                  fadein 0.25s;
+    position:                   relative;
+    background:					#2A2A2A;
+}
+
+#messages .cm:nth-child(odd) {
+    background:                 #424242;
+}
+
+#messages .cm:hover div.msg-del {
+    display:                    block;
+}
+
+#messages .msg-del {
+    display:                    none;
+    position:                   absolute;
+    right:                      -6px;
+    top:                        25px;
+    text-overflow:              inherit;
+    width:                      85px;
+    text-align:                 center;
+    cursor:                     pointer;
+}
+
+#messages .cm:hover div.msg-del {
+    display:                    block;
+}
+
+#messages .msg-del {
+    display:                    none;
+    position:                   absolute;
+    right:                      -6px;
+    top:                        25px;
+    text-overflow:              inherit;
+    width:                      85px;
+    text-align:                 center;
+}
+#msg-in {
+	border:2px solid #456879;
+	border-radius:10px;
+	height: 15px;
+	width: 350px;
+}
+
+#chat-button {
+    width:                      123px;
+    font-size:                  20px;
+	background-color:           #b500ba;
+}
+
+#users {
+    position:                   absolute;
+    z-index:                    2;
+    overflow-x:                 hidden;
+    overflow-y:                 auto;
+    height:                     calc(100% - 40px);
+    width:                      100%;
+    display:                    none;
+}
+
+#users-button {
+    width:                      123px;
+    font-size:                  20px;
+    left:                       125px;
+	background-color:           #8300ba;
+}
+
+#waitlist-button {
+    width:                      148px;
+    font-size:                  20px;
+    left:                       250px;
+	background-color:           #166fc7;
+}
+
+/* Custom Waitlist Join Box Styling */
+#waitlist-join {
+
+}
+
+#waitlist {
+    display:                    none;
+    position:                   absolute;
+    z-index:                    2;
+    overflow-x:                 hidden;
+    overflow-y:                 auto;
+    word-wrap:                  break-word;
+    height:                     calc(100% - 40px);
+    width:                      100%;
+    font:                       14px 'Not Sans', sans-serif !important;
+}
+
+/* Custom YT Box Styling */
+#song-in {
+	border:2px solid #456879 !important;
+	border-radius:10px !important;
+	height: 15px !important;
+	width: 350px !important;
+}
+
+#chat .msg {
+    clear:                      both;
+    margin-left:                30px;
+    padding-top:                5px;
+}
+
+#chat .msg-timestamp {
+    float:                      right;
+    font-size:                  11px;
+    color:                      #424242;
+}
+
+#chat .msg a, #chat .log a{
+    color:                      #009cdd;
+}
+
+#chat .msg img {
+    max-width: 100%;
+    max-height: 400px;
+}
+
+#user-name,#pass-word {
+    width:                      180px !important;
+
+}
+
+#waitlist {
+    display:                    none;
+}
+
+#chat-suggestion {
+    display:                    none;
+    position:                   absolute;
+    bottom:                     45px;
+    background-color:           #0a0a0a;
+    height:                     20px;
+    width:                      380px;
+    text-align:                 left;
+    color:                      white;
+    border:                     1px #1B1B1B solid;
+}
+
+#msg-form {
+    display:                    none;
+}
+
+/* ANS Menu */
+.ans-menu {
+	display: none;
+	position: absolute;
+	bottom: 52px;
+	background-color: #0a0a0a;
+	height: 80px;
+	width: 200px;
+	color: gray;
+	border: 2px #1B1B1B solid;
+	text-align: left;
+}
+
+/* Scroll Bars! */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #bab5b5;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #cdcdcd;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #cbc9c9;
+}
+::-webkit-scrollbar-track {
+  background: #5d5d5d;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.app-right-selector {
+    position:                   absolute;
+    text-align:                 center;
+    background-color:           #565656;
+    border:                     1px #0a0a0a solid;
+    cursor:                     pointer;
+}
+
+.app-right-selector.selected {
+    background-color:           #0a0a0a;
+}
+
+.chat-suggestion-list {
+    padding:                    0px 12px;
+}
+
+.selected {
+    background-color:           rgba(28, 31, 37, 0.7);
+}
+
+/*VIP*/
+.uname.rank-1{
+    color:                      #1bbc5f !important;
+}
+
+/*RDJ*/
+.uname.rank-2{
+    color:                      #547bc9 !important;
+}
+
+/*Bouncer*/
+.uname.rank-3 {
+    color:                      #626cbc !important;
+}
+
+/*Manager*/
+.uname.rank-4{
+    color:                      #7854a9 !important;
+}
+
+/*Co-Host*/
+.uname.rank-5{
+    color:                      #87449c !important;
+}
+
+/*Host*/
+.uname.rank-6{
+    color:                      #923892 !important;
+}
+
+/*Dev*/
+.uname.rank-10{
+    color:                      #1eb6e7 !important;
+}
+
+.cm .uname{
+    float:                      left;
+    color:						#993366;
+}
+
+.uname {
+    font-weight:                bold;
+    margin-right:               5px;
+    color:                      #777f92;
+}
+
+.userlist-user{
+    margin:                     10px;
+}
+
+.deleted-chat{
+    opacity:                    0.3;
+}
+
+.mention{
+	background: -webkit-linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(0, 0, 0, 0)) !important;
+    background: -o-linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(0, 0, 0, 0)) !important;
+    background: -moz-linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(0, 0, 0, 0)) !important;
+    background: linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(0, 0, 0, 0)) !important;
+}
+
+#messages .cm:nth-child(odd).mention {
+	background: -webkit-linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(28, 31, 37, 0.7)) !important;
+    background: -o-linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(28, 31, 37, 0.7)) !important;
+    background: -moz-linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(28, 31, 37, 0.7)) !important;
+    background: linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(28, 31, 37, 0.7)) !important;
+}
+
+.admin {
+    color:                      #009CDD;
+}
+
+.mod {
+    color:                      #89BE6C;
+}
+
+.log {
+    color:                      #bbb;
+}
+
+/*
+
+.log {
+    color:                      #A72690;
+    font-weight:                600;
+}
+
+.log .uname {
+    color:                      #D012C0 !important;
+}
+
+*/
+
+.system {
+    color:                      #F46B40;
+}
+
+.hidden {
+    display:                    none;
+}
+
+.clickable {
+    cursor:                     pointer;
+}
+
+.icon{
+    top:                        2px;
+    left:                       -3px;
+    position:                   relative;
+    float:                      left;
+    height:                     15px;
+    width:                      15px;
+}
+
+/*VIP*/
+.icon-rank-1 {
+    background:                 url("http://i.imgur.com/HWucg1I.png") !important;
+}
+
+/*RDJ*/
+.icon-rank-2 {
+    background:                 url("http://i.imgur.com/EBEFOAY.png") !important;
+}
+
+/*Bouncer*/
+.icon-rank-3 {
+    background:                 url("http://i.imgur.com/jA7CGAX.png") !important;
+}
+
+/*Manager*/
+.icon-rank-4 {
+    background:                 url("http://i.imgur.com/bebMb8k.png") !important;
+}
+
+/*Co-Host*/
+.icon-rank-5 {
+    background:                 url("http://i.imgur.com/JOlqRg9.png") !important;
+}
+
+/*Host*/
+.icon-rank-6 {
+    background:                 url("http://i.imgur.com/JOlqRg9.png") !important;
+}
+
+/*Dev*/
+.icon-rank-10 {
+    background:                 url("http://i.imgur.com/WNaG27h.png") !important;
+}
+
+.wl-position {
+    float:                      left;
+    margin-right:               5px;
+}
+
+/********/
+/*INPUTS*/
+/********/
+
+input[type=range] {
+  -webkit-appearance: none;
+    width:                      100px;
+    cursor:                     pointer;
+    margin:                     25px;
+}
+
+input:focus {
+  outline:                      none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width:                        100px;
+  height:                       3px;
+  background:                   #444A59;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  height:                       12px;
+  width:                        12px;
+  border-radius:                10px;
+  background:                   #ddd;
+  -webkit-appearance:           none;
+  margin-top:                   -4px;
+}
+
+input[type=range]::-moz-range-track {
+  width:                        150px;
+  height:                       3px;
+  background:                   #444A59;
+}
+
+input[type=range]::-moz-range-thumb {
+  box-shadow:                   1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border:                       1px solid #000000;
+  height:                       36px;
+  width:                        16px;
+  border-radius:                3px;
+  background:                   #ffffff;
+}
+
+input[type=text] {
+    width:                      360px;
+    background:                 #444A59;
+    border:                     none;
+    border-radius:              4px;
+    height:                     20px;
+    padding:                    6px 12px;
+    font-size:                  14px;
+    color:                      #ddd;
+}
+
+input[type=password] {
+    width:                      360px;
+    background:                 #444A59;
+    border:                     none;
+    border-radius:              4px;
+    height:                     20px;
+    padding:                    6px 12px;
+    font-size:                  14px;
+    color:                      #ddd;
+}
+
+#msg-i
+
+/***************/
+/*MAIN ELEMENTS*/
+/***************/
+
+body {
+    margin:                     0;
+    padding:                    0;
+    /*background:               #0a0a0a;*/
+    /*color:                    #bbb;*/
+    outline:                    none;
+    border:                     none;
+    list-style:                 none;
+    font-family:                'Open Sans',sans-serif;
+    font-weight:                400;
+    font-size:                  14px;
+    background:                 #000;
+    color:                      #eee;
+}
+
+/* This is the code the the button style. Change if you know what your doing, otherwise you'll break it */
+button {
+background: #6500a8;
+  background-image: -webkit-linear-gradient(top, #6500a8, #9900ff);
+  background-image: -moz-linear-gradient(top, #6500a8, #9900ff);
+  background-image: -ms-linear-gradient(top, #6500a8, #9900ff);
+  background-image: -o-linear-gradient(top, #6500a8, #9900ff);
+  background-image: linear-gradient(to bottom, #6500a8, #9900ff);
+  -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+  border-radius: 8px;
+  text-shadow: 9px 5px 9px #aa00ff;
+  -webkit-box-shadow: 2px 4px 7px #7f00bf;
+  -moz-box-shadow: 2px 4px 7px #7f00bf;
+  box-shadow: 2px 4px 7px #7f00bf;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 13px;
+  padding: 7px 13px 6px 12px;
+  border: solid #8b0be0 2px;
+  text-decoration: none;
+}
+
+button:hover {
+background: #d63ad6;
+  background-image: -webkit-linear-gradient(top, #d63ad6, #dd00ff);
+  background-image: -moz-linear-gradient(top, #d63ad6, #dd00ff);
+  background-image: -ms-linear-gradient(top, #d63ad6, #dd00ff);
+  background-image: -o-linear-gradient(top, #d63ad6, #dd00ff);
+  background-image: linear-gradient(to bottom, #d63ad6, #dd00ff);
+  text-decoration: none;
+}
+p {
+    margin:                     8px;
+}
+
+#app {
+    width:                      100%;
+    height:                     100%;
+}
+
+.header {
+    top:                        0;
+    border-bottom:              1px solid #1B1B1B;
+    color:						#33C4F5;
+}
+
+.footer {
+    bottom:                     0;
+    border-top:                 1px solid #1B1B1B;
+}
+
+.loading {
+    position:                   absolute;
+    width:                      100%;
+    height:                     100%;
+    background:                 #0a0a0a;
+    color:                      #bbb;
+    z-index:                    99;
+    display:                    table;
+}
+
+.loading .center {
+    font-size:                  30px;
+    display:                    table-cell;
+    vertical-align:             middle;
+    text-align:                 center;
+}
+
+
+/******/
+/*NAV*/
+/*****/
+
+.navbar {
+    position:                   absolute;
+    width:                      100%;
+    height:                     52px;
+    z-index:                    4;
+    left:                       0;
+    margin:                     0;
+    padding:                    0;
+    background:                 #3D3D3D;
+    vertical-align:             middle;
+    text-align:                 center;
+}
+
+.nav-right {
+    float:                      right !important;
+}
+
+.nav-left {
+    float:                      left !important;
+}
+
+.nav-text {
+    font-size:                  16px;
+    line-height:                50px;
+    vertical-align:             middle;
+    text-align:                 center;
+    padding:                    0 10px;
+    color:						#33C4F5;
+}
+
+.nav-form {
+    margin:                     10px;
+}
+
+.nav-title {
+    font-size:                  20px;
+    line-height:                50px;
+    vertical-align:             middle;
+    text-align:                 center;
+    padding:                    0 10px;
+    color:						#33C4F5;
+}
+
+/**************/
+/*TO BE SORTED*/
+/**************/
+
+/*.userlist-user:nth-child(odd){
+    background:                 rgba(28, 31, 37, 0.7);
+}*/
