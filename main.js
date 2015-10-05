@@ -1,7 +1,7 @@
-var version = '0.0.8 Patch 5';
+var version = '0.0.8 Patch 6';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
 var newFeaturesMsg = 'Welcome our new dev, Pixel!<br>TRYING TO FIX ALL THEM GODDAMN BUGS!<br>Added Accidental Navigation Prevention';
-var username;
+var uname;
 
 //Default vars
 var prevObj = 0;
@@ -22,7 +22,7 @@ function start(s){
   } else {
     console.log('[NCS] Started!');
     status = 'ready';
-    username = document.getElementsByClassName('navbar header')[0].getElementsByClassName('nav-form nav-right')[0].getElementsByTagName('p')[0].innerHTML;
+    uname = document.getElementsByClassName('navbar header')[0].getElementsByClassName('nav-form nav-right')[0].getElementsByTagName('p')[0].innerHTML;
     $('head').append('<link rel="stylesheet" type="text/css" href="https://rawgit.com/daneden/animate.css/master/animate.min.css">');
     $('head').append('<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=IM+Fell+English+SC">');
     scfnm();
@@ -129,7 +129,7 @@ function NCSinit(){
   $('.navbar.footer').append('<div id="NCS-btn" class="animated nav-form nav-right" style="transform:rotate(0deg);background-image:none;bottom:11px;height:30px;width:30px;"></div>');
   $('#NCS-btn').append('<span id="NCS-name" style="font-family:IM Fell English SC;color:gold;bottom:15px;"><b>NCS</b></span>');
   $('.navbar.header').append('<a href="http://electricgaming.ga/forums/en/forumdisplay.php?fid=24" target="_blank"><button id="THEME_BUG" class="nav-form nav-right">[NCS] Report an Issue</button></a>');
-	$('.navbar.header').append('<a href="http://electricgaming.ga/forums/en/showthread.php?tid=5" target="_blank"><button id="THEME_BUG" class="nav-form nav-right">[NCS] Changelog</button></a>');
+  $('.navbar.header').append('<a href="http://electricgaming.ga/forums/en/showthread.php?tid=5" target="_blank"><button id="THEME_BUG" class="nav-form nav-right">[NCS] Changelog</button></a>');
   $('#NCS-btn')[0].style.backgroundImage = "url('http://i.imgur.com/5ThdRUd.png')";
   setInterval(function(){rotateDeg+=2;rotateDeg2-=2;$('#NCS-btn')[0].style.transform='rotate('+rotateDeg+'deg)';$('#NCS-name')[0].style.transform='rotate('+rotateDeg2+'deg)';},20);
   $('body').append('<div id="NCS-menu" class="animated" style="display:none;position:absolute;bottom:52px;left:-50px;background-color:#0a0a0a;height:80px;width:200px;color:gray;border:2px #1B1B1B solid;text-align:left;z-index:3;opacity:0.8"><!--<center class="animated infinite flip" style="text-align:center">Whoa, Animations!</center>--></div>');
