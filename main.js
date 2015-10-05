@@ -1,6 +1,6 @@
-var version = '0.0.8 Patch 1';
+var version = '0.0.8 Patch 2';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
-var newFeaturesMsg = 'Welcome our new dev, Pixel!<br>TRYING TO FIX ALL THEM GODDAMN BUGS!';
+var newFeaturesMsg = 'Welcome our new dev, Pixel!<br>TRYING TO FIX ALL THEM GODDAMN BUGS!<br>Tried to fix the theme bug?';
 var username;
 
 //Default vars
@@ -109,7 +109,7 @@ function NCScommandSorter(msg,user,element){
   }
 }
 var NCSsettings= [false,true];
-window.addEventListener('beforeunload',function(){localStorage.NCSlocalSettings = JSON.stringify(featureList);});
+window.addEventListener('beforeunload',function(){localStorage.NCSlocalSettings = JSON.stringify(NCSsettings);});
 if(typeof(Storage) === "undefined"){
   alert("Unfortunately, your browser does not support local storage. Your NCS settings will not be saved. Please use a modern version of Chrome, Firefox, Safari or Opera.");
 }
@@ -133,6 +133,7 @@ function NCSinit(){
   $('#app-right').css('z-index',1);
   if(document.getElementById('CSxKINGtheme')){
     $('#NCS-f2').removeClass('disabled').addClass('enabled');
+    $('#NCS-f2').click();
   }
   if(NCSsettings[0]){
     $('#NCS-f1').click();
@@ -144,6 +145,7 @@ function NCSinit(){
   }
   $('#messages').append('<center id="NCS-startupmsg" class="cm log mention animated flip" style="color:whitesmoke;text-align:center;font-weight:200;font-size:120%;padding:30px;">'+startUpMsg+'<br><span style="font-weight:100;font-size:85%">'+newFeaturesMsg+'</span></center>');
   $('#messages')[0].scrollIntoView(false);
+  $('body').css('overflow-y','hidden');
 }
 function NCSfeatures(eventData){
   if(eventData.target.id==='NCS-f1'){
