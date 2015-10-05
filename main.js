@@ -1,6 +1,6 @@
-var version = '0.0.7 Patch 1';
+var version = '0.0.8';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
-var newFeaturesMsg = 'You can now toggle our theme!<br>We fixed the scrolling bug (Sorry about it :( )!';
+var newFeaturesMsg = 'Fixed the theme bug (I hope) and added an NCS icon!<br>*whoa*<br> Welcome our new dev, Pixel!';
 var username;
 
 //Default vars
@@ -9,6 +9,8 @@ var status = 'Not loaded';
 var i = 0;
 var unamestuff;
 var unameicon;
+var rotateDeg = 0;
+var rotateDeg2 = 0;
 
 //Check if ready
 var checkIfReady;
@@ -21,7 +23,8 @@ function start(s){
     console.log('[NCS] Started!');
     status = 'ready';
     username = document.getElementsByClassName('navbar header')[0].getElementsByClassName('nav-form nav-right')[0].getElementsByTagName('p')[0].innerHTML;
-    $('head').append('<link rel="stylesheet" href="https://rawgit.com/daneden/animate.css/master/animate.min.css">');
+    $('head').append('<link rel="stylesheet" type="text/css" href="https://rawgit.com/daneden/animate.css/master/animate.min.css">');
+    $('head').append('<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=IM+Fell+English+SC">');
     scfnm();
     NCSinit();
   }
@@ -78,15 +81,12 @@ function cfnm(){
       $(unamestuff).removeClass('rank-3');
       $(unamestuff).addClass('rank-10');
     }
-    if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Pixel'){
+    if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Koalaaa__'){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
-      unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-3');
-      $(unameicon).before('<i id='+("icon-00NCS"+i)+' class="icon icon-rank-10"></i>');
-      //document.getElementById('icon-04NCS'+i).style.backgroundImage = "url('http://i.imgur.com/Wyh8Mbv.png')";
+      $(unamestuff).before('<i id='+("icon-05NCS"+i)+' class="icon" style="background-image:none"></i>');
+      document.getElementById('icon-05NCS'+i).style.backgroundImage = "url('http://i.imgur.com/ucqMWad.jpg')";
       //unamestuff.style.color='#EA6900';
-      $(unamestuff).removeClass('rank-3');
-      $(unamestuff).addClass('rank-10');
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.slice(0,4)==='/NCS'){
       NCScommandSorter(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML,document.getElementById('messages').lastChild.getElementsByClassName('uname')[0],document.getElementById('messages').lastChild);
@@ -117,7 +117,10 @@ if(typeof localStorage.NCSlocalSettings!==undefined){var localSettings = JSON.pa
 
 /*NCS MENU STUFF*/
 function NCSinit(){
-  $('.navbar.footer').append('<button id="NCS-btn" class="nav-form nav-right">NCS Menu</button>');
+  $('.navbar.footer').append('<div id="NCS-btn" class="animated nav-form nav-right" style="transform:rotate(0deg);background-image:none;bottom:11px;height:30px;width:30px;"></div>');
+  $('#NCS-btn').append('<span id="NCS-name" style="font-family:IM Fell English SC;color:gold;bottom:15px;"><b>NCS</b></span>');
+  $('#NCS-btn')[0].style.backgroundImage = "url('http://i.imgur.com/5ThdRUd.png')";
+  setInterval(function(){rotateDeg+=2;rotateDeg2-=2;$('#NCS-btn')[0].style.transform='rotate('+rotateDeg+'deg)';$('#NCS-name')[0].style.transform='rotate('+rotateDeg2+'deg)';},20);
   $('body').append('<div id="NCS-menu" class="animated" style="display:none;position:absolute;bottom:52px;left:-50px;background-color:#0a0a0a;height:80px;width:200px;color:gray;border:2px #1B1B1B solid;text-align:left;z-index:3;opacity:0.8"><!--<center class="animated infinite flip" style="text-align:center">Whoa, Animations!</center>--></div>');
   $('#NCS-menu').append('<button id="NCS-f1" class="disabled animated" style="float:left;text-align:center;word-wrap:break-word;opacity:0.8">Hide YT player</button>');
   $('#NCS-menu').append('<button id="NCS-f2" class="disabled animated" style="float:right;text-align:center;word-wrap:break-word;opacity:0.8">Theme</button>');
@@ -126,13 +129,18 @@ function NCSinit(){
   window.onresize = function(){$('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left*-1)+'px');};
   $('#NCS-f1').on('click',NCSfeatures);
   $('#NCS-f2').on('click',NCSfeatures);
-  $('head').append('<style type="text/css">.enabled{background-color:#B4CFEC;color:white; !important}.disabled{color:black; !important}#NCS-menu{padding:3px}</style>');
-  $('#app-right').css('z-index',1);
+  $('head').append('<style type="text/css">.enabled{background-color:#B4CFEC;color:white; !important}.disabled{color:black; !important}#NCS-menu{padding:3px}#NCS-btn:hover{cursor:pointer}</style>');
+  $('#app-right').css('z-index',5);
+  if(document.getElementById('CSxKINGtheme')){
+    $('#NCS-f2').removeClass('disabled').addClass('enabled');
+  }
   if(NCSsettings[0]){
     $('#NCS-f1').click();
   }
   if(NCSsettings[1]){
-    $('#NCS-f2').click();
+    if(!document.getElementById('CSxKINGtheme')){
+      $('#NCS-f2').click();
+    }
   }
   $('#messages').append('<center id="NCS-startupmsg" class="cm log mention animated flip" style="color:whitesmoke;text-align:center;font-weight:200;font-size:120%;padding:30px;">'+startUpMsg+'<br><span style="font-weight:100;font-size:85%">'+newFeaturesMsg+'</span></center>');
   $('#messages')[0].scrollIntoView(false);
@@ -143,24 +151,24 @@ function NCSfeatures(eventData){
       document.getElementById('player').style.display = 'none';
       NCSsettings[0] = true;
       $('#NCS-f1').removeClass('disabled').addClass('enabled');
-      $('#NCS-f1').removeClass('shake').addClass('bounce');
+      //$('#NCS-f1').removeClass('shake').addClass('bounce');
     } else {
       document.getElementById('player').style.display = 'block';
       NCSsettings[0] = false;
       $('#NCS-f1').removeClass('enabled').addClass('disabled');
-      $('#NCS-f1').removeClass('bounce').addClass('shake');
+      //$('#NCS-f1').removeClass('bounce').addClass('shake');
     }
   } else if(eventData.target.id==='NCS-f2'){
     if($('#NCS-f2').hasClass('disabled')){
       $('head').append('<link id="CSxKINGtheme" rel="stylesheet" href="http://sb.codeanywhere.com/~434542/css/NC-331_Style.css">');
       NCSsettings[1] = true;
       $('#NCS-f2').removeClass('disabled').addClass('enabled');
-      $('#NCS-f2').removeClass('shake').addClass('bounce');
+      //$('#NCS-f2').removeClass('shake').addClass('bounce');
     } else {
       $('#CSxKINGtheme').remove();
       NCSsettings[1] = false;
       $('#NCS-f2').removeClass('enabled').addClass('disabled');
-      $('#NCS-f2').removeClass('bounce').addClass('shake');
+      //$('#NCS-f2').removeClass('bounce').addClass('shake');
     }
   }
 }
