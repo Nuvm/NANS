@@ -1,4 +1,4 @@
-var version = '0.1.1';
+var version = '0.1.1 Patch 1';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
 var newFeaturesMsg = 'Solved performance issues!<br>Added Desktop Notifications!<br>Removeable video player!<br>Also....<b><i>BIG CHANGES SOON</b></i>(™) :)';
 var uname;
@@ -152,11 +152,11 @@ function NCSinit(){
   $('.navbar.header').append('<a href="http://electricgaming.ga/forums/en/showthread.php?tid=5" target="_blank"><button id="THEME_BUG" class="nav-form nav-right">[NCS] Changelog</button></a>');
   $('#NCS-btn')[0].style.backgroundImage = "url('http://i.imgur.com/5ThdRUd.png')";
   //setInterval(function(){rotateDeg+=2;rotateDeg2-=2;$('#NCS-btn')[0].style.transform='rotate('+rotateDeg+'deg)';$('#NCS-name')[0].style.transform='rotate('+rotateDeg2+'deg)';},20);
-  $('body').append('<div id="NCS-menu" class="animated" style="display:none;position:absolute;bottom:52px;left:-50px;background-color:#0a0a0a;height:80px;width:200px;color:gray;border:2px #1B1B1B solid;text-align:left;z-index:3;opacity:0.8"><!--<center class="animated infinite flip" style="text-align:center">Whoa, Animations!</center>--></div>');
-  $('#NCS-menu').append('<button id="NCS-f1" class="disabled animated" style="float:left;text-align:center;word-wrap:break-word;opacity:0.8">Hide YT player</button>');
-  $('#NCS-menu').append('<button id="NCS-f2" class="disabled animated" style="float:right;text-align:center;word-wrap:break-word;opacity:0.8">Theme</button>');
-  $('#NCS-menu').append('<button id="NCS-f3" class="disabled animated" style="top:24px;float:left;text-align:center;word-wrap:break-word;opacity:0.8">Desktop Notifications</button>');
-  $('#NCS-menu').append('<button id="NCS-f4" class="disabled animated" style="top:48px;float:left;text-align:center;word-wrap:break-word;opacity:0.8">Remove YT Player</button>');
+  $('body').append('<div id="NCS-menu" class="animated" style="display:none;position:absolute;bottom:52px;left:-50px;background-color:#0a0a0a;height:140px;width:280px;color:gray;border:2px #1B1B1B solid;text-align:left;z-index:3;opacity:0.8"><!--<center class="animated infinite flip" style="text-align:center">Whoa, Animations!</center>--></div>');
+  $('#NCS-menu').append('<button id="NCS-f1" class="disabled animated" style="float:left;margin:4px;text-align:center;word-wrap:break-word;opacity:0.8">Hide Video</button>');
+  $('#NCS-menu').append('<button id="NCS-f2" class="disabled animated" style="float:right;margin:4px;text-align:center;word-wrap:break-word;opacity:0.8">Theme</button>');
+  $('#NCS-menu').append('<button id="NCS-f3" class="disabled animated" style="float:left;margin:4px;text-align:center;word-wrap:break-word;opacity:0.8">Notifications</button>');
+  $('#NCS-menu').append('<button id="NCS-f4" class="disabled animated" style="float:right;margin:4px;text-align:center;word-wrap:break-word;opacity:0.8">Remove Video</button>');
   $('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left)*-1+'px');
   $('#NCS-btn').on('click',function(){$('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left)*-1+'px');if($('#NCS-menu').css('display')==='block'){$('#NCS-menu').addClass('fadeOutRight');$('#NCS-menu').removeClass('fadeInLeft');setTimeout(function(){$('#NCS-menu').css('display','none');$('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left)*-1+'px');},500);}else{$('#NCS-menu').addClass('fadeInLeft');$('#NCS-menu').css('display','block');$('#NCS-menu').removeClass('fadeOutRight');}});
   window.onresize = function(){$('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left*-1)+'px');};
