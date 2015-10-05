@@ -105,6 +105,7 @@ function cfnm(){
       document.getElementById('icon-07NCS'+i).style.backgroundImage = "url('http://i.imgur.com/1kemcRT.pngQ')";
       $(unamestuff).removeClass('rank-2');
       unamestuff.style.color='#00E5EE';
+    }
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Pixel'){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
