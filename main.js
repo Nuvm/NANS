@@ -1,6 +1,6 @@
-var version = '0.0.8 Patch 4';
+var version = '0.0.8 Patch 5';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
-var newFeaturesMsg = 'Welcome our new dev, Pixel!<br>TRYING TO FIX ALL THEM GODDAMN BUGS!<br>Tried to fix the theme bug?';
+var newFeaturesMsg = 'Welcome our new dev, Pixel!<br>TRYING TO FIX ALL THEM GODDAMN BUGS!<br>Added Accidental Navigation Prevention';
 var username;
 
 //Default vars
