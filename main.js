@@ -1,6 +1,6 @@
-var version = '0.0.8';
+var version = '0.0.8 Patch 1';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
-var newFeaturesMsg = 'Fixed the theme bug (I hope) and added an NCS icon!<br>*whoa*<br> Welcome our new dev, Pixel!';
+var newFeaturesMsg = 'Welcome our new dev, Pixel!<br>TRYING TO FIX ALL THEM GODDAMN BUGS!';
 var username;
 
 //Default vars
@@ -130,7 +130,7 @@ function NCSinit(){
   $('#NCS-f1').on('click',NCSfeatures);
   $('#NCS-f2').on('click',NCSfeatures);
   $('head').append('<style type="text/css">.enabled{background-color:#B4CFEC;color:white; !important}.disabled{color:black; !important}#NCS-menu{padding:3px}#NCS-btn:hover{cursor:pointer}</style>');
-  $('#app-right').css('z-index',5);
+  $('#app-right').css('z-index',1);
   if(document.getElementById('CSxKINGtheme')){
     $('#NCS-f2').removeClass('disabled').addClass('enabled');
   }
