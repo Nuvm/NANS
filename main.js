@@ -126,7 +126,7 @@ if(typeof localStorage.NCSlocalSettings!==undefined){var localSettings = JSON.pa
 
 /*NCS MENU STUFF*/
 function NCSinit(){
-  $('.navbar.footer').append('<div id="NCS-btn" class="animated nav-form nav-right" style="transform:rotate(0deg);background-image:none;bottom:11px;height:30px;width:30px;"></div>');
+  $('.navbar.footer').append('<div id="NCS-btn" class="animated nav-form nav-right" style="transform:rotate(0deg);background-image:none;bottom:11px;height:30px;width:30px;-webkit-user-select: none;"></div>');
   $('#NCS-btn').append('<span id="NCS-name" style="font-family:IM Fell English SC;color:gold;bottom:15px;"><b>NCS</b></span>');
   $('.navbar.header').append('<a href="http://electricgaming.ga/forums/en/forumdisplay.php?fid=24" target="_blank"><button id="THEME_BUG" class="nav-form nav-right">[NCS] Report an Issue</button></a>');
   $('.navbar.header').append('<a href="http://electricgaming.ga/forums/en/showthread.php?tid=5" target="_blank"><button id="THEME_BUG" class="nav-form nav-right">[NCS] Changelog</button></a>');
