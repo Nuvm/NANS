@@ -1,4 +1,4 @@
-var version = '0.0.8 Patch 2';
+var version = '0.0.8 Patch 3';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
 var newFeaturesMsg = 'Welcome our new dev, Pixel!<br>TRYING TO FIX ALL THEM GODDAMN BUGS!<br>Tried to fix the theme bug?';
 var username;
@@ -87,6 +87,15 @@ function cfnm(){
       $(unamestuff).before('<i id='+("icon-05NCS"+i)+' class="icon" style="background-image:none"></i>');
       document.getElementById('icon-05NCS'+i).style.backgroundImage = "url('http://i.imgur.com/ucqMWad.jpg')";
       //unamestuff.style.color='#EA6900';
+    }
+    if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='KuriaMisuto'){
+      i++;
+      unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
+      unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
+      $(unameicon).before('<i id='+("icon-06NCS"+i)+' class="icon" style="background-image:none"></i>');
+      document.getElementById('icon-03NCS'+i).style.backgroundImage = "url('http://imgur.com/XAqDL7z.png')";
+      $(unamestuff).removeClass('rank-2');
+      unamestuff.style.color='light blue';
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.slice(0,4)==='/NCS'){
       NCScommandSorter(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML,document.getElementById('messages').lastChild.getElementsByClassName('uname')[0],document.getElementById('messages').lastChild);
