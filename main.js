@@ -1,4 +1,4 @@
-var version = '0.0.8 Patch 3';
+var version = '0.0.8 Patch 4';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
 var newFeaturesMsg = 'Welcome our new dev, Pixel!<br>TRYING TO FIX ALL THEM GODDAMN BUGS!<br>Tried to fix the theme bug?';
 var username;
@@ -95,7 +95,7 @@ function cfnm(){
       $(unameicon).before('<i id='+("icon-06NCS"+i)+' class="icon" style="background-image:none"></i>');
       document.getElementById('icon-03NCS'+i).style.backgroundImage = "url('http://imgur.com/XAqDL7z.png')";
       $(unamestuff).removeClass('rank-2');
-      unamestuff.style.color='light blue';
+      unamestuff.style.color='#00E5EE';
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.slice(0,4)==='/NCS'){
       NCScommandSorter(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML,document.getElementById('messages').lastChild.getElementsByClassName('uname')[0],document.getElementById('messages').lastChild);
@@ -118,7 +118,7 @@ function NCScommandSorter(msg,user,element){
   }
 }
 var NCSsettings= [false,true];
-window.addEventListener('beforeunload',function(){localStorage.NCSlocalSettings = JSON.stringify(NCSsettings);});
+window.addEventListener('beforeunload',function(){localStorage.setItem('NCSlocalSettings',JSON.stringify(NCSsettings));});
 if(typeof(Storage) === "undefined"){
   alert("Unfortunately, your browser does not support local storage. Your NCS settings will not be saved. Please use a modern version of Chrome, Firefox, Safari or Opera.");
 }
@@ -128,6 +128,8 @@ if(typeof localStorage.NCSlocalSettings!==undefined){var localSettings = JSON.pa
 function NCSinit(){
   $('.navbar.footer').append('<div id="NCS-btn" class="animated nav-form nav-right" style="transform:rotate(0deg);background-image:none;bottom:11px;height:30px;width:30px;"></div>');
   $('#NCS-btn').append('<span id="NCS-name" style="font-family:IM Fell English SC;color:gold;bottom:15px;"><b>NCS</b></span>');
+  $('.navbar.header').append('<a href="http://electricgaming.ga/forums/en/forumdisplay.php?fid=24" target="_blank"><button id="THEME_BUG" class="nav-form nav-right">[NCS] Report an Issue</button></a>');
+	$('.navbar.header').append('<a href="http://electricgaming.ga/forums/en/showthread.php?tid=5" target="_blank"><button id="THEME_BUG" class="nav-form nav-right">[NCS] Changelog</button></a>');
   $('#NCS-btn')[0].style.backgroundImage = "url('http://i.imgur.com/5ThdRUd.png')";
   setInterval(function(){rotateDeg+=2;rotateDeg2-=2;$('#NCS-btn')[0].style.transform='rotate('+rotateDeg+'deg)';$('#NCS-name')[0].style.transform='rotate('+rotateDeg2+'deg)';},20);
   $('body').append('<div id="NCS-menu" class="animated" style="display:none;position:absolute;bottom:52px;left:-50px;background-color:#0a0a0a;height:80px;width:200px;color:gray;border:2px #1B1B1B solid;text-align:left;z-index:3;opacity:0.8"><!--<center class="animated infinite flip" style="text-align:center">Whoa, Animations!</center>--></div>');
@@ -140,17 +142,11 @@ function NCSinit(){
   $('#NCS-f2').on('click',NCSfeatures);
   $('head').append('<style type="text/css">.enabled{background-color:#B4CFEC;color:white; !important}.disabled{color:black; !important}#NCS-menu{padding:3px}#NCS-btn:hover{cursor:pointer}</style>');
   $('#app-right').css('z-index',1);
-  if(document.getElementById('CSxKINGtheme')){
-    $('#NCS-f2').removeClass('disabled').addClass('enabled');
-    $('#NCS-f2').click();
-  }
   if(NCSsettings[0]){
     $('#NCS-f1').click();
   }
   if(NCSsettings[1]){
-    if(!document.getElementById('CSxKINGtheme')){
-      $('#NCS-f2').click();
-    }
+    $('#NCS-f2').click();
   }
   $('#messages').append('<center id="NCS-startupmsg" class="cm log mention animated flip" style="color:whitesmoke;text-align:center;font-weight:200;font-size:120%;padding:30px;">'+startUpMsg+'<br><span style="font-weight:100;font-size:85%">'+newFeaturesMsg+'</span></center>');
   $('#messages')[0].scrollIntoView(false);
