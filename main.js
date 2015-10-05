@@ -97,6 +97,15 @@ function cfnm(){
       $(unamestuff).removeClass('rank-2');
       unamestuff.style.color='#00E5EE';
     }
+    if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Daisy-Chan'){
+      i++;
+      unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
+      unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
+      $(unameicon).before('<i id='+("icon-07NCS"+i)+' class="icon" style="background-image:none"></i>');
+      document.getElementById('icon-07NCS'+i).style.backgroundImage = "url('http://i.imgur.com/1kemcRT.pngQ')";
+      $(unamestuff).removeClass('rank-2');
+      unamestuff.style.color='#00E5EE';
+    }
     if(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.slice(0,4)==='/NCS'){
       NCScommandSorter(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML,document.getElementById('messages').lastChild.getElementsByClassName('uname')[0],document.getElementById('messages').lastChild);
     }
