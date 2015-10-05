@@ -167,7 +167,7 @@ function NCSfeatures(eventData){
     }
   } else if(eventData.target.id==='NCS-f2'){
     if($('#NCS-f2').hasClass('disabled')){
-      $('head').append('<link id="CSxKINGtheme" rel="stylesheet" href="http://sb.codeanywhere.com/~434542/css/NC-331_Style.css">');
+      $('head').append('<link id="CSxKINGtheme" rel="stylesheet" href="https://cdn.rawgit.com/Nuvm/NCS/master/NC331_Style.css">');
       NCSsettings[1] = true;
       $('#NCS-f2').removeClass('disabled').addClass('enabled');
       //$('#NCS-f2').removeClass('shake').addClass('bounce');
