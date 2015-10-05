@@ -106,11 +106,6 @@ function cfnm(){
       $(unamestuff).removeClass('rank-2');
       unamestuff.style.color='#00E5EE';
     }
-    if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Pixel'){
-      i++;
-      unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
-      unamestuff.style.color='#83FF00';
-    }
     if(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.slice(0,4)==='/NCS'){
       NCScommandSorter(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML,document.getElementById('messages').lastChild.getElementsByClassName('uname')[0],document.getElementById('messages').lastChild);
     }
