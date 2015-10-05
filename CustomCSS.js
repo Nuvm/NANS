@@ -3,6 +3,6 @@ setTimeout(function(){checkIfReady = setInterval(function(){if(document.getEleme
 function start(s){
   clearInterval(checkIfReady);
   if(s==='ready'){
-    $('head').append('<link rel="stylesheet" href="https://electricgaming.ga/CSS/NC-331/Style.css">');
+    $('head').append('<link rel="stylesheet" href="https://cdn.rawgit.com/Nuvm/NCS/master/NC331_Style.css">');
   }
 }
