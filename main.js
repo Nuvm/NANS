@@ -1,4 +1,4 @@
-var version = '0.1.1 Patch 1';
+var version = '0.1.1 Patch 2';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
 var newFeaturesMsg = 'Solved performance issues!<br>Added Desktop Notifications!<br>Removeable video player!<br>Also....<b><i>BIG CHANGES SOON</b></i>(™) :)';
 var uname;
@@ -101,7 +101,7 @@ function cfnm(){
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
       unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
       $(unameicon).before('<i id='+("icon-06NCS"+i)+' class="icon" style="background-image:none"></i>');
-      document.getElementById('icon-03NCS'+i).style.backgroundImage = "url('http://imgur.com/XAqDL7z.png')";
+      document.getElementById('icon-06NCS'+i).style.backgroundImage = "url('http://imgur.com/XAqDL7z.png')";
       $(unamestuff).removeClass('rank-2');
       unamestuff.style.color='#00E5EE';
     }
@@ -111,7 +111,7 @@ function cfnm(){
       unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
       $(unameicon).before('<i id='+("icon-07NCS"+i)+' class="icon" style="background-image:none"></i>');
       document.getElementById('icon-07NCS'+i).style.backgroundImage = "url('http://i.imgur.com/1kemcRT.pngQ')";
-      $(unamestuff).removeClass('rank-2');
+      //$(unamestuff).removeClass('rank-2');
       //unamestuff.style.color='#00E5EE';
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.indexOf('@'+uname)!==-1 && $('#NCS-f3').hasClass('enabled') && !document.hasFocus()){
@@ -153,10 +153,10 @@ function NCSinit(){
   $('#NCS-btn')[0].style.backgroundImage = "url('http://i.imgur.com/5ThdRUd.png')";
   //setInterval(function(){rotateDeg+=2;rotateDeg2-=2;$('#NCS-btn')[0].style.transform='rotate('+rotateDeg+'deg)';$('#NCS-name')[0].style.transform='rotate('+rotateDeg2+'deg)';},20);
   $('body').append('<div id="NCS-menu" class="animated" style="display:none;position:absolute;bottom:52px;left:-50px;background-color:#0a0a0a;height:140px;width:280px;color:gray;border:2px #1B1B1B solid;text-align:left;z-index:3;opacity:0.8"><!--<center class="animated infinite flip" style="text-align:center">Whoa, Animations!</center>--></div>');
-  $('#NCS-menu').append('<button id="NCS-f1" class="disabled animated" style="float:left;margin:4px;text-align:center;word-wrap:break-word;opacity:0.8">Hide Video</button>');
-  $('#NCS-menu').append('<button id="NCS-f2" class="disabled animated" style="float:right;margin:4px;text-align:center;word-wrap:break-word;opacity:0.8">Theme</button>');
-  $('#NCS-menu').append('<button id="NCS-f3" class="disabled animated" style="float:left;margin:4px;text-align:center;word-wrap:break-word;opacity:0.8">Notifications</button>');
-  $('#NCS-menu').append('<button id="NCS-f4" class="disabled animated" style="float:right;margin:4px;text-align:center;word-wrap:break-word;opacity:0.8">Remove Video</button>');
+  $('#NCS-menu').append('<button id="NCS-f1" class="disabled animated" style="float:left;margin:5px;text-align:center;word-wrap:break-word;opacity:0.8">Hide Video</button>');
+  $('#NCS-menu').append('<button id="NCS-f2" class="disabled animated" style="float:right;margin:5px;text-align:center;word-wrap:break-word;opacity:0.8">Theme</button>');
+  $('#NCS-menu').append('<button id="NCS-f3" class="disabled animated" style="float:left;margin:5px;text-align:center;word-wrap:break-word;opacity:0.8">Notifications</button>');
+  $('#NCS-menu').append('<button id="NCS-f4" class="disabled animated" style="float:right;margin:5px;text-align:center;word-wrap:break-word;opacity:0.8">Remove Video</button>');
   $('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left)*-1+'px');
   $('#NCS-btn').on('click',function(){$('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left)*-1+'px');if($('#NCS-menu').css('display')==='block'){$('#NCS-menu').addClass('fadeOutRight');$('#NCS-menu').removeClass('fadeInLeft');setTimeout(function(){$('#NCS-menu').css('display','none');$('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left)*-1+'px');},500);}else{$('#NCS-menu').addClass('fadeInLeft');$('#NCS-menu').css('display','block');$('#NCS-menu').removeClass('fadeOutRight');}});
   window.onresize = function(){$('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left*-1)+'px');};
@@ -221,11 +221,13 @@ function NCSfeatures(eventData){
     if($('#NCS-f4').hasClass('disabled')){
       $('#player').remove();
       $('#messages').append('<center class="NCSalert cm log mention animated fadeInLeftBig" style="color:whitesmoke;text-align:center;font-weight:150;font-size:30;">You will have to disable this option and refresh in order to have the video player back. Sorry, this is how it works currently!</center>');
+      $('#messages')[0].scrollIntoView(false);
       NCSsettings[3] = true;
       $('#NCS-f4').removeClass('disabled').addClass('enabled');
       //$('#NCS-f3').removeClass('shake').addClass('bounce');
     } else {
       $('#messages').append('<center class="NCSalert cm log mention animated fadeInLeftBig" style="color:whitesmoke;text-align:center;font-weight:150;font-size:30;">Refresh the page to get the video player back!</center>');
+      $('#messages')[0].scrollIntoView(false);
       NCSsettings[3] = false;
       $('#NCS-f4').removeClass('enabled').addClass('disabled');
       //$('#NCS-f3').removeClass('bounce').addClass('shake');
