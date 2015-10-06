@@ -604,31 +604,36 @@ body {
 
 /* This is the code the the button style. Change if you know what your doing, otherwise you'll break it */
 button {
-background-color:#7c0cc7;
-	-moz-border-radius:5px;
-	-webkit-border-radius:5px;
-	border-radius:5px;
-	border:2px solid #7c0cc7;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:16px;
-	padding:7px 26px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #7c0cc7;
-
+background: #6500a8;
+  background-image: -webkit-linear-gradient(top, #6500a8, #9900ff);
+  background-image: -moz-linear-gradient(top, #6500a8, #9900ff);
+  background-image: -ms-linear-gradient(top, #6500a8, #9900ff);
+  background-image: -o-linear-gradient(top, #6500a8, #9900ff);
+  background-image: linear-gradient(to bottom, #6500a8, #9900ff);
+  -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+  border-radius: 8px;
+  text-shadow: 9px 5px 9px #aa00ff;
+  -webkit-box-shadow: 2px 4px 7px #7f00bf;
+  -moz-box-shadow: 2px 4px 7px #7f00bf;
+  box-shadow: 2px 4px 7px #7f00bf;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 13px;
+  padding: 7px 13px 6px 12px;
+  border: solid #8b0be0 2px;
+  text-decoration: none;
 }
 
 button:hover {
-background-color:#7c0cc7;
+background: #d63ad6;
+  background-image: -webkit-linear-gradient(top, #d63ad6, #dd00ff);
+  background-image: -moz-linear-gradient(top, #d63ad6, #dd00ff);
+  background-image: -ms-linear-gradient(top, #d63ad6, #dd00ff);
+  background-image: -o-linear-gradient(top, #d63ad6, #dd00ff);
+  background-image: linear-gradient(to bottom, #d63ad6, #dd00ff);
+  text-decoration: none;
 }
-
-button:hover {
-position:relative;
-	top:1px;
-}
-
 p {
     margin:                     8px;
 }
