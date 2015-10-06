@@ -1,4 +1,4 @@
-var version = '0.1.1 Patch 2';
+var version = '0.1.1 Minor 3';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
 var newFeaturesMsg = 'Solved performance issues!<br>Added Desktop Notifications!<br>Removeable video player!<br>Also....<b><i>BIG CHANGES SOON</b></i>(™) :)';
 var uname;
@@ -101,7 +101,7 @@ function cfnm(){
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
       unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
       $(unameicon).before('<i id='+("icon-06NCS"+i)+' class="icon" style="background-image:none"></i>');
-      document.getElementById('icon-06NCS'+i).style.backgroundImage = "url('http://imgur.com/XAqDL7z.png')";
+      document.getElementById('icon-06NCS'+i).style.backgroundImage = "url('http://i.imgur.com/LXoYihi.png')";
       $(unamestuff).removeClass('rank-2');
       unamestuff.style.color='#00E5EE';
     }
