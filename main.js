@@ -1,6 +1,6 @@
 var version = '0.1.1 Minor 3';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
-var newFeaturesMsg = 'The NCS Website is now online! https://electricgaming.ga/ncs/<b><i>BIG CHANGES SOON</b></i>(™) :)';
+var newFeaturesMsg = 'Solved performance issues!<br>Added Desktop Notifications!<br>Removeable video player!<br>Also....<b><i>BIG CHANGES SOON</b></i>(™) :)';
 var uname;
 
 //Default vars
@@ -234,3 +234,17 @@ function NCSfeatures(eventData){
     }
   }
 }
+
+
+
+/*UPCUMMING (kappa spelling) JS sCHTUFF
+// Accidental Navigation Triggering
+    saved = false;
+
+window.onbeforeunload = confirmExit;
+function confirmExit() {
+    if (!saved) {
+        return "[NCS] Accidental Navigation Triggered! Are you sure you want to leave?";
+    }
+}
+*/
