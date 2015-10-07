@@ -1,6 +1,6 @@
 var version = '0.1.1 Minor 3';
 var startUpMsg = 'Welcome to NCS version ' + version + '!';
-var newFeaturesMsg = 'The NCS Website is now online! https://electricgaming.ga/ncs/ <b><i>BIG CHANGES SOON</b></i>(™) :)';
+var newFeaturesMsg = 'The NCS Website is now online! <a href="https://electricgaming.ga/ncs/" target="_blank">Click here to go to it!</a> <b><i>BIG CHANGES SOON</b></i>(™) :)';
 var uname;
 
 //Default vars
