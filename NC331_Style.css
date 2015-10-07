@@ -76,7 +76,7 @@ CSS For ANC331
     top:                        0;
     left:                       0;
 }
-
+/* Volume Stuffs */
 #volume {
     z-index:                    3;
     top:                        19px;
@@ -183,6 +183,7 @@ CSS For ANC331
     width:                      85px;
     text-align:                 center;
 }
+/* The "Type a message and hit enter" message box. */
 #msg-in {
 	border:2px solid #456879;
 	border-radius:10px;
@@ -275,6 +276,7 @@ CSS For ANC331
     display:                    none;
 }
 
+/* Chat Suggestons. (Eg. @ing a user.) */
 #chat-suggestion {
     display:                    none;
     position:                   absolute;
@@ -287,6 +289,7 @@ CSS For ANC331
     border:                     1px #1B1B1B solid;
 }
 
+/* Message Form */
 #msg-form {
     display:                    none;
 }
@@ -587,6 +590,7 @@ input[type=password] {
 /*MAIN ELEMENTS*/
 /***************/
 
+/* Look of the site body */
 body {
     margin:                     0;
     padding:                    0;
@@ -625,6 +629,7 @@ background: #6500a8;
   text-decoration: none;
 }
 
+/* What happens when the buttons are hovered over. */
 button:hover {
 background: #d63ad6;
   background-image: -webkit-linear-gradient(top, #d63ad6, #dd00ff);
@@ -634,6 +639,7 @@ background: #d63ad6;
   background-image: linear-gradient(to bottom, #d63ad6, #dd00ff);
   text-decoration: none;
 }
+
 p {
     margin:                     8px;
 }
@@ -643,17 +649,20 @@ p {
     height:                     100%;
 }
 
+/* Header */
 .header {
     top:                        0;
     border-bottom:              1px solid #1B1B1B;
     color:						#33C4F5;
 }
 
+/* Footer */
 .footer {
     bottom:                     0;
     border-top:                 1px solid #1B1B1B;
 }
 
+/* Loading */
 .loading {
     position:                   absolute;
     width:                      100%;
@@ -664,6 +673,7 @@ p {
     display:                    table;
 }
 
+/* Loading Text */
 .loading .center {
     font-size:                  30px;
     display:                    table-cell;
@@ -676,6 +686,7 @@ p {
 /*NAV*/
 /*****/
 
+/* Navbar */
 .navbar {
     position:                   absolute;
     width:                      100%;
@@ -689,14 +700,17 @@ p {
     text-align:                 center;
 }
 
+/* The Right of the Navbar */
 .nav-right {
     float:                      right !important;
 }
 
+/* The Left of the Navbar */
 .nav-left {
     float:                      left !important;
 }
 
+/* The Navbar's Text */
 .nav-text {
     font-size:                  16px;
     line-height:                50px;
@@ -706,10 +720,12 @@ p {
     color:						#33C4F5;
 }
 
+/* Navform */
 .nav-form {
     margin:                     10px;
 }
 
+/* Navbar Title */
 .nav-title {
     font-size:                  20px;
     line-height:                50px;
