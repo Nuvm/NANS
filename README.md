@@ -14,7 +14,14 @@
 #####Some code for the next release :P  
   
   >Trying to make these tabs to shrink properly  
-  $('#chat-button').parent().css('height','50px');  
-$('#chat-button').css('width',$('#chat-button').css('width').split('px')[0]*0.85).css('left',$('#chat-button').css('left').split('px')[0]-(($('#chat-button').css('width').split('px')[0])-($('#chat-button').css('width').split('px')[0]*0.85)));  
-$('#users-button').css('width',$('#users-button').css('width').split('px')[0]*0.85).css('left',$('#users-button').css('left').split('px')[0]-(($('#users-button').css('width').split('px')[0])-($('#users-button').css('width').split('px')[0]*0.85)));  
-$('#waitlist-button').css('width',$('#waitlist-button').css('width').split('px')[0]*0.85).css('left',$('#waitlist-button').css('left').split('px')[0]-(($('#waitlist-button').css('width').split('px')[0])-($('#waitlist-button').css('width').split('px')[0]*0.85)));
+  initialWidth1 = $('#chat-button').css('width').split('px')[0];  
+initialWidth2 = $('#users-button').css('width').split('px')[0];  
+initialWidth3 = $('#waitlist-button').css('width').split('px')[0];  
+$('#chat-button').parent().css('height','50px');  
+$('#chat').css('height',$('#chat').css('height').split('px')[0]-20);  
+$('#chat-button').css('width',initialWidth1*0.85);//.css('left',$('#chat-button').css('left').split('px')[0]-((initialWidth1)-(initialWidth1*0.85)));  
+$('#users-button').css('width',initialWidth2*0.85).css('left',$('#users-button').css('left').split('px')[0]-((initialWidth2)-(initialWidth2*0.85)));  
+$('#waitlist-button').css('width',initialWidth3*0.85).css('left',$('#waitlist-button').css('left').split('px')[0]-(((initialWidth3)-(initialWidth3*0.85))+((initialWidth2)-(initialWidth2*0.85))));  
+
+
+
