@@ -147,25 +147,26 @@ if (Notification.permission !== "granted"){
 /*NCS MENU STUFF*/
 function NCSinit(){
   $('.navbar.footer').append('<div id="NCS-btn" class="animated nav-form nav-right" style="transform:rotate(0deg);background-image:none;bottom:13px;height:30px;width:30px;-webkit-user-select: none;"></div>');
-  $('#NCS-btn').append('<div id="NCS-name" style="position:absolute;transform:rotate(0deg);font-family:IM Fell English SC;color:black;bottom:15px;text-shadow:0px 0px 2px #FFD700;"><b>NCS</b></div>');
+  $('#NCS-btn').append('<div id="NCS-name" style="position:absolute;transform:rotate(0deg);font-family:IM Fell English SC;color:black;bottom:10px;text-shadow:0px 0px 2px #FFD700;"><b>NCS</b></div>');
   $('.navbar.header').append('<a href="http://electricgaming.ga/forums/en/forumdisplay.php?fid=24" target="_blank"><button id="THEME_BUG" class="nav-form nav-right">[NCS] Report an Issue</button></a>');
   $('.navbar.header').append('<a href="http://electricgaming.ga/forums/en/showthread.php?tid=5" target="_blank"><button id="THEME_BUG" class="nav-form nav-right">[NCS] Changelog</button></a>');
   $('#NCS-btn')[0].style.backgroundImage = "url('http://i.imgur.com/5ThdRUd.png')";
   //setInterval(function(){rotateDeg+=2;rotateDeg2-=2;$('#NCS-btn')[0].style.transform='rotate('+rotateDeg+'deg)';$('#NCS-name')[0].style.transform='rotate('+rotateDeg2+'deg)';},20);
-  $('body').append('<div id="NCS-menu" class="animated" style="display:none;position:absolute;bottom:52px;left:-50px;background-color:#0a0a0a;height:140px;width:280px;color:gray;border:2px #1B1B1B solid;text-align:left;z-index:3;opacity:0.8"><!--<center class="animated infinite flip" style="text-align:center">Whoa, Animations!</center>--></div>');
-  $('#NCS-menu').append('<button id="NCS-f1" class="disabled animated" style="float:left;margin:5px;text-align:center;word-wrap:break-word;opacity:0.8">Hide Video</button>');
-  $('#NCS-menu').append('<button id="NCS-f2" class="disabled animated" style="float:right;margin:5px;text-align:center;word-wrap:break-word;opacity:0.8">Theme</button>');
-  $('#NCS-menu').append('<button id="NCS-f3" class="disabled animated" style="float:left;margin:5px;text-align:center;word-wrap:break-word;opacity:0.8">Notifications</button>');
-  $('#NCS-menu').append('<button id="NCS-f4" class="disabled animated" style="float:right;margin:5px;text-align:center;word-wrap:break-word;opacity:0.8">Remove Video</button>');
+  //$('body').append('<div id="NCS-menu" class="animated" style="display:none;position:absolute;bottom:52px;left:-50px;background-color:#0a0a0a;height:140px;width:280px;color:gray;border:2px #1B1B1B solid;text-align:left;z-index:3;opacity:0.8"><!--<center class="animated infinite flip" style="text-align:center">Whoa, Animations!</center>--></div>');
+  $('#NCS-menu').append('<div id="NCS-f1" class="disabled animated" style="float:left;margin:5px;word-wrap:break-word;opacity:0.8">Hide Video Player</div>');
+  $('#NCS-menu').append('<div id="NCS-f2" class="disabled animated" style="float:left;margin:5px;word-wrap:break-word;opacity:0.8">Custom Theme</div>');
+  $('#NCS-menu').append('<div id="NCS-f3" class="disabled animated" style="float:left;margin:5px;word-wrap:break-word;opacity:0.8">Desktop Notifications</div>');
+  $('#NCS-menu').append('<div id="NCS-f4" class="disabled animated" style="float:left;margin:5px;word-wrap:break-word;opacity:0.8">Remove Video Player</div>');
   $('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left)*-1+'px');
   $('#NCS-btn').on('click',function(){$('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left)*-1+'px');if($('#NCS-menu').css('display')==='block'){$('#NCS-menu').addClass('fadeOutRight');$('#NCS-menu').removeClass('fadeInLeft');setTimeout(function(){$('#NCS-menu').css('display','none');$('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left)*-1+'px');},500);}else{$('#NCS-menu').addClass('fadeInLeft');$('#NCS-menu').css('display','block');$('#NCS-menu').removeClass('fadeOutRight');}});
-  window.onresize = function(){$('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left*-1)+'px');};
+  //window.onresize = function(){$('#NCS-menu').css('left',(($('#NCS-btn').css('width').split('px')[0]/2)-$('#NCS-btn').offset().left*-1)+'px');};
   $('#NCS-f1').on('click',NCSfeatures);
   $('#NCS-f2').on('click',NCSfeatures);
   $('#NCS-f3').on('click',NCSfeatures);
   $('#NCS-f4').on('click',NCSfeatures);
-  $('head').append('<style type="text/css">.enabled{background-color:#B4CFEC;color:white; !important}.disabled{color:black; !important}#NCS-menu{padding:3px}#NCS-btn:hover{cursor:pointer}</style>');
-  $('#app-right').css('z-index',1);
+  $('head').append('<style type="text/css">.enabled{background-color:#B4CFEC;color:white; !important}.disabled{color:black; !important}#NCS-menu{padding:3px}#NCS-btn:hover{cursor:pointer;background-color:grey;}.NCS-checkmark{float:right;background-image:url("http://i.imgur.com/VzMmfJJ.png?1");}</style>');
+  $('#messages').append('<center id="NCS-startupmsg" class="cm log mention animated flip" style="color:whitesmoke;text-align:center;font-weight:200;font-size:120%;padding:30px;">'+startUpMsg+'<br><span style="font-weight:100;font-size:85%">'+newFeaturesMsg+'</span></center>');
+  $('#messages')[0].scrollIntoView(false);
   if(NCSsettings[0]){
     $('#NCS-f1').click();
   }
@@ -178,9 +179,6 @@ function NCSinit(){
   if(NCSsettings[3]){
     $('#NCS-f4').click();
   }
-  $('#messages').append('<center id="NCS-startupmsg" class="cm log mention animated flip" style="color:whitesmoke;text-align:center;font-weight:200;font-size:120%;padding:30px;">'+startUpMsg+'<br><span style="font-weight:100;font-size:85%">'+newFeaturesMsg+'</span></center>');
-  $('#messages')[0].scrollIntoView(false);
-  //$('body').css('overflow-y','hidden');
 }
 function NCSfeatures(eventData){
   if(eventData.target.id==='NCS-f1'){
@@ -248,3 +246,15 @@ function confirmExit() {
     }
 }
 */
+initialWidth1 = $('#chat-button').css('width').split('px')[0];
+initialWidth2 = $('#users-button').css('width').split('px')[0];
+initialWidth3 = $('#waitlist-button').css('width').split('px')[0];
+$('#chat-button').parent().css('height','50px');
+$('#chat').css('height',$('#chat').css('height').split('px')[0]-20);
+$('#chat-button').css('width',initialWidth1*0.85);
+$('#users-button').css('width',initialWidth2*0.85).css('left',$('#users-button').css('left').split('px')[0]-((initialWidth2)-(initialWidth2*0.85)));
+$('#waitlist-button').css('width',initialWidth3*0.85).css('left',$('#waitlist-button').css('left').split('px')[0]-(((initialWidth3)-(initialWidth3*0.85))+((initialWidth2)-(initialWidth2*0.85))));
+$('#NCS-btn').css('top','51px').css('right','0px');
+$('#chat-button').parent().append('<div id="#NCS-menu" style="display:none;opacity:0.6px;></div>');
+$('#NCS-menu').css('top','101px').css('right','0px').css('height',100%-152).css('width',$('#chat').css('width',$('#chat').css('width').split('px')[0]));
+
