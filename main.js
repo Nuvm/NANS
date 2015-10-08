@@ -1,6 +1,6 @@
 var version = '0.2.1 | Bug fixes';
 var startUpMsg = "Welcome to NCS version " + version + "!";
-var newFeaturesMsg = "<a href='https://electricgaming.ga/ncs/' target='_blank'>The NCS Website is now online!</a><br>Bug fixes (Multiple NCS running)!<br>Accidental Navigation Prevention feature added!";
+var newFeaturesMsg = "<a href='https://electricgaming.ga/ncs/' target='_blank'>The NCS Website is now online!</a><br>Bug fixes (Multiple NCS running)!";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
 var uname;
 var lastSelected;
@@ -254,17 +254,3 @@ function NCSfeatures(eventData){
     }
   }
 }
-
-
-
-/*UPCUMMING (kappa spelling) JS sCHTUFF
-// Accidental Navigation Triggering
-    saved = false;
-
-window.onbeforeunload = confirmExit;
-function confirmExit() {
-    if (!saved) {
-        return "[NCS] Accidental Navigation Triggered! Are you sure you want to leave?";
-    }
-}
-*/
