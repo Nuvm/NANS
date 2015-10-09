@@ -1,6 +1,6 @@
-var version = '0.2.1 | Bug fixes';
+var version = '0.2.2| Bug fixes';
 var startUpMsg = "Welcome to NCS version " + version + "!";
-var newFeaturesMsg = "<a href='https://electricgaming.ga/ncs/' target='_blank'>The NCS Website is now online!</a><br>Bug fixes (Multiple NCS running)!";
+var newFeaturesMsg = "<a href='https://electricgaming.ga/ncs/' target='_blank'>The NCS Website is now online!</a><br>Bug fixes (Multiple NCS running)!<br>Toggleable Accidental Navigation Prevention!";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
 var uname;
 var lastSelected;
@@ -158,7 +158,7 @@ function NCSinit(){
   $('#NCS-menu').append('<div id="NCS-f2" class="disabled animated NCSf" style="top:34px;">Custom Theme<span id="NCS-f2c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f3" class="disabled animated NCSf" style="top:68px;">Desktop Notifications<span id="NCS-f3c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f4" class="disabled animated NCSf" style="top:102px;">Remove Video Player<span id="NCS-f4c" class="NCS-checkmark" style="display:none"/></div>');
-  //$('#NCS-menu').append('<div id="NCS-f5" class="disabled animated NCSf" style="top:136px;">Accidental Navigation Prevention<span id="NCS-f5c" class="NCS-checkmark" style="display:none"/></div>');
+  $('#NCS-menu').append('<div id="NCS-f5" class="disabled animated NCSf" style="top:136px;">Accidental Navigation Prevention<span id="NCS-f5c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-btn').on('click',function(){if($('#NCS-menu').css('display')==='block'){$('#'+lastSelected.split('-button')[0]).css('display','block');$('#NCS-menu').css('display','none');}else{if(document.getElementsByClassName('selected')[0]){lastSelected = document.getElementsByClassName('selected')[0].id;}$('#chat-button,#users-button,#waitlist-button').removeClass('selected');$('#chat,#users,#waitlist').css('display','none');$('#NCS-menu').css('display','block');}});
   $('#chat-button,#users-button,#waitlist-button').on('click',function(){if($('#NCS-menu').css('display')==='block'){$('#NCS-menu').css('display','none');}});
   $('#NCS-f1,#NCS-f2,#NCS-f3,#NCS-f4,#NCS-f5').on('click',NCSfeatures);
