@@ -1,11 +1,12 @@
-var version = '0.2.3 Patch 1 | New Structure Adaptation';
+var version = '0.2.3 Patch 2 | New Structure Adaptation';
 var startUpMsg = "Welcome to NCS version " + version + "!";
-var newFeaturesMsg = "<a href='https://electricgaming.ga/ncs/' target='_blank'>The NCS Website is now online!</a><br>Dev-side fixes.<br>Removed Accidental Navigation Prevention.<br>The new alpha-nc331: <b style='color:blue'>SUCH BLUE, MUCH SEXY</b><br> Minor patches";
+var newFeaturesMsg = "I suck at fixing things. - Nuvm<br><a href='https://electricgaming.ga/ncs/' target='_blank'>The NCS Website is now online!</a><br>The new alpha-nc331: <b style='color:blue'>SUCH BLUE, MUCH SEXY</b>";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
 var uname;
 var lastSelected;
 
 //Default vars
+var prevObj;
 var status = 'Not loaded';
 var i = 0;
 var unamestuff;
@@ -17,7 +18,7 @@ var rotateDeg2 = 0;
 var checkIfReady;
 setTimeout(function(){checkIfReady = setInterval(function(){if(document.getElementsByClassName('loading').length!==1){start('ready');}},100);},2000);
 function start(s){
-  $.getScript('https://cdn.rawgit.com/Nuvm/NCS/master/CustomNames.js');
+  $.getScript('https://rawgit.com/Nuvm/NCS/master/CustomNames.js');
   clearInterval(checkIfReady);
   if($('#NCS-menu')[0]||$('#NCS-btn')[0]||$('#THEME_BUG')[0]){
     $('#messages').append('<center class="NCSalert cm log mention animated fadeInLeftBig" style="color:whitesmoke;text-align:center;font-weight:150;font-size:30;">'+errorMsg+'</center>');
@@ -34,14 +35,18 @@ function start(s){
 
 //Check for new messages
 function cfnm(){
-  cfun();
-  if(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.slice(0,4)==='/NCS'){
-    NCScommandSorter(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML,document.getElementById('messages').lastChild.getElementsByClassName('uname')[0],document.getElementById('messages').lastChild);
-  }
-  if(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.indexOf('@'+uname)!==-1 && $('#NCS-f3').hasClass('enabled') && !document.hasFocus()){
-    var notif = new Notification(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML, { icon: 'http://i.imgur.com/5ThdRUd.png', body: document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML});
-    notif.onclick = function(){window.focus();notif.close();};
-    setTimeout(function(){notif.close();},3000);
+  if(document.getElementById('messages').children.length!==prevObj){
+    i++;
+    prevObj = document.getElementById('messages').children.length;
+    if(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.slice(0,4)==='/NCS'){
+      NCScommandSorter(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML,document.getElementById('messages').lastChild.getElementsByClassName('uname')[0],document.getElementById('messages').lastChild);
+    }
+    if(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.indexOf('@'+uname)!==-1 && $('#NCS-f3').hasClass('enabled') && !document.hasFocus()){
+      var notif = new Notification(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML, { icon: 'http://i.imgur.com/5ThdRUd.png', body: document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML});
+      notif.onclick = function(){window.focus();notif.close();};
+      setTimeout(function(){notif.close();},3000);
+    }
+    cfun();
   }
 }
 function NCScommandSorter(msg,user,element){
