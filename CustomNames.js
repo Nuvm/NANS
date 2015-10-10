@@ -15,16 +15,15 @@ function cfun(){
       document.getElementById('icon-02NCS'+i).style.backgroundImage = "url('http://i.imgur.com/BSky1IS.png')";
       unamestuff.style.color='#9966FF';
     }
-    if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Pro Hop'){
+    if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Pro Hop'||document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Pro Hop 8===D'){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
       unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
       $(unameicon).before('<i id='+("icon-03NCS"+i)+' class="icon" style="background-image:none"></i>');
       document.getElementById('icon-03NCS'+i).style.backgroundImage = "url('http://imgur.com/f5HTF9D.png')";
       $(unamestuff).removeClass('rank-2');
-      $(unameicon).remove();
-      //unamestuff.style.color='#B20DA5';
-      unamestuff.innerHTML+=' [Such grey, much scrub]'
+      unamestuff.style.color='#B20DA5';
+      unamestuff.innerHTML+=' 8===D'
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Elitehunter47'){
       i++;
