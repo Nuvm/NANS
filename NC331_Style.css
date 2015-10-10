@@ -140,11 +140,11 @@ CSS For ANC331
 
 /* Chat Hover */
 #chat:hover {
-	-webkit-border-radius: 0.5px;
-	-moz-border-radius: 0.5px;
-	border-radius: 0.5px;
-	border:			#9700C9, 0.5px;
-	border-color:		#0092A8;
+	-webkit-border-radius: 0.3px;
+	-moz-border-radius: 0.3px;
+	border-radius: 0.3px;
+	border:			#9700C9, 0.3px;
+	border-color:		#9700C9;
 	/* color:			#0092A8; */
 }
 
