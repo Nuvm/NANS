@@ -128,7 +128,7 @@ function NCSfeatures(eventData){
     }
   } else if(eventData.target.id==='NCS-f2'){
     if($('#NCS-f2').hasClass('disabled')){
-      $('head').append('<link id="CSxKINGtheme" rel="stylesheet" href="https://cdn.rawgit.com/Nuvm/NCS/dev/NC331_Style.css">');
+      $('head').append('<link id="CSxKINGtheme" rel="stylesheet" href="http://raw.githubusercontent.com/Nuvm/NCS/dev/NC331_Style.css">');
       $('#NCS-f2c').css('display','block');
       NCSsettings[1] = true;
       $('#NCS-f2').removeClass('disabled').addClass('enabled');
