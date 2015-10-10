@@ -1,6 +1,6 @@
-var version = '0.2.3 | New Structure Adaptation';
+var version = '0.2.3 Patch 1 | New Structure Adaptation';
 var startUpMsg = "Welcome to NCS version " + version + "!";
-var newFeaturesMsg = "<a href='https://electricgaming.ga/ncs/' target='_blank'>The NCS Website is now online!</a><br>Dev-side fixes.<br>Removed Accidental Navigation Prevention.<br>The new alpha-nc331: <b style='color:blue'>SUCH BLUE, MUCH SEXY</b>";
+var newFeaturesMsg = "<a href='https://electricgaming.ga/ncs/' target='_blank'>The NCS Website is now online!</a><br>Dev-side fixes.<br>Removed Accidental Navigation Prevention.<br>The new alpha-nc331: <b style='color:blue'>SUCH BLUE, MUCH SEXY</b><br> Minor patches";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
 var uname;
 var lastSelected;
