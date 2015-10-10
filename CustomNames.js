@@ -1,7 +1,4 @@
 function cfun(){
-  if(document.getElementById('messages').children.length!==prevObj){
-    i++;
-    prevObj = document.getElementById('messages').children.length;
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='CSxKING'){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
@@ -78,5 +75,4 @@ function cfun(){
       $(unamestuff).removeClass('rank-2');
       unamestuff.style.color='#FF29EE';
     }
-  }
 }
