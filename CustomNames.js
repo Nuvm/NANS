@@ -22,7 +22,9 @@ function cfun(){
       $(unameicon).before('<i id='+("icon-03NCS"+i)+' class="icon" style="background-image:none"></i>');
       document.getElementById('icon-03NCS'+i).style.backgroundImage = "url('http://imgur.com/f5HTF9D.png')";
       $(unamestuff).removeClass('rank-2');
-      unamestuff.style.color='#B20DA5';
+      $(unameicon).remove();
+      //unamestuff.style.color='#B20DA5';
+      unamestuff.innerHTML+=' [Such grey, much scrub]'
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Elitehunter47'){
       i++;
