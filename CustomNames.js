@@ -1,4 +1,6 @@
+var i=0;
 function cfun(){
+    i++;
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='CSxKING'){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
