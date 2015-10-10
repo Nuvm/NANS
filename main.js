@@ -1,6 +1,6 @@
-var version = '0.2.3 Patch 2 | New Structure Adaptation';
+var version = '0.2.3 Patch 3 | New Structure Adaptation';
 var startUpMsg = "Welcome to NCS version " + version + "!";
-var newFeaturesMsg = "I suck at fixing things. - Nuvm<br><a href='https://electricgaming.ga/ncs/' target='_blank'>The NCS Website is now online!</a><br>The new alpha-nc331: <b style='color:blue'>SUCH BLUE, MUCH SEXY</b>";
+var newFeaturesMsg = "Hpefully fixed icon bugs.<br><a href='https://electricgaming.ga/ncs/' target='_blank'>The NCS Website is now online!</a><br>The new alpha-nc331: <b style='color:blue'>SUCH BLUE, MUCH SEXY</b>";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
 var uname;
 var lastSelected;
@@ -8,7 +8,6 @@ var lastSelected;
 //Default vars
 var prevObj;
 var status = 'Not loaded';
-var i = 0;
 var unamestuff;
 var unameicon;
 var rotateDeg = 0;
@@ -36,7 +35,6 @@ function start(s){
 //Check for new messages
 function cfnm(){
   if(document.getElementById('messages').children.length!==prevObj){
-    i++;
     prevObj = document.getElementById('messages').children.length;
     if(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.slice(0,4)==='/NCS'){
       NCScommandSorter(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML,document.getElementById('messages').lastChild.getElementsByClassName('uname')[0],document.getElementById('messages').lastChild);
