@@ -146,7 +146,7 @@ CSS For ANC331
 
 #messages .cm {
     padding:                    7px 15px;
-    animation:                  fadein 0.25s;
+    animation:                  fadein 0.30s;
     position:                   relative;
     background:					#2A2A2A;
 }
@@ -157,6 +157,7 @@ CSS For ANC331
 
 #messages .cm:hover div.msg-del {
     display:                    block;
+    border-color:		#45E0FF;
 }
 
 #messages .msg-del {
