@@ -148,11 +148,15 @@ CSS For ANC331
     padding:                    7px 15px;
     animation:                  fadein 0.30s;
     position:                   relative;
-    background:					#2A2A2A;
+    background:			#2A2A2A;
+    border-radius:		6px;
+    padding:			4px;
 }
 
 #messages .cm:nth-child(odd) {
     background:                 #424242;
+    border-radius:		6px;
+    padding:			4px;
 }
 
 #messages .cm:hover div.msg-del {
