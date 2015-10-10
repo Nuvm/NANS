@@ -6,7 +6,6 @@ var uname;
 var lastSelected;
 
 //Default vars
-var prevObj = 0;
 var status = 'Not loaded';
 var i = 0;
 var unamestuff;
@@ -36,18 +35,14 @@ function start(s){
 //Check for new messages
 function cfnm(){
   cfun();
-  if(document.getElementById('messages').children.length!==prevObj){
-    i++;
-    prevObj = document.getElementById('messages').children.length;
-    if(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.slice(0,4)==='/NCS'){
-      NCScommandSorter(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML,document.getElementById('messages').lastChild.getElementsByClassName('uname')[0],document.getElementById('messages').lastChild);
-    }
-    if(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.indexOf('@'+uname)!==-1 && $('#NCS-f3').hasClass('enabled') && !document.hasFocus()){
-      var notif = new Notification(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML, { icon: 'http://i.imgur.com/5ThdRUd.png', body: document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML});
-      notif.onclick = function(){window.focus();notif.close();};
-      setTimeout(function(){notif.close();},3000);
-    }
-  } 
+  if(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.slice(0,4)==='/NCS'){
+    NCScommandSorter(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML,document.getElementById('messages').lastChild.getElementsByClassName('uname')[0],document.getElementById('messages').lastChild);
+  }
+  if(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.indexOf('@'+uname)!==-1 && $('#NCS-f3').hasClass('enabled') && !document.hasFocus()){
+    var notif = new Notification(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML, { icon: 'http://i.imgur.com/5ThdRUd.png', body: document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML});
+    notif.onclick = function(){window.focus();notif.close();};
+    setTimeout(function(){notif.close();},3000);
+  }
 }
 function NCScommandSorter(msg,user,element){
   msg = msg.slice(4,255);
