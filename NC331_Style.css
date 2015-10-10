@@ -616,7 +616,7 @@ button {
   background-image: linear-gradient(to bottom, #146aa3, #0fa9bd);
   -webkit-border-radius: 10;
   -moz-border-radius: 10;
-  border-radius: 10px;
+  border-radius: 6px;
   -webkit-box-shadow: 0px 1px 30px #00878c;
   -moz-box-shadow: 0px 1px 30px #00878c;
   box-shadow: 0px 1px 30px #00878c;
