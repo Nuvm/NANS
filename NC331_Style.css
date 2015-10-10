@@ -136,15 +136,11 @@ CSS For ANC331
     height:                     calc(100% - 40px);
     width:                      100%;
     font:                       14px 'Noto Sans', sans-serif !important;
-    border:			1px;
-    border-color:		#0092A8;
-    padding:			1px;
-    background-color:		#9700C9;
 }
 
 /* Chat Hover */
 #chat:hover {
-	border:			#9700C9;
+	border:			#9700C9, 1px;
 	border-color:		#0092A8;
 	/* color:			#0092A8; */
 }
