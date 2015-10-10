@@ -1,5 +1,4 @@
 function cfun(){
-  console.log('Running cfun function!');
   if(document.getElementById('messages').children.length!==prevObj){
     i++;
     prevObj = document.getElementById('messages').children.length;
