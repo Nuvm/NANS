@@ -136,8 +136,9 @@ CSS For ANC331
     height:                     calc(100% - 40px);
     width:                      100%;
     font:                       14px 'Noto Sans', sans-serif !important;
+    /* Warning! Don't ever enable the two shadow sets below, they make chat look awful!
     /* box-shadow			10px 10px 5px #888888; */
-    text-shadow: 		0 0 2px #44B3BB, 0 0 2px #368F96;
+    /* text-shadow: 		0 0 2px #44B3BB, 0 0 2px #368F96; */
 }
 
 /* Chat Hover */
