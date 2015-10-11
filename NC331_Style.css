@@ -208,7 +208,6 @@ CSS For ANC331
     width:                      123px;
     font-size:                  20px;
     background-color:       #b500ba;
-    top:			3px;
 }
 
 #users {
@@ -639,6 +638,7 @@ button {
   font-size: 12px !important;
   padding: 8px 17px 8px 17px !important;
   text-decoration: none !important;
+   top:	3px;
 }
 
 /* What happens when the buttons are hovered over. */
