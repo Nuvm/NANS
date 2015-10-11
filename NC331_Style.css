@@ -638,7 +638,7 @@ button {
   font-size: 12px !important;
   padding: 8px 17px 8px 17px !important;
   text-decoration: none !important;
-   top:	3px;
+  bottom:	3px;
 }
 
 /* What happens when the buttons are hovered over. */
