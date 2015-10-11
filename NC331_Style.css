@@ -136,7 +136,7 @@ CSS For ANC331
     height:                     calc(100% - 40px);
     width:                      100%;
     font:                       14px 'Noto Sans', sans-serif !important;
-    box-shadow			10px 10px 5px #888888;
+    /* box-shadow			10px 10px 5px #888888; */
     text-shadow: 		0 0 2px #44B3BB, 0 0 5px #368F96;
 }
 
