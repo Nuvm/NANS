@@ -137,14 +137,13 @@ CSS For ANC331
     width:                      100%;
     font:                       14px 'Noto Sans', sans-serif !important;
     /* box-shadow			10px 10px 5px #888888; */
-    text-shadow: 		0 0 2px #44B3BB, 0 0 5px #368F96;
+    text-shadow: 		0 0 2px #44B3BB, 0 0 2px #368F96;
 }
 
 /* Chat Hover */
 #chat:hover {
 	/* background-color: 		#1c1f25; */
 	/* color:			#0092A8; */
-	text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
 }
 
 /* Messages.... */
