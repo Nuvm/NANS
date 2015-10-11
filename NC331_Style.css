@@ -140,7 +140,7 @@ CSS For ANC331
 
 /* Chat Hover */
 #chat:hover {
-	background-color: 		#1c1f25;
+	/* background-color: 		#1c1f25; */
 	/* color:			#0092A8; */
 }
 
@@ -256,7 +256,7 @@ CSS For ANC331
 #chat .msg {
     clear:                      both;
     margin-left:                30px;
-    padding-top:                5px;
+    /* padding-top:                5px; */
 }
 
 #chat .msg-timestamp {
