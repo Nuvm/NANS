@@ -2,6 +2,7 @@
 
 ##STUFF TO DO  
 
+* Finish Redesigning theme (In progress - CSxKING);
 * Make the app-right div containing the chat, users and waitlist tabs to 50px (DONE - Nuvm);  
 * Make a div that fades in over the chat when NCS-btn is clicked (REJECTED - Nuvm);  
 * Make the checkmark schtuff and each feature (DONE - Nuvm);  
