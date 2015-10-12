@@ -4,7 +4,7 @@ CSS For ANC331
     Elements>ID>Class>Extra.
     
     Origonal file by TheBanHammer and his team, modded by CSxKING
-    http://electricgaming.ga/ncs/
+    https://electricgaming.ga/ncs/
 */
 
 /************/
@@ -46,7 +46,7 @@ CSS For ANC331
 #img{
     position:                   absolute;
     z-index:                    -5;
-    background-image:           url("http://hdwallpaperhub.net/wallpapers/l/1600x900/28/plug_dj_1600x900_27581.jpg") !important;
+    background-image:           url("http://electricgaming.ga/ncs/img/plugwall.jpg") !important;
     background-size:            cover;
     background-position:        center;
     height:                     100%;
@@ -457,16 +457,13 @@ CSS For ANC331
 }
 
 /*
-
 .log {
     color:                      #A72690;
     font-weight:                600;
 }
-
 .log .uname {
     color:                      #D012C0 !important;
 }
-
 */
 
 .system {
@@ -638,7 +635,6 @@ button {
   font-size: 12px !important;
   padding: 8px 17px 8px 17px !important;
   text-decoration: none !important;
-  top:	3px;
 }
 
 /* What happens when the buttons are hovered over. */
