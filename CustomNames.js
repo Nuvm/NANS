@@ -86,4 +86,10 @@ function cfun(){
       $(unamestuff).removeClass('rank-2');
       unamestuff.style.color='#FF0000';
     }
+    if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='asdfpony'){
+      i++;
+      unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
+      $(unamestuff).before('<i id='+("icon-NCS"+i)+' class="icon icon-rank-10"></i>');
+      $(unamestuff).addClass('rank-10');
+    }
 }
