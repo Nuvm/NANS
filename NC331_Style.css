@@ -4,7 +4,7 @@ CSS For ANC331
     Elements>ID>Class>Extra.
     
     Origonal file by TheBanHammer and his team, modded by CSxKING
-    http://electricgaming.ga/ncs/
+    https://electricgaming.ga/ncs/
 */
 
 /************/
@@ -46,7 +46,7 @@ CSS For ANC331
 #img{
     position:                   absolute;
     z-index:                    -5;
-    background-image:           url("http://hdwallpaperhub.net/wallpapers/l/1600x900/28/plug_dj_1600x900_27581.jpg") !important;
+    background-image:           url("http://electricgaming.ga/ncs/img/plugwall.jpg") !important;
     background-size:            cover;
     background-position:        center;
     height:                     100%;
