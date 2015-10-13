@@ -1,7 +1,7 @@
 
-  var version = '0.2.5 | You can now use our autoloader! Fixed the theme!';
+  var version = '0.2.6 | You can now use our autoloader!';
   var startUpMsg = "Welcome to NCS version " + version + "!";
-  var newFeaturesMsg = "<a href='https://electricgaming.ga/ncs/' target='_blank'>The NCS Website is now online!</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>Click here to get our NCS autoloader for Tampermonkey / Greasemonkey!</a>";
+  var newFeaturesMsg = "The theme should now be fixed!<br>Chat bugs should be fixed!<br><a href='https://electricgaming.ga/ncs/' target='_blank'>The NCS Website is now online!</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>Click here to get our NCS autoloader for Tampermonkey / Greasemonkey!</a>";
   var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
   var uname;
   var lastSelected;
