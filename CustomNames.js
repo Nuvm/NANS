@@ -17,7 +17,7 @@ function cfun(){
       document.getElementById('icon-NCS'+i).style.backgroundImage = "url('http://i.imgur.com/BSky1IS.png')";
       unamestuff.style.color='#9966FF';
     }
-    if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Pro Hop'){
+    if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='_Mio_'){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
       unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
