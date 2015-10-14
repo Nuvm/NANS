@@ -1,4 +1,4 @@
-var version = '0.2.6 | You can now use our autoloader!';
+var version = '0.2.7 | Now with SmartVote (WIP)!';
 var startUpMsg = "Welcome to NCS version " + version + "!";
 var newFeaturesMsg = "The theme should now be fixed!<br>Chat bugs should be fixed!<br><a href='https://electricgaming.ga/ncs/' target='_blank'>The NCS Website is now online!</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>Click here to get our NCS autoloader for Tampermonkey / Greasemonkey!</a>";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
@@ -11,6 +11,9 @@ var unameicon;
 var rotateDeg = 0;
 var rotateDeg2 = 0;
 var checkIfReady;
+var ccid;
+var wsongs = [];
+var msongs = [];
 setTimeout(function() {
   checkIfReady = setInterval(function() {
     if (document.getElementsByClassName('loading').length !== 1) {
@@ -31,11 +34,24 @@ function start() {
     $('head').append('<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/daneden/animate.css/master/animate.min.css">');
     $('head').append('<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=IM+Fell+English+SC">');
     setTimeout(API.on(API.events.CHAT, cfnm), 4000);
+    setTimeout(API.on(API.events.ADVANCE,cfns), 4000);
     NCSinit();
   }
 }
-
-function cfnm() {
+function cfns(data) {
+  console.log(data.media.cid);
+  console.log(data.media);
+  console.log(data);  
+  ccid = data.media.cid;
+  if($('#NCS-f5').hasClass('enabled')){
+    if(wsongs.indexOf(ccid)!==-1){
+      setTimeout(function(){$('#btn-woot').click();},1500);
+    } else if(msongs.indexOf(ccid)!==-1){
+      setTimeout(function(){$('#btn-meh').click();},1500);
+    }
+  }
+}
+function cfnm(data) {
   if (document.getElementById('messages').lastChild.id !== prevObj) {
     prevObj = document.getElementById('messages').lastChild.id;
     if (document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.slice(0, 4) === '/NCS') {
@@ -76,19 +92,30 @@ function NCScommandSorter(msg, user, element) {
     }
   }
 }
-var NCSsettings = [false, true, false, false];
+var NCSsettings = [false, true, false, false,false];
 window.addEventListener('beforeunload', function() {
-  localStorage.setItem('NCSlocalSettings', JSON.stringify(NCSsettings))
+  localStorage.setItem('NCSlocalSettings', JSON.stringify(NCSsettings));
+  localStorage.setItem('NCSsmartWoot', JSON.stringify(wsongs));
+  localStorage.setItem('NCSsmartMeh', JSON.stringify(msongs));
 });
 if (typeof(Storage) === "undefined") {
   alert("Unfortunately, your browser does not support local storage. Your NCS settings will not be saved. Please use a modern version of Chrome, Firefox, Safari or Opera.")
 }
 if (typeof localStorage.NCSlocalSettings !== undefined) {
   var localSettings = JSON.parse(localStorage.NCSlocalSettings);
-  NCSsettings[0] = localSettings[0];
-  NCSsettings[1] = localSettings[1];
-  NCSsettings[2] = localSettings[2];
-  NCSsettings[3] = localSettings[3]
+  for(i=0;i<localSettings.length;i++){
+    NCSsettings[i] = localSettings[i];
+  }
+}
+if(typeof localStorage.NCSsmartWoot!==undefined){
+  var localWoot = JSON.parse(localStorage.NCSsmartWoot);
+  var localMeh = JSON.parse(localStorage.NCSsmartMeh);
+  for(i=0;i<localWoot.length;i++){
+    wsongs.push(localWoot[i]);
+  }
+  for(i=0;i<localMeh.length;i++){
+    msongs.push(localMeh[i]);
+  }
 }
 
 function NCSinit() {
@@ -111,6 +138,7 @@ function NCSinit() {
   $('#NCS-menu').append('<div id="NCS-f2" class="disabled animated NCSf" style="top:34px;">Custom Theme<span id="NCS-f2c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f3" class="disabled animated NCSf" style="top:68px;">Desktop Notifications<span id="NCS-f3c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f4" class="disabled animated NCSf" style="top:102px;">Remove Video Player<span id="NCS-f4c" class="NCS-checkmark" style="display:none"/></div>');
+  $('#NCS-menu').append('<div id="NCS-f5" class="disabled animated NCSf" style="top:136px;">Smartvote<span id="NCS-f5c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-btn').on('click', function() {
     if ($('#NCS-menu').css('display') === 'block') {
       $('#' + lastSelected.split('-button')[0]).css('display', 'block');
@@ -144,6 +172,9 @@ function NCSinit() {
   }
   if (NCSsettings[3]) {
     $('#NCS-f4').click()
+  }
+  if(NCSsettings[4]){
+    $('#NCS-f5').click()
   }
   window.addEventListener('beforeunload', function() {
     if ($('#NCS-f5').hasClass('enabled')) {
@@ -211,6 +242,55 @@ function NCSfeatures(eventData) {
       $('#messages')[0].scrollIntoView(false);
       NCSsettings[3] = false;
       $('#NCS-f4').removeClass('enabled').addClass('disabled')
+    }
+  } else if (eventData.target.id === 'NCS-f5') {
+    if ($('#NCS-f5').hasClass('disabled')) {
+      if (typeof(Storage) === "undefined") {
+        alert("Unfortunately, your browser does not support local storage. SmartVote will not work. Please use a modern version of Chrome, Firefox, Safari or Opera.");
+      } else if(!$('#player')){
+        alert("SmartVote doesn't work when the video player is removed. We are sorry for the inconvenience.");
+      } else {
+        document.getElementById('btn-woot').addEventListener('click',voteclick);
+        document.getElementById('btn-meh').addEventListener('click',voteclick);
+        $('#NCS-f5c').css('display', 'block');
+        NCSsettings[4] = true;
+        $('#NCS-f5').removeClass('disabled').addClass('enabled')
+      }
+    } else {
+      document.getElementById('btn-woot').removeEventListener('click',voteclick);
+      document.getElementById('btn-meh').removeEventListener('click',voteclick);
+      $('#NCS-f5c').css('display', 'none');
+      NCSsettings[4] = false;
+      $('#NCS-f5').removeClass('enabled').addClass('disabled')
+    }
+  }
+}
+function voteclick(e){
+  if(e.target.offsetParent.id==='btn-woot'||e.target.id==='btn-woot'){
+    if(e.target.offsetParent.className==='active'){
+      if(wsongs.indexOf(ccid)===-1&&ccid!==undefined){
+        wsongs.push(ccid);
+      }
+      if(msongs.indexOf(ccid)!==-1&&ccid!==undefined){
+        msongs.splice(msongs.indexOf(ccid),1);
+      }
+    } else {
+      if(wsongs.indexOf(ccid)!==-1&&ccid!==undefined){
+        wsongs.splice(wsongs.indexOf(ccid),1);
+      }
+    }
+  } else if(e.target.offsetParent.id==='btn-meh'||e.target.id==='btn-meh'){
+    if(e.target.offsetParent.className==='active'){
+      if(msongs.indexOf(ccid)===-1&&ccid!==undefined){
+        msongs.push(ccid);
+      }
+      if(wsongs.indexOf(ccid)!==-1&&ccid!==undefined){
+        wsongs.splice(wsongs.indexOf(ccid),1);
+      }
+    } else {
+      if(msongs.indexOf(ccid)!==-1&&ccid!==undefined){
+        msongs.splice(msongs.indexOf(ccid),1);
+      }
     }
   }
 }
