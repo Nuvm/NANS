@@ -1,6 +1,6 @@
 var version = '0.2.8 | Custom Backgrounds!';
 var startUpMsg = "Welcome to NCS version " + version + "!";
-var newFeaturesMsg = "SmartVote and Custom Backgrounds!<a href='https://electricgaming.ga/ncs/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
+var newFeaturesMsg = "SmartVote!<br><a href='https://electricgaming.ga/ncs/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
 var uname;
 var lastSelected;
@@ -78,6 +78,7 @@ function NCScommandSorter(msg, user, element) {
     if (user.innerHTML === 'Nuvm' || user.innerHTML === 'CSxKING' || user.innerHTML === 'Pixel') {
       $('#messages').append('<center class="NCSalert cm log mention animated fadeInLeftBig" style="color:whitesmoke;text-align:center;font-weight:200;font-size:46;padding:5px;">A new update is available for NCS!<br><span style="font-weight:100;font-size:28">Refresh your page to get the latest update!</span></center>');
       document.getElementById("chat-sound-1").play();
+      
       setTimeout(function() {
         $(element).remove()
       }, 50)
@@ -220,7 +221,7 @@ function NCSfeatures(eventData) {
   } else if (eventData.target.id === 'NCS-f3') {
     if ($('#NCS-f3').hasClass('disabled')) {
       if (!Notification) {
-        alert('Please use a modern version of Chrome, Firefox, Opera or Firefox.')
+        alert('[NCS] You do not have notifications and therefore this option is not available. Please use a modern version of Chrome, Firefox, Opera or Firefox.')
       } else if (Notification.permission !== "granted") {
         Notification.requestPermission()
       } else {
@@ -253,9 +254,9 @@ function NCSfeatures(eventData) {
   } else if (eventData.target.id === 'NCS-f5') {
     if ($('#NCS-f5').hasClass('disabled')) {
       if (typeof(Storage) === "undefined") {
-        alert("Unfortunately, your browser does not support local storage. SmartVote will not work. Please use a modern version of Chrome, Firefox, Safari or Opera.");
+        alert("[NCS] Unfortunately, your browser does not support local storage. SmartVote will not work. Please use a modern version of Chrome, Firefox, Safari or Opera.");
       } else if(!document.getElementById('player')){
-        alert("SmartVote doesn't work when the video player is removed. We are sorry for the inconvenience.");
+        alert("[NCS] SmartVote doesn't work when the video player is removed. We are sorry for the inconvenience.");
       } else {
         document.getElementById('btn-woot').addEventListener('click',voteclick);
         document.getElementById('btn-meh').addEventListener('click',voteclick);
@@ -274,8 +275,8 @@ function NCSfeatures(eventData) {
     if ($('#NCS-f6').hasClass('disabled')) {
       $('#notifications')[0].style.display='block';
       $('#NCS-notif').css('display','block');
-      $('#NCS-notif-title-text')[0].innerHTML = '<b>[NCS]</b> Custom Background';
-      $('#NCS-notif-content-text')[0].innerHTML = '<input type="text" placeholder="PNG/JPG/JPEG/GIF Image URL (ideally 1600x900)" id="NCS-customBgInput" value="" style="margin:20px;"/>';
+      $('#NCS-notif-title-text')[0].innerHTML = '<b>[NCS]</b> Settings';
+      $('#NCS-notif-content-text')[0].innerHTML = '<span style="marge:20px">Custom Background:</span><input type="text" placeholder="PNG/JPG/JPEG/GIF Image URL (ideally 1600x900)" id="NCS-customBgInput" value="" style="margin:20px;"/>';
       $('#NCS-customBgInput')[0].addEventListener('blur',function(){if(/^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/ig.test($('#NCS-customBgInput')[0].value)){previousBg=$('#img')[0].style.backgroundImage;$('#img')[0].style.backgroundImage = 'url('+$('#NCS-customBgInput')[0].value+')';$('#NCS-f6c').css('display','block');$('#NCS-f6').removeClass('disabled').addClass('enabled');NCSsettings[5]=$('#NCS-customBgInput')[0].value;}else{alert('Not a valid image URL.');}});
     } else {
       $('#img')[0].style.backgroundImage = previousBg;
