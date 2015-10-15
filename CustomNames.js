@@ -30,7 +30,7 @@ function cfun(){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
       $(unamestuff).before('<i id='+("icon-NCS"+i)+' class="icon" style="background-image:none"></i>');
-      document.getElementById('icon-04NCS'+i).style.backgroundImage = "url('http://i.imgur.com/Wyh8Mbv.png')";
+      document.getElementById('icon-NCS'+i).style.backgroundImage = "url('http://i.imgur.com/Wyh8Mbv.png')";
       unamestuff.style.color='#EA6900';
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Nuvm'){
