@@ -1,6 +1,6 @@
-var version = '0.2.7 | Now with SmartVote (WIP)!';
+var version = '0.2.8 | Custom Backgrounds!';
 var startUpMsg = "Welcome to NCS version " + version + "!";
-var newFeaturesMsg = "The theme should now be fixed!<br>Chat bugs should be fixed!<br><a href='https://electricgaming.ga/ncs/' target='_blank'>The NCS Website is now online!</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>Click here to get our NCS autoloader for Tampermonkey / Greasemonkey!</a>";
+var newFeaturesMsg = "SmartVote and Custom Backgrounds!<a href='https://electricgaming.ga/ncs/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
 var uname;
 var lastSelected;
@@ -12,6 +12,7 @@ var rotateDeg = 0;
 var rotateDeg2 = 0;
 var checkIfReady;
 var ccid;
+var previousBg;
 var wsongs = [];
 var msongs = [];
 setTimeout(function() {
@@ -39,9 +40,6 @@ function start() {
   }
 }
 function cfns(data) {
-  console.log(data.media.cid);
-  console.log(data.media);
-  console.log(data);  
   ccid = data.media.cid;
   if($('#NCS-f5').hasClass('enabled')){
     if(wsongs.indexOf(ccid)!==-1){
@@ -79,6 +77,7 @@ function NCScommandSorter(msg, user, element) {
   if (msg === 'updateAlert') {
     if (user.innerHTML === 'Nuvm' || user.innerHTML === 'CSxKING' || user.innerHTML === 'Pixel') {
       $('#messages').append('<center class="NCSalert cm log mention animated fadeInLeftBig" style="color:whitesmoke;text-align:center;font-weight:200;font-size:46;padding:5px;">A new update is available for NCS!<br><span style="font-weight:100;font-size:28">Refresh your page to get the latest update!</span></center>');
+      document.getElementById("chat-sound-1").play();
       setTimeout(function() {
         $(element).remove()
       }, 50)
@@ -86,13 +85,14 @@ function NCScommandSorter(msg, user, element) {
   } else if (msg.slice(0, 13) === 'globalMessage') {
     if (user.innerHTML === 'Nuvm' || user.innerHTML === 'CSxKING' || user.innerHTML === 'Pixel') {
       $('#messages').append('<center class="NCSalert cm log mention animated fadeInLeftBig" style="color:whitesmoke;text-align:center;font-weight:150;font-size:30;">[' + user.innerHTML + '] says: ' + msg.slice(13, 255) + '</center>');
+      document.getElementById("chat-sound-1").play();
       setTimeout(function() {
         $(element).remove()
       }, 50)
     }
   }
 }
-var NCSsettings = [false, true, false, false,false];
+var NCSsettings = [false, true, false, false,false,false];
 window.addEventListener('beforeunload', function() {
   localStorage.setItem('NCSlocalSettings', JSON.stringify(NCSsettings));
   localStorage.setItem('NCSsmartWoot', JSON.stringify(wsongs));
@@ -119,6 +119,8 @@ if(typeof localStorage.NCSsmartWoot!==undefined){
 }
 
 function NCSinit() {
+  $('#notifications').append('<div id="NCS-notif" class="notification" style="display:none"><div class="notif-title"><img src="http://i.imgur.com/5ThdRUd.png" class="notif-icon"><span id="NCS-notif-title-text" class="notif-title-text"></span><img id="NCS-notif-close" src="img/close.png" class="notif-close"></div><div id="NCS-notif-content" class="notif-content"><div id="NCS-notif-content-text" class="notif-content-text"></div></div></div>');
+  $('#NCS-notif-close').on('click',function(){$('#NCS-notif').css('display','none');$('#notifications').css('display','none');});
   $('#chat-button').parent().append('<div id="NCS-btn" class="animated" style="transform:rotate(0deg);background-image:none;height:30px;width:30px;float:right;margin-right:5px;-webkit-user-select: none;"></div>');
   $('#NCS-btn').append('<div id="NCS-name" style="position:absolute;transform:rotate(0deg);font-family:IM Fell English SC;color:black;bottom:10px;text-shadow:0px 0px 2px #FFD700;"><b>NCS</b></div>');
   $('.navbar.header').append('<a href="http://electricgaming.ga/forums/en/forumdisplay.php?fid=24" target="_blank"><button id="THEME_BUG" class="nav-form nav-right">[NCS] Report an Issue</button></a>');
@@ -139,6 +141,7 @@ function NCSinit() {
   $('#NCS-menu').append('<div id="NCS-f3" class="disabled animated NCSf" style="top:68px;">Desktop Notifications<span id="NCS-f3c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f4" class="disabled animated NCSf" style="top:102px;">Remove Video Player<span id="NCS-f4c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f5" class="disabled animated NCSf" style="top:136px;">Smartvote<span id="NCS-f5c" class="NCS-checkmark" style="display:none"/></div>');
+  $('#NCS-menu').append('<div id="NCS-f6" class="disabled animated NCSf" style="top:170px;">Custom Background<span id="NCS-f6c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-btn').on('click', function() {
     if ($('#NCS-menu').css('display') === 'block') {
       $('#' + lastSelected.split('-button')[0]).css('display', 'block');
@@ -157,9 +160,10 @@ function NCSinit() {
       $('#NCS-menu').css('display', 'none')
     }
   });
-  $('#NCS-f1,#NCS-f2,#NCS-f3,#NCS-f4,#NCS-f5').on('click', NCSfeatures);
+  $('#NCS-f1,#NCS-f2,#NCS-f3,#NCS-f4,#NCS-f5,#NCS-f6').on('click', NCSfeatures);
   $('head').append('<style type="text/css">#NCS-btn:hover{cursor:pointer;background-color:grey;}.NCS-checkmark{float:right;background-image:url("http://i.imgur.com/rF5fHxr.png");background-repeat:no-repeat;height:15px;width:15px;margin-right:25px;}.NCSf{height:15px;word-wrap:break-word;opacity:0.8;padding-top:9.5px;padding-bottom:9.5px;padding-left:15px;color:white;}.NCSf:hover{cursor:pointer;box-shadow:inset 0px 0px 9px 1px rgba(255,255,255,0.8);}</style>');
   $('#messages').append('<center id="NCS-startupmsg" class="cm log mention animated flip" style="color:whitesmoke;text-align:center;font-weight:200;font-size:120%;padding:30px;">' + startUpMsg + '<br><span style="font-weight:100;font-size:85%">' + newFeaturesMsg + '</span></center>');
+  document.getElementById("chat-sound-1").play();
   $('#messages')[0].scrollIntoView(false);
   if (NCSsettings[0]) {
     $('#NCS-f1').click()
@@ -176,11 +180,12 @@ function NCSinit() {
   if(NCSsettings[4]){
     $('#NCS-f5').click()
   }
-  window.addEventListener('beforeunload', function() {
-    if ($('#NCS-f5').hasClass('enabled')) {
-      return '[NCS] Accidental Navigation Prevention'
-    }
-  })
+  if(NCSsettings[5]!==false){
+    previousBg=$('#img')[0].style.backgroundImage;
+    $('#img')[0].style.backgroundImage = 'url('+NCSsettings[5]+')';
+    $('#NCS-f6c').css('display','block');
+    $('#NCS-f6').removeClass('disabled').addClass('enabled');
+  }
 }
 
 function NCSfeatures(eventData) {
@@ -233,12 +238,14 @@ function NCSfeatures(eventData) {
       $('#NCS-f4c').css('display', 'block');
       $('#player').remove();
       $('#messages').append('<center class="NCSalert cm log mention animated fadeInLeftBig" style="color:whitesmoke;text-align:center;font-weight:150;font-size:30;">You will have to disable this option and refresh in order to have the video player back. Sorry, this is how it works currently!</center>');
+      document.getElementById("chat-sound-1").play();
       $('#messages')[0].scrollIntoView(false);
       NCSsettings[3] = true;
       $('#NCS-f4').removeClass('disabled').addClass('enabled')
     } else {
       $('#NCS-f4c').css('display', 'none');
       $('#messages').append('<center class="NCSalert cm log mention animated fadeInLeftBig" style="color:whitesmoke;text-align:center;font-weight:150;font-size:30;">Refresh the page to get the video player back!</center>');
+      document.getElementById("chat-sound-1").play();
       $('#messages')[0].scrollIntoView(false);
       NCSsettings[3] = false;
       $('#NCS-f4').removeClass('enabled').addClass('disabled')
@@ -247,7 +254,7 @@ function NCSfeatures(eventData) {
     if ($('#NCS-f5').hasClass('disabled')) {
       if (typeof(Storage) === "undefined") {
         alert("Unfortunately, your browser does not support local storage. SmartVote will not work. Please use a modern version of Chrome, Firefox, Safari or Opera.");
-      } else if(!$('#player')){
+      } else if(!document.getElementById('player')){
         alert("SmartVote doesn't work when the video player is removed. We are sorry for the inconvenience.");
       } else {
         document.getElementById('btn-woot').addEventListener('click',voteclick);
@@ -262,6 +269,19 @@ function NCSfeatures(eventData) {
       $('#NCS-f5c').css('display', 'none');
       NCSsettings[4] = false;
       $('#NCS-f5').removeClass('enabled').addClass('disabled')
+    }
+  } else if (eventData.target.id === 'NCS-f6') {
+    if ($('#NCS-f6').hasClass('disabled')) {
+      $('#notifications')[0].style.display='block';
+      $('#NCS-notif').css('display','block');
+      $('#NCS-notif-title-text')[0].innerHTML = '<b>[NCS]</b> Custom Background';
+      $('#NCS-notif-content-text')[0].innerHTML = '<input type="text" placeholder="PNG/JPG/JPEG/GIF Image URL (ideally 1600x900)" id="NCS-customBgInput" value="" style="margin:20px;"/>';
+      $('#NCS-customBgInput')[0].addEventListener('blur',function(){if(/^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/ig.test($('#NCS-customBgInput')[0].value)){previousBg=$('#img')[0].style.backgroundImage;$('#img')[0].style.backgroundImage = 'url('+$('#NCS-customBgInput')[0].value+')';$('#NCS-f6c').css('display','block');$('#NCS-f6').removeClass('disabled').addClass('enabled');NCSsettings[5]=$('#NCS-customBgInput')[0].value;}else{alert('Not a valid image URL.');}});
+    } else {
+      $('#img')[0].style.backgroundImage = previousBg;
+      $('#NCS-f6c').css('display', 'none');
+      NCSsettings[5] = false;
+      $('#NCS-f6').removeClass('enabled').addClass('disabled')
     }
   }
 }
