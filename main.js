@@ -57,19 +57,7 @@ function cfnm(data) {
       NCScommandSorter(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerText, document.getElementById('messages').lastChild.getElementsByClassName('uname')[0], document.getElementById('messages').lastChild)
     }
     if ($('#NCS-f3').hasClass('enabled') && !document.hasFocus()) {
-      if($('#NCS-f7').hasClass('enabled')){
-        var notif = new Notification('NCS HISTORY ALERT', {
-          icon: 'http://i.imgur.com/5ThdRUd.png',
-          body: 'The current song is in history!'
-        });
-        notif.onclick = function() {
-          window.focus();
-          notif.close()
-        };
-        setTimeout(function() {
-          notif.close()
-        }, 3000)
-      } else if(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.indexOf('@' + uname) !== -1){
+      if(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.indexOf('@' + uname) !== -1){
         var notif = new Notification(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML, {
           icon: 'http://i.imgur.com/5ThdRUd.png',
           body: document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerText
@@ -200,7 +188,7 @@ function NCSinit() {
         $('#NCS-f6c').css('display','block');
         $('#NCS-f6').removeClass('disabled').addClass('enabled');
       }
-    } else {
+    } else if(NCSsettings[i]){
       $('#NCS-f'+(i+1)).click();
     }
   }
