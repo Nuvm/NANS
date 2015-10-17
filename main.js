@@ -3,8 +3,8 @@ var startUpMsg = "Welcome to NCS version " + version + "!";
 var newFeaturesMsg = "SmartVote!<br>History alert!<br><a href='https://electricgaming.ga/ncs/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
 var uname,lastSelected,prevObj,unamestuff,unameicon,checkIfReady,ccid,previousBg;
-var rotateDeg,rotateDeg2 = 0;
-var wsongs,msongs,songHistory = [];
+var rotateDeg = 0,rotateDeg2 = 0;
+var wsongs = [],msongs = [],songHistory = [];
 setTimeout(function() {
   checkIfReady = setInterval(function() {
     if (document.getElementsByClassName('loading').length !== 1) {
