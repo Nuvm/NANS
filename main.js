@@ -4,7 +4,7 @@ var newFeaturesMsg = "SmartVote!<br>History alert!<br><a href='https://electricg
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
 var uname,lastSelected,prevObj,unamestuff,unameicon,checkIfReady,ccid,previousBg;
 var rotateDeg,rotateDeg2 = 0;
-var wsongs,msongs = [];
+var wsongs,msongs,songHistory = [];
 setTimeout(function() {
   checkIfReady = setInterval(function() {
     if (document.getElementsByClassName('loading').length !== 1) {
@@ -297,7 +297,8 @@ function NCSfeatures(eventData) {
     } else {
       $('#NCS-f7c').css('display', 'none');
       NCSsettings[6] = false;
-      $('#NCS-f7').removeClass('enabled').addClass('disabled')
+      $('#NCS-f7').removeClass('enabled').addClass('disabled');
+      songHistory = [];
     }
   }
 }
