@@ -86,4 +86,13 @@ function cfun(){
       $(unamestuff).removeClass('rank-2');
       unamestuff.style.color='#FF0000';
     }
+    if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Elusive'){
+      i++;
+      unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
+      unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
+      $(unameicon).before('<i id='+("icon-NCS"+i)+' class="icon" style="background-image:none"></i>');
+      document.getElementById('icon-NCS'+i).style.backgroundImage = "url('http://i.imgur.com/S1HQJ1a.png?1')";
+      $(unamestuff).removeClass('rank-2');
+      unamestuff.style.color='#FFFF00';
+    }
 }
