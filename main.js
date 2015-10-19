@@ -27,7 +27,7 @@ function start() {
     setTimeout(API.on(API.events.ADVANCE,cfns), 4000);
     NCSinit();
   }
-}
+} 
 function cfns(data) {
   ccid = data.media.cid;
   if($('#NCS-f5').hasClass('enabled')){
