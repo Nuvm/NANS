@@ -1,10 +1,11 @@
-var version = '0.3 | Tons of shit!';
+var version = '0.4 | OMG SEARCH YOUTUBE';
 var startUpMsg = "Welcome to NCS version " + version + "!";
-var newFeaturesMsg = "SmartVote!<br>History alert!<br><a href='https://electricgaming.ga/ncs/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
+var newFeaturesMsg = "Search YouTube!<br>Custom Backgrounds!<br>History Alert!<br><a href='https://electricgaming.ga/ncs/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
-var uname,lastSelected,prevObj,unamestuff,unameicon,checkIfReady,ccid,previousBg;
-var rotateDeg = 0,rotateDeg2 = 0;
-var wsongs = [],msongs = [],songHistory = [];
+var uname,lastSelected,prevObj,unamestuff,unameicon,checkIfReady,ccid,previousBg,ytNextPage, ytPrevPage, ytPage;
+var ytCurPage = 0,rotateDeg = 0,rotateDeg2 = 0;
+var wsongs = [],msongs = [],ytSearchResults = [],songHistory = [];
+var apiKey = 'AIzaSyARvwirFktEIi_BTaKcCi9Ja-m3IEJYIRk';
 setTimeout(function() {
   checkIfReady = setInterval(function() {
     if (document.getElementsByClassName('loading').length !== 1) {
@@ -17,12 +18,13 @@ function start() {
   $.getScript('https://rawgit.com/Nuvm/NCS/master/CustomNames.js');
   clearInterval(checkIfReady);
   if ($('#NCS-menu')[0] || $('#NCS-btn')[0] || $('#THEME_BUG')[0]) {
-    $('#messages').append('<center class="NCSalert cm log mention animated fadeInLeftBig" style="color:whitesmoke;text-align:center;font-weight:150;font-size:30;">' + errorMsg + '</center>')
+    $('#messages').append('<center class="NCSalert cm log mention" style="color:whitesmoke;text-align:center;font-weight:150;font-size:30;">' + errorMsg + '</center>')
   } else {
     console.log('[NCS] Started!');
     uname = document.getElementsByClassName('navbar header')[0].getElementsByClassName('nav-form nav-right')[0].getElementsByTagName('p')[0].innerHTML;
     $('head').append('<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/daneden/animate.css/master/animate.min.css">');
     $('head').append('<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=IM+Fell+English+SC">');
+    $('head').append('<script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>');
     setTimeout(API.on(API.events.CHAT, cfnm), 4000);
     setTimeout(API.on(API.events.ADVANCE,cfns), 4000);
     NCSinit();
@@ -30,13 +32,13 @@ function start() {
 } 
 function cfns(data) {
   ccid = data.media.cid;
-  if($('#NCS-f5').hasClass('enabled')){
+  /*if($('#NCS-f5').hasClass('enabled')){
     if(wsongs.indexOf(ccid)!==-1){
       setTimeout(function(){$('#btn-woot').click();},1500);
     } else if(msongs.indexOf(ccid)!==-1){
       setTimeout(function(){$('#btn-meh').click();},1500);
     }
-  }
+  }*/
   if($('#NCS-f7').hasClass('enabled')){
     for(i=0;i<songHistory.length;i++){
       if(songHistory[i].cid==data.media.cid){
@@ -77,26 +79,32 @@ function cfnm(data) {
 
 function NCScommandSorter(msg, user, element) {
   msg = msg.slice(4, 255);
-  if (msg === 'updateAlert') {
+  if (msg === 'update') {
     if (user.innerHTML === 'Nuvm' || user.innerHTML === 'CSxKING' || user.innerHTML === 'Pixel') {
-      $('#messages').append('<center class="NCSalert cm log mention animated fadeInLeftBig" style="color:whitesmoke;text-align:center;font-weight:200;font-size:46;padding:5px;">A new update is available for NCS!<br><span style="font-weight:100;font-size:28">Refresh your page to get the latest update!</span></center>');
-      document.getElementById("chat-sound-1").play();
-      
+      $('#messages').append('<center class="NCSalert cm log mention" style="color:whitesmoke;text-align:center;font-weight:200;font-size:46;padding:5px;">A new update is available for NCS!<br><span style="font-weight:100;font-size:28">Refresh your page to get the latest update!</span></center>');
+      $('#chat-sound-1')[0].play();
       setTimeout(function() {
         $(element).remove()
       }, 50)
     }
-  } else if (msg.slice(0, 13) === 'globalMessage') {
+  } else if(msg.slice(0, 13) === 'message'){
     if (user.innerHTML === 'Nuvm' || user.innerHTML === 'CSxKING' || user.innerHTML === 'Pixel') {
-      $('#messages').append('<center class="NCSalert cm log mention animated fadeInLeftBig" style="color:whitesmoke;text-align:center;font-weight:150;font-size:30;">[' + user.innerHTML + '] says: ' + msg.slice(13, 255) + '</center>');
-      document.getElementById("chat-sound-1").play();
+      $('#messages').append('<center class="NCSalert cm log mention" style="color:whitesmoke;text-align:center;font-weight:150;font-size:30;">[' + user.innerHTML + '] says: ' + msg.slice(13, 255) + '</center>');
+      setTimeout(function() {
+        $(element).remove()
+      }, 50)
+    }
+  } else if(msg.slice(0,5)==='alert'){
+    if(user.innerHTML === 'Nuvm'||user.innerHTML==='CSxKING'||user.innerHTML==='Pixel'){
+      $('#messages').append('<center class="NCSalert cm log mention" style="color:whitesmoke;text-align:center;font-weight:500;font-size:46;"><b>[NCS ALERT]</b><br> '+msg.slice(5,255)+'</center>');
+      $('#chat-sound-1')[0].play();
       setTimeout(function() {
         $(element).remove()
       }, 50)
     }
   }
 }
-var NCSsettings = [false, true, false, false,false,false,false];
+var NCSsettings = [false, false, false, false,false,false,false,false];
 window.addEventListener('beforeunload', function() {
   localStorage.setItem('NCSlocalSettings', JSON.stringify(NCSsettings));
   localStorage.setItem('NCSsmartWoot', JSON.stringify(wsongs));
@@ -133,7 +141,7 @@ function NCSinit() {
     }     
     $('#volumePercent').text(player.getVolume()+'%'); 
   });
-  $('#notifications').append('<div id="NCS-notif" class="notification" style="display:none"><div class="notif-title"><img src="http://i.imgur.com/5ThdRUd.png" class="notif-icon"><span id="NCS-notif-title-text" class="notif-title-text"></span><img id="NCS-notif-close" src="img/close.png" class="notif-close"></div><div id="NCS-notif-content" class="notif-content"><div id="NCS-notif-content-text" class="notif-content-text"></div></div></div>');
+  $('#notifications').append('<div id="NCS-notif" class="notification" style="display:none"><div class="notif-title"><img src="http://i.imgur.com/5ThdRUd.png" class="notif-icon"><span id="NCS-notif-title-text" class="notif-title-text"></span><img id="NCS-notif-close" src="img/close.png" class="notif-close"></div><div id="NCS-notif-content" style="overflow-y:auto;overflow-x:hidden;" class="notif-content"><div id="NCS-notif-content-text" style="top:50px;position:absolute;" class="notif-content-text"></div></div></div>');
   $('#NCS-notif-close').on('click',function(){$('#NCS-notif').css('display','none');$('#notifications').css('display','none');});
   $('#chat-button').parent().append('<div id="NCS-btn" class="animated" style="transform:rotate(0deg);background-image:none;height:30px;width:30px;float:right;margin-right:5px;-webkit-user-select: none;"></div>');
   $('#NCS-btn').append('<div id="NCS-name" style="position:absolute;transform:rotate(0deg);font-family:IM Fell English SC;color:black;bottom:10px;text-shadow:0px 0px 2px #FFD700;"><b>NCS</b></div>');
@@ -177,7 +185,7 @@ function NCSinit() {
     }
   });
   $('#NCS-f1,#NCS-f2,#NCS-f3,#NCS-f4,'/*#NCS-f5,*/+'#NCS-f6,#NCS-f7,#NCS-f8').on('click', NCSfeatures);
-  $('head').append('<style type="text/css">#NCS-btn:hover{cursor:pointer;background-color:grey;}.NCS-checkmark{float:right;background-image:url("http://i.imgur.com/rF5fHxr.png");background-repeat:no-repeat;height:15px;width:15px;margin-right:25px;}.NCSf{height:15px;word-wrap:break-word;opacity:0.8;padding-top:9.5px;padding-bottom:9.5px;padding-left:15px;color:white;}.NCSf:hover{cursor:pointer;box-shadow:inset 0px 0px 9px 1px rgba(255,255,255,0.8);}</style>');
+  $('head').append('<style type="text/css">#NCS-btn:hover{cursor:pointer;background-color:grey;}.NCS-checkmark{float:right;background-image:url("http://i.imgur.com/rF5fHxr.png");background-repeat:no-repeat;height:15px;width:15px;margin-right:25px;}.NCSf{height:15px;word-wrap:break-word;opacity:0.8;padding-top:9.5px;padding-bottom:9.5px;padding-left:15px;color:white;}.NCSf:hover{cursor:pointer;box-shadow:inset 0px 0px 9px 1px rgba(255,255,255,0.8);}.NCScopiable{height:30px;text-align:left;padding:30px;padding-bottom:34px;overflow-wrap:break-word;display:block;}</style>');
   $('#messages').append('<center id="NCS-startupmsg" class="cm log mention animated flip" style="color:whitesmoke;text-align:center;font-weight:200;font-size:120%;padding:30px;">' + startUpMsg + '<br><span style="font-weight:100;font-size:85%">' + newFeaturesMsg + '</span></center>');
   document.getElementById("chat-sound-1").play();
   $('#messages')[0].scrollIntoView(false);
@@ -189,7 +197,7 @@ function NCSinit() {
         $('#NCS-f6c').css('display','block');
         $('#NCS-f6').removeClass('disabled').addClass('enabled');
       }
-    } else if(NCSsettings[i]){
+    } else if(NCSsettings[i]&&i!==7){
       $('#NCS-f'+(i+1)).click();
     }
   }
@@ -257,7 +265,7 @@ function NCSfeatures(eventData) {
       NCSsettings[3] = false;
       $('#NCS-f4').removeClass('enabled').addClass('disabled')
     }
-  } else if (eventData.target.id === 'NCS-f5') {
+  }/* else if (eventData.target.id === 'NCS-f5') {
     if ($('#NCS-f5').hasClass('disabled')) {
       if (typeof(Storage) === "undefined") {
         alert("[NCS] Unfortunately, your browser does not support local storage. SmartVote will not work. Please use a modern version of Chrome, Firefox, Safari or Opera.");
@@ -277,7 +285,7 @@ function NCSfeatures(eventData) {
       NCSsettings[4] = false;
       $('#NCS-f5').removeClass('enabled').addClass('disabled')
     }
-  } else if (eventData.target.id === 'NCS-f6') {
+  }*/ else if (eventData.target.id === 'NCS-f6') {
     if ($('#NCS-f6').hasClass('disabled')) {
       $('#notifications')[0].style.display='block';
       $('#NCS-notif').css('display','block');
@@ -305,17 +313,27 @@ function NCSfeatures(eventData) {
     $('#notifications')[0].style.display='block';
     $('#NCS-notif').css('display','block');
     $('#NCS-notif-title-text')[0].innerHTML = '<b>[NCS]</b> Settings';
-    $('#NCS-notif-content-text')[0].innerHTML = '<div id="NCS-ft-container-customBg" style="display:none"><input id="NCS-ft-checkbox-customBg" type="checkbox"/><span style="margin:20px;">Custom Background:</span><input style="float:right;" type="text" placeholder="PNG/JPG/JPEG/GIF Image URL (ideally 1600x900)" id="NCS-customBgInput" value="" style="margin:20px;"/></div>';
-    $('#NCS-customBgInput')[0].addEventListener('blur',function(){if(/^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/ig.test($('#NCS-customBgInput')[0].value)){previousBg=$('#img')[0].style.backgroundImage;$('#img')[0].style.backgroundImage = 'url('+$('#NCS-customBgInput')[0].value+')';$('#NCS-f6c').css('display','block');$('#NCS-f6').removeClass('disabled').addClass('enabled');NCSsettings[5]=$('#NCS-customBgInput')[0].value;}else{alert('Not a valid image URL.');}});
+    $('#NCS-notif-content-text')[0].innerHTML = '<div id="NCS-ft-container-customBg"><input id="NCS-ft-checkbox-customBg" type="checkbox"/><span style="margin:10px;">Custom Background:</span><input style="float:right;" type="text" placeholder="PNG/JPG/JPEG/GIF Image URL (ideally 1600x900)" id="NCS-customBgInput" value="" style="margin:20px;"/></div>';
+    $('#NCS-customBgInput')[0].addEventListener('blur',function(){if(/^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/ig.test($('#NCS-customBgInput')[0].value)){previousBg=$('#img')[0].style.backgroundImage;$('#img')[0].style.backgroundImage = 'url('+$('#NCS-customBgInput')[0].value+')';$('#NCS-f6c').css('display','block');$('#NCS-f6').removeClass('disabled').addClass('enabled');NCSsettings[5]=$('#NCS-customBgInput')[0].value;$('#NCS-customBgInput')[0].value=NCSsettings[5];}else{alert('Not a valid image URL.');}});
     if($('#NCS-f6').hasClass('enabled')){
       $('#NCS-ft-checkbox-customBg')[0].checked=true;
+      $('#NCS-customBgInput')[0].value = NCSsettings[5];
     } else {
       $('#NCS-ft-checkbox-customBg')[0].checked=false;
+      $('#NCS-customBgInput')[0].value = '';
     }
-    $('#NCS-notif-content-text')[0].innerHTML+='<br><div id="NCS-ft-ytSearch" class="NCSf" style="display:none"></div>';
-  } else if(eventData.target.id === 'NCS-ft-ytSearch'){
-    $('#NCS-notif-content-text')[0].innerHTML="";
+    $('#NCS-notif-content-text')[0].innerHTML+='<br><div id="NCS-ft-ytSearch" class="NCSf" onclick="ytAppend()">Search YouTube</div>';
   }
+}
+function ytAppend(){
+  if(!NCSsettings[7]){
+    alert('Hey there! To watch a YouTube video, click the thumbnail. Click on a title to join the waitlist with this song. This message will only appear the first time you will use this feature.');
+    NCSsettings[7]=true;
+  }
+  $('#NCS-notif-title-text')[0].innerHTML="<b>[NCS]</b> YouTube Search";
+  $('#NCS-notif-content-text')[0].innerHTML='';
+  $('#NCS-notif-content-text').append('<div id="NCS-yt-search-container" style="position:absolute;top:30px;height:320px;width:580px;overflow-y:auto;"></div>');
+  $('#NCS-notif-content-text').append('<div id="NCS-yt-buttons"><label><input id="NCS-yt-search-query" placeholder="Search YouTube" type="text/css"><button id="NCS-yt-search-button" onclick="makeRequest()">Search</button></label></div>');
 }
 function voteclick(e){
   if(e.target.offsetParent.id==='btn-woot'||e.target.id==='btn-woot'){
@@ -346,3 +364,80 @@ function voteclick(e){
     }
   }
 }
+function makeRequest(e) {
+     $('#NCS-yt-search-container')[0].innerHTML = '';
+     $('#NCS-yt-search-container').append('<div id="NCS-yt-thumbnail-container" style="margin:10px;position:absolute;height:100%;width:120px;float:left;"></div>');
+     $('#NCS-yt-search-container').append('<div id="NCS-yt-title-container" style="margin:10px;margin-left:20px;position:absolute;left:120px;height:100%;"></div>');
+     ytSearchResults = [];
+            var q = $('#NCS-yt-search-query').val();
+            var request = gapi.client.youtube.search.list({
+                       q: q,
+                    part: 'snippet',
+                    maxResults: 15,
+                    pageToken: ytPage,
+                    type: 'video',
+                    safeSearch: 'none',
+                    videoSyndicated: 'true'
+            });
+            request.execute(function(response) {
+                    var str = response.result;
+                    ytNextPage = str.nextPageToken;
+                    ytPrevPage = str.prevPageToken;
+                    for(i=0;i<str.items.length;i++){
+                      $('#NCS-yt-thumbnail-container')[0].innerHTML += '<image src='+str.items[i].snippet.thumbnails.default.url+' aria-label="Click here to go to the youtube page"><a href="https:youtube.com/watch?v=' + str.items[i].id.videoId + '" target="_blank"></a></image>';
+                      $('#NCS-yt-title-container')[0].innerHTML += '<div id="'+str.items[i].id.videoId+'" class="NCScopiable" aria-label="Click to join waitlist & play this song">'+str.items[i].snippet.title+'</div>';
+                    }
+                    $('#NCS-yt-buttons')[0].innerHTML += '<br><div style="float:right;position:absolute;right:10px;" id="NCS-yt-search-changePage"><span id="NCS-yt-search-prevPage" style="color:blue;cursor:pointer;margin:5px"><u>Previous Page</u></span><span id="NCS-yt-search-nextPage" style="color:blue;cursor:pointer;margin:5px"><u>Next Page</u></span>';
+                    if(e&&ytCurPage>0){
+                      $('#NCS-yt-search-prevPage')[0].style.display = 'block';
+                      $('#NCS-yt-search-nextPage')[0].style.display = 'block';
+                    } else {
+                      ytCurPage = 0;
+                      $('#NCS-yt-search-prevPage')[0].style.display = 'none';
+                    }
+                    $('#NCS-yt-search-prevPage').on('click',function(){ytCurPage-=1;ytPage=ytPrevPage;makeRequest(true);});
+                    $('#NCS-yt-search-nextPage').on('click',function(){ytCurPage+=1;ytPage=ytNextPage;makeRequest(true);});
+                    console.log('Current ytCurPage value: '+ytCurPage);
+                    $('.NCScopiable').on('click',cTWI);
+            });
+            
+    }
+function cTWI(e){
+  $.get("https://www.googleapis.com/youtube/v3/videos?id=" + e.target.id + "&key=" + apiKey + "&part=contentDetails", function (data) {
+            var durs = data.items[0].contentDetails.duration.match(/\d+[a-zA-Z]/g);
+            var cid = e.target.id;
+            dur = 0;
+            durs.forEach(function (e, i, a) {
+                var str = durs[i];
+                var op = str.slice(-1);
+                var number = Number(str.substr(0, str.length - 1));
+
+                switch (op) {
+                    case "S":
+                        dur = dur + (number);
+                        break;
+                    case "M":
+                        dur = dur + (number * 60);
+                        break;
+                    case "H":
+                        dur = dur + (number * 60 * 60);
+                        break;
+                }
+            });
+
+            dur = dur * 1000;
+            socket.send(JSON.stringify({
+                name: username,
+                type: 'booth',
+                operation : 'join',
+                data: {
+                    cid: cid,
+                    dur: dur
+                }
+            }));
+        });
+}
+function googleApiClientReady(){
+                gapi.client.setApiKey(apiKey);
+                gapi.client.load('youtube', 'v3');
+        }
