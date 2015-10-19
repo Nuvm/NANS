@@ -150,13 +150,14 @@ function NCSinit() {
   $('#NCS-btn').css('top', '0px').css('right', '0px');
   $('#app-right').append('<div id="NCS-menu" style="display:none;background-color:transparent;box-shadow: inset 0px 0px 10px 4px rgba(255,255,255,0.9);"></div>');
   $('#NCS-menu').css('top', '100%-35').css('height', $('#chat').css('height')).css('width', '100%');
-  $('#NCS-menu').append('<div id="NCS-f1" class="disabled animated NCSf">Hide Video Player<span id="NCS-f1c" class="NCS-checkmark" style="display:none"/></div>');
-  $('#NCS-menu').append('<div id="NCS-f2" class="disabled animated NCSf" style="top:34px;">Custom Theme<span id="NCS-f2c" class="NCS-checkmark" style="display:none"/></div>');
-  $('#NCS-menu').append('<div id="NCS-f3" class="disabled animated NCSf" style="top:68px;">Desktop Notifications<span id="NCS-f3c" class="NCS-checkmark" style="display:none"/></div>');
-  $('#NCS-menu').append('<div id="NCS-f4" class="disabled animated NCSf" style="top:102px;">Remove Video Player<span id="NCS-f4c" class="NCS-checkmark" style="display:none"/></div>');
-  $('#NCS-menu').append('<div id="NCS-f5" class="disabled animated NCSf" style="top:136px;">Smartvote<span id="NCS-f5c" class="NCS-checkmark" style="display:none"/></div>');
-  $('#NCS-menu').append('<div id="NCS-f6" class="disabled animated NCSf" style="top:170px;">Custom Background<span id="NCS-f6c" class="NCS-checkmark" style="display:none"/></div>');
-  $('#NCS-menu').append('<div id="NCS-f7" class="disabled animated NCSf" style="top:204px;">History Alert<span id="NCS-f7c" class="NCS-checkmark" style="display:none"/></div>');
+  $('#NCS-menu').append('<div id="NCS-f1" class="disabled animated NCSf" style="top:34px;">Hide Video Player<span id="NCS-f1c" class="NCS-checkmark" style="display:none"/></div>');
+  $('#NCS-menu').append('<div id="NCS-f2" class="disabled animated NCSf" style="top:68px;">Custom Theme<span id="NCS-f2c" class="NCS-checkmark" style="display:none"/></div>');
+  $('#NCS-menu').append('<div id="NCS-f3" class="disabled animated NCSf" style="top:102px;">Desktop Notifications<span id="NCS-f3c" class="NCS-checkmark" style="display:none"/></div>');
+  $('#NCS-menu').append('<div id="NCS-f4" class="disabled animated NCSf" style="top:136px;">Remove Video Player<span id="NCS-f4c" class="NCS-checkmark" style="display:none"/></div>');
+  //$('#NCS-menu').append('<div id="NCS-f5" class="disabled animated NCSf" style="top:170px;">Smartvote<span id="NCS-f5c" class="NCS-checkmark" style="display:none"/></div>');
+  $('#NCS-menu').append('<div id="NCS-f6" class="disabled animated NCSf" style="top:204px;">Custom Background<span id="NCS-f6c" class="NCS-checkmark" style="display:none"/></div>');
+  $('#NCS-menu').append('<div id="NCS-f7" class="disabled animated NCSf" style="top:238px;">History Alert<span id="NCS-f7c" class="NCS-checkmark" style="display:none"/></div>');
+  $('#NCS-menu').append('<div id="NCS-f8" class="disabled animated NCSf">Custom Options<span id="NCS-f8c" style="display:none"/></div>');
   $('#NCS-btn').on('click', function() {
     if ($('#NCS-menu').css('display') === 'block') {
       $('#' + lastSelected.split('-button')[0]).css('display', 'block');
@@ -175,7 +176,7 @@ function NCSinit() {
       $('#NCS-menu').css('display', 'none')
     }
   });
-  $('#NCS-f1,#NCS-f2,#NCS-f3,#NCS-f4,#NCS-f5,#NCS-f6,#NCS-f7').on('click', NCSfeatures);
+  $('#NCS-f1,#NCS-f2,#NCS-f3,#NCS-f4,'/*#NCS-f5,*/+'#NCS-f6,#NCS-f7,#NCS-f8').on('click', NCSfeatures);
   $('head').append('<style type="text/css">#NCS-btn:hover{cursor:pointer;background-color:grey;}.NCS-checkmark{float:right;background-image:url("http://i.imgur.com/rF5fHxr.png");background-repeat:no-repeat;height:15px;width:15px;margin-right:25px;}.NCSf{height:15px;word-wrap:break-word;opacity:0.8;padding-top:9.5px;padding-bottom:9.5px;padding-left:15px;color:white;}.NCSf:hover{cursor:pointer;box-shadow:inset 0px 0px 9px 1px rgba(255,255,255,0.8);}</style>');
   $('#messages').append('<center id="NCS-startupmsg" class="cm log mention animated flip" style="color:whitesmoke;text-align:center;font-weight:200;font-size:120%;padding:30px;">' + startUpMsg + '<br><span style="font-weight:100;font-size:85%">' + newFeaturesMsg + '</span></center>');
   document.getElementById("chat-sound-1").play();
@@ -299,6 +300,17 @@ function NCSfeatures(eventData) {
       NCSsettings[6] = false;
       $('#NCS-f7').removeClass('enabled').addClass('disabled');
       songHistory = [];
+    }
+  } else if (eventData.target.id === 'NCS-f8') {
+    $('#notifications')[0].style.display='block';
+    $('#NCS-notif').css('display','block');
+    $('#NCS-notif-title-text')[0].innerHTML = '<b>[NCS]</b> Settings';
+    $('#NCS-notif-content-text')[0].innerHTML = '<input id="NCS-ft-checkbox-customBg" type="checkbox"/><span style="margin:20px;display:none">Custom Background:</span><input type="text" placeholder="PNG/JPG/JPEG/GIF Image URL (ideally 1600x900)" id="NCS-customBgInput" value="" style="margin:20px;"/>';
+    $('#NCS-customBgInput')[0].addEventListener('blur',function(){if(/^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/ig.test($('#NCS-customBgInput')[0].value)){previousBg=$('#img')[0].style.backgroundImage;$('#img')[0].style.backgroundImage = 'url('+$('#NCS-customBgInput')[0].value+')';$('#NCS-f6c').css('display','block');$('#NCS-f6').removeClass('disabled').addClass('enabled');NCSsettings[5]=$('#NCS-customBgInput')[0].value;}else{alert('Not a valid image URL.');}});
+    $('#NCS-f8c').css('display', 'block');
+    $('#NCS-f8').removeClass('disabled').addClass('enabled');
+    if($('#NCS-f6').hasClass('enabled')){
+      $('#NCS-ft-checkbox-customBg')[0].checked=true;
     }
   }
 }
