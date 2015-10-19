@@ -305,13 +305,16 @@ function NCSfeatures(eventData) {
     $('#notifications')[0].style.display='block';
     $('#NCS-notif').css('display','block');
     $('#NCS-notif-title-text')[0].innerHTML = '<b>[NCS]</b> Settings';
-    $('#NCS-notif-content-text')[0].innerHTML = '<input id="NCS-ft-checkbox-customBg" type="checkbox"/><span style="margin:20px;display:none">Custom Background:</span><input type="text" placeholder="PNG/JPG/JPEG/GIF Image URL (ideally 1600x900)" id="NCS-customBgInput" value="" style="margin:20px;"/>';
+    $('#NCS-notif-content-text')[0].innerHTML = '<div id="NCS-ft-container-customBg" style="display:none"><input id="NCS-ft-checkbox-customBg" type="checkbox"/><span style="margin:20px;">Custom Background:</span><input style="float:right;" type="text" placeholder="PNG/JPG/JPEG/GIF Image URL (ideally 1600x900)" id="NCS-customBgInput" value="" style="margin:20px;"/></div>';
     $('#NCS-customBgInput')[0].addEventListener('blur',function(){if(/^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/ig.test($('#NCS-customBgInput')[0].value)){previousBg=$('#img')[0].style.backgroundImage;$('#img')[0].style.backgroundImage = 'url('+$('#NCS-customBgInput')[0].value+')';$('#NCS-f6c').css('display','block');$('#NCS-f6').removeClass('disabled').addClass('enabled');NCSsettings[5]=$('#NCS-customBgInput')[0].value;}else{alert('Not a valid image URL.');}});
-    $('#NCS-f8c').css('display', 'block');
-    $('#NCS-f8').removeClass('disabled').addClass('enabled');
     if($('#NCS-f6').hasClass('enabled')){
       $('#NCS-ft-checkbox-customBg')[0].checked=true;
+    } else {
+      $('#NCS-ft-checkbox-customBg')[0].checked=false;
     }
+    $('#NCS-notif-content-text')[0].innerHTML+='<br><div id="NCS-ft-ytSearch" class="NCSf" style="display:none"></div>';
+  } else if(eventData.target.id === 'NCS-ft-ytSearch'){
+    $('#NCS-notif-content-text')[0].innerHTML="";
   }
 }
 function voteclick(e){
