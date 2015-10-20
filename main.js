@@ -87,9 +87,9 @@ function NCScommandSorter(msg, user, element) {
         $(element).remove()
       }, 50)
     }
-  } else if(msg.slice(0, 7) === 'message'){
+  } else if(msg.slice(0,7) === 'message'){
     if (user.innerHTML === 'Nuvm' || user.innerHTML === 'CSxKING' || user.innerHTML === 'Pixel') {
-      $('#messages').append('<center class="NCSalert cm log mention" style="color:whitesmoke;text-align:center;font-weight:150;font-size:30;">[' + user.innerHTML + '] says: ' + msg.slice(13, 255) + '</center>');
+      $('#messages').append('<center class="NCSalert cm log mention" style="color:whitesmoke;text-align:center;font-weight:150;font-size:30;">[' + user.innerHTML + '] says: ' + msg.slice(7, 255) + '</center>');
       setTimeout(function() {
         $(element).remove()
       }, 50)
