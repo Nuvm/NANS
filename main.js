@@ -2,7 +2,7 @@ var version = '0.4 | OMG SEARCH YOUTUBE';
 var startUpMsg = "Welcome to NCS version " + version + "!";
 var newFeaturesMsg = "Search YouTube!<br>Custom Backgrounds!<br>History Alert!<br><a href='https://electricgaming.ga/ncs/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
-var uname,lastSelected,prevObj,unamestuff,unameicon,checkIfReady,ccid,previousBg,ytNextPage, ytPrevPage, ytPage;
+var uname,lastSelected,prevObj,unamestuff,unameicon,checkIfReady,ccid,previousBg,ytNextPage, ytPrevPage, ytPage,ytCurrentSearch;
 var ytCurPage = 0,rotateDeg = 0,rotateDeg2 = 0;
 var wsongs = [],msongs = [],ytSearchResults = [],songHistory = [];
 var apiKey = 'AIzaSyARvwirFktEIi_BTaKcCi9Ja-m3IEJYIRk';
@@ -87,7 +87,7 @@ function NCScommandSorter(msg, user, element) {
         $(element).remove()
       }, 50)
     }
-  } else if(msg.slice(0, 13) === 'message'){
+  } else if(msg.slice(0, 7) === 'message'){
     if (user.innerHTML === 'Nuvm' || user.innerHTML === 'CSxKING' || user.innerHTML === 'Pixel') {
       $('#messages').append('<center class="NCSalert cm log mention" style="color:whitesmoke;text-align:center;font-weight:150;font-size:30;">[' + user.innerHTML + '] says: ' + msg.slice(13, 255) + '</center>');
       setTimeout(function() {
@@ -158,14 +158,14 @@ function NCSinit() {
   $('#NCS-btn').css('top', '0px').css('right', '0px');
   $('#app-right').append('<div id="NCS-menu" style="display:none;background-color:transparent;box-shadow: inset 0px 0px 10px 4px rgba(255,255,255,0.9);"></div>');
   $('#NCS-menu').css('top', '100%-35').css('height', $('#chat').css('height')).css('width', '100%');
-  $('#NCS-menu').append('<div id="NCS-f1" class="disabled animated NCSf" style="top:34px;">Hide Video Player<span id="NCS-f1c" class="NCS-checkmark" style="display:none"/></div>');
-  $('#NCS-menu').append('<div id="NCS-f2" class="disabled animated NCSf" style="top:68px;">Custom Theme<span id="NCS-f2c" class="NCS-checkmark" style="display:none"/></div>');
-  $('#NCS-menu').append('<div id="NCS-f3" class="disabled animated NCSf" style="top:102px;">Desktop Notifications<span id="NCS-f3c" class="NCS-checkmark" style="display:none"/></div>');
-  $('#NCS-menu').append('<div id="NCS-f4" class="disabled animated NCSf" style="top:136px;">Remove Video Player<span id="NCS-f4c" class="NCS-checkmark" style="display:none"/></div>');
+  $('#NCS-menu').append('<div id="NCS-f1" class="disabled animated NCSf">Hide Video Player<span id="NCS-f1c" class="NCS-checkmark" style="display:none"/></div>');
+  $('#NCS-menu').append('<div id="NCS-f2" class="disabled animated NCSf">Custom Theme<span id="NCS-f2c" class="NCS-checkmark" style="display:none"/></div>');
+  $('#NCS-menu').append('<div id="NCS-f3" class="disabled animated NCSf">Desktop Notifications<span id="NCS-f3c" class="NCS-checkmark" style="display:none"/></div>');
+  $('#NCS-menu').append('<div id="NCS-f4" class="disabled animated NCSf">Remove Video Player<span id="NCS-f4c" class="NCS-checkmark" style="display:none"/></div>');
   //$('#NCS-menu').append('<div id="NCS-f5" class="disabled animated NCSf" style="top:170px;">Smartvote<span id="NCS-f5c" class="NCS-checkmark" style="display:none"/></div>');
-  $('#NCS-menu').append('<div id="NCS-f6" class="disabled animated NCSf" style="top:204px;">Custom Background<span id="NCS-f6c" class="NCS-checkmark" style="display:none"/></div>');
-  $('#NCS-menu').append('<div id="NCS-f7" class="disabled animated NCSf" style="top:238px;">History Alert<span id="NCS-f7c" class="NCS-checkmark" style="display:none"/></div>');
-  $('#NCS-menu').append('<div id="NCS-f8" class="disabled animated NCSf">Custom Options<span id="NCS-f8c" style="display:none"/></div>');
+  $('#NCS-menu').append('<div id="NCS-f6" class="disabled animated NCSf">Custom Background<span id="NCS-f6c" class="NCS-checkmark" style="display:none"/></div>');
+  $('#NCS-menu').append('<div id="NCS-f7" class="disabled animated NCSf">History Alert<span id="NCS-f7c" class="NCS-checkmark" style="display:none"/></div>');
+  $('#NCS-menu').append('<div id="NCS-f8" class="disabled animated NCSf">YouTube Search<span id="NCS-f8c" style="display:none"/></div>');
   $('#NCS-btn').on('click', function() {
     if ($('#NCS-menu').css('display') === 'block') {
       $('#' + lastSelected.split('-button')[0]).css('display', 'block');
@@ -185,7 +185,7 @@ function NCSinit() {
     }
   });
   $('#NCS-f1,#NCS-f2,#NCS-f3,#NCS-f4,'/*#NCS-f5,*/+'#NCS-f6,#NCS-f7,#NCS-f8').on('click', NCSfeatures);
-  $('head').append('<style type="text/css">#NCS-btn:hover{cursor:pointer;background-color:grey;}.NCS-checkmark{float:right;background-image:url("http://i.imgur.com/rF5fHxr.png");background-repeat:no-repeat;height:15px;width:15px;margin-right:25px;}.NCSf{height:15px;word-wrap:break-word;opacity:0.8;padding-top:9.5px;padding-bottom:9.5px;padding-left:15px;color:white;}.NCSf:hover{cursor:pointer;box-shadow:inset 0px 0px 9px 1px rgba(255,255,255,0.8);}.NCScopiable{height:30px;text-align:left;padding:30px;padding-bottom:34px;overflow-wrap:break-word;display:block;}</style>');
+  $('head').append('<style type="text/css">#NCS-btn:hover{cursor:pointer;background-color:grey;}.NCS-checkmark{float:right;background-image:url("http://i.imgur.com/rF5fHxr.png");background-repeat:no-repeat;height:15px;width:15px;margin-right:25px;}.NCSf{height:15px;word-wrap:break-word;opacity:0.8;padding-top:9.5px;padding-bottom:9.5px;padding-left:15px;color:white;}.NCSf:hover{cursor:pointer;box-shadow:inset 0px 0px 9px 1px rgba(255,255,255,0.8);}.NCScopiable{height:30px;text-align:left;padding:30px;padding-bottom:33px;overflow-wrap:break-word;display:block;}</style>');
   $('#messages').append('<center id="NCS-startupmsg" class="cm log mention animated flip" style="color:whitesmoke;text-align:center;font-weight:200;font-size:120%;padding:30px;">' + startUpMsg + '<br><span style="font-weight:100;font-size:85%">' + newFeaturesMsg + '</span></center>');
   document.getElementById("chat-sound-1").play();
   $('#messages')[0].scrollIntoView(false);
@@ -289,7 +289,7 @@ function NCSfeatures(eventData) {
     if ($('#NCS-f6').hasClass('disabled')) {
       $('#notifications')[0].style.display='block';
       $('#NCS-notif').css('display','block');
-      $('#NCS-notif-title-text')[0].innerHTML = '<b>[NCS]</b> Settings';
+      $('#NCS-notif-title-text')[0].innerHTML = '<b>[NCS]</b> Custom Background';
       $('#NCS-notif-content-text')[0].innerHTML = '<span style="marge:20px">Custom Background:</span><input type="text" placeholder="PNG/JPG/JPEG/GIF Image URL (ideally 1600x900)" id="NCS-customBgInput" value="" style="margin:20px;"/>';
       $('#NCS-customBgInput')[0].addEventListener('blur',function(){if(/^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/ig.test($('#NCS-customBgInput')[0].value)){previousBg=$('#img')[0].style.backgroundImage;$('#img')[0].style.backgroundImage = 'url('+$('#NCS-customBgInput')[0].value+')';$('#NCS-f6c').css('display','block');$('#NCS-f6').removeClass('disabled').addClass('enabled');NCSsettings[5]=$('#NCS-customBgInput')[0].value;}else{alert('Not a valid image URL.');}});
     } else {
@@ -312,17 +312,18 @@ function NCSfeatures(eventData) {
   } else if (eventData.target.id === 'NCS-f8') {
     $('#notifications')[0].style.display='block';
     $('#NCS-notif').css('display','block');
-    $('#NCS-notif-title-text')[0].innerHTML = '<b>[NCS]</b> Settings';
-    $('#NCS-notif-content-text')[0].innerHTML = '<div id="NCS-ft-container-customBg"><input id="NCS-ft-checkbox-customBg" type="checkbox"/><span style="margin:10px;">Custom Background:</span><input style="float:right;" type="text" placeholder="PNG/JPG/JPEG/GIF Image URL (ideally 1600x900)" id="NCS-customBgInput" value="" style="margin:20px;"/></div>';
-    $('#NCS-customBgInput')[0].addEventListener('blur',function(){if(/^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/ig.test($('#NCS-customBgInput')[0].value)){previousBg=$('#img')[0].style.backgroundImage;$('#img')[0].style.backgroundImage = 'url('+$('#NCS-customBgInput')[0].value+')';$('#NCS-f6c').css('display','block');$('#NCS-f6').removeClass('disabled').addClass('enabled');NCSsettings[5]=$('#NCS-customBgInput')[0].value;$('#NCS-customBgInput')[0].value=NCSsettings[5];}else{alert('Not a valid image URL.');}});
+    /*$('#NCS-notif-title-text')[0].innerHTML = '<b>[NCS]</b> Settings';
+    $('#NCS-notif-content-text')[0].innerHTML = '<div id="NCS-ft-container-customBg"><input id="NCS-ft-checkbox-customBg" type="checkbox"/><span style="margin:10px;">Custom Background:</span><input style="float:right;" type="text" placeholder="PNG/JPG/JPEG/GIF Image URL (ideally 1600x900)" id="NCS-ft-customBgInput" value="" style="margin:20px;"/></div>';
+    $('#NCS-ft-customBgInput')[0].addEventListener('blur',function(){if(/^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/ig.test($('#NCS-ft-customBgInput')[0].value)){previousBg=$('#img')[0].style.backgroundImage;$('#img')[0].style.backgroundImage = 'url('+$('#NCS-ft-customBgInput')[0].value+')';$('#NCS-f6c').css('display','block');$('#NCS-f6').removeClass('disabled').addClass('enabled');NCSsettings[5]=$('#NCS-ft-customBgInput')[0].value;$('#NCS-ft-customBgInput')[0].value=NCSsettings[5];$('#NCS-ft-checkbox-customBg')[0].checked=true;}else{alert('Not a valid image URL.');$('#NCS-ft-checkbox-customBg')[0].checked=false;}});
     if($('#NCS-f6').hasClass('enabled')){
       $('#NCS-ft-checkbox-customBg')[0].checked=true;
-      $('#NCS-customBgInput')[0].value = NCSsettings[5];
+      $('#NCS-ft-customBgInput')[0].value = NCSsettings[5];
     } else {
       $('#NCS-ft-checkbox-customBg')[0].checked=false;
-      $('#NCS-customBgInput')[0].value = '';
+      $('#NCS-ft-customBgInput')[0].value = '';
     }
-    $('#NCS-notif-content-text')[0].innerHTML+='<br><div id="NCS-ft-ytSearch" class="NCSf" onclick="ytAppend()">Search YouTube</div>';
+    $('#NCS-notif-content-text')[0].innerHTML+='<br><div id="NCS-ft-ytSearch" class="NCSf" onclick="ytAppend()">Search YouTube</div>';*/
+    ytAppend();
   }
 }
 function ytAppend(){
@@ -333,7 +334,9 @@ function ytAppend(){
   $('#NCS-notif-title-text')[0].innerHTML="<b>[NCS]</b> YouTube Search";
   $('#NCS-notif-content-text')[0].innerHTML='';
   $('#NCS-notif-content-text').append('<div id="NCS-yt-search-container" style="position:absolute;top:30px;height:320px;width:580px;overflow-y:auto;"></div>');
-  $('#NCS-notif-content-text').append('<div id="NCS-yt-buttons"><label><input id="NCS-yt-search-query" placeholder="Search YouTube" type="text/css"><button id="NCS-yt-search-button" onclick="makeRequest()">Search</button></label></div>');
+  $('#NCS-notif-content-text').append('<div id="NCS-yt-buttons"><label><input id="NCS-yt-search-query" placeholder="Search YouTube" type="text/css"><button id="NCS-yt-search-button" onclick="makeRequest(false)">Search</button></label><div style="float:right;position:absolute;right:10px;" id="NCS-yt-search-changePage"><span id="NCS-yt-search-prevPage" style="color:blue;cursor:pointer;margin:5px;display:none"><u>Previous Page</u></span><span id="NCS-yt-search-nextPage" style="color:blue;cursor:pointer;margin:5px;display:none"><u>Next Page</u></span></div></div>');
+  $('#NCS-yt-search-prevPage').on('click',function(){ytCurPage--;ytPage=ytPrevPage;makeRequest(true);});
+  $('#NCS-yt-search-nextPage').on('click',function(){ytCurPage++;ytPage=ytNextPage;makeRequest(true);});
 }
 function voteclick(e){
   if(e.target.offsetParent.id==='btn-woot'||e.target.id==='btn-woot'){
@@ -365,6 +368,8 @@ function voteclick(e){
   }
 }
 function makeRequest(e) {
+  console.log(e);
+    ytCurrentSearch = $('#NCS-yt-search-query').val();
      $('#NCS-yt-search-container')[0].innerHTML = '';
      $('#NCS-yt-search-container').append('<div id="NCS-yt-thumbnail-container" style="margin:10px;position:absolute;height:100%;width:120px;float:left;"></div>');
      $('#NCS-yt-search-container').append('<div id="NCS-yt-title-container" style="margin:10px;margin-left:20px;position:absolute;left:120px;height:100%;"></div>');
@@ -373,7 +378,7 @@ function makeRequest(e) {
             var request = gapi.client.youtube.search.list({
                        q: q,
                     part: 'snippet',
-                    maxResults: 15,
+                    maxResults: 10,
                     pageToken: ytPage,
                     type: 'video',
                     safeSearch: 'none',
@@ -381,24 +386,29 @@ function makeRequest(e) {
             });
             request.execute(function(response) {
                     var str = response.result;
+                    if(str.items.length!==0){
                     ytNextPage = str.nextPageToken;
                     ytPrevPage = str.prevPageToken;
                     for(i=0;i<str.items.length;i++){
-                      $('#NCS-yt-thumbnail-container')[0].innerHTML += '<image src='+str.items[i].snippet.thumbnails.default.url+' aria-label="Click here to go to the youtube page"><a href="https:youtube.com/watch?v=' + str.items[i].id.videoId + '" target="_blank"></a></image>';
+                      $('#NCS-yt-thumbnail-container')[0].innerHTML += '<a href="https:youtube.com/watch?v=' + str.items[i].id.videoId + '" target="_blank"><image src='+str.items[i].snippet.thumbnails.default.url+' aria-label="Click here to go to the youtube page"></image></a>';
                       $('#NCS-yt-title-container')[0].innerHTML += '<div id="'+str.items[i].id.videoId+'" class="NCScopiable" aria-label="Click to join waitlist & play this song">'+str.items[i].snippet.title+'</div>';
                     }
-                    $('#NCS-yt-buttons')[0].innerHTML += '<br><div style="float:right;position:absolute;right:10px;" id="NCS-yt-search-changePage"><span id="NCS-yt-search-prevPage" style="color:blue;cursor:pointer;margin:5px"><u>Previous Page</u></span><span id="NCS-yt-search-nextPage" style="color:blue;cursor:pointer;margin:5px"><u>Next Page</u></span>';
-                    if(e&&ytCurPage>0){
+                    //$('#NCS-yt-buttons')[0].innerHTML += '<br><div style="float:right;position:absolute;right:10px;" id="NCS-yt-search-changePage"><span id="NCS-yt-search-prevPage" style="color:blue;cursor:pointer;margin:5px"><u>Previous Page</u></span><span id="NCS-yt-search-nextPage" style="color:blue;cursor:pointer;margin:5px"><u>Next Page</u></span>';
+                    if(ytCurPage>0){
                       $('#NCS-yt-search-prevPage')[0].style.display = 'block';
                       $('#NCS-yt-search-nextPage')[0].style.display = 'block';
                     } else {
                       ytCurPage = 0;
                       $('#NCS-yt-search-prevPage')[0].style.display = 'none';
+                      $('#NCS-yt-search-nextPage')[0].style.display = 'block';
                     }
-                    $('#NCS-yt-search-prevPage').on('click',function(){ytCurPage-=1;ytPage=ytPrevPage;makeRequest(true);});
-                    $('#NCS-yt-search-nextPage').on('click',function(){ytCurPage+=1;ytPage=ytNextPage;makeRequest(true);});
+                    
                     console.log('Current ytCurPage value: '+ytCurPage);
                     $('.NCScopiable').on('click',cTWI);
+                    $('#NCS-yt-search-query').val(ytCurrentSearch);
+                    }else{
+                      $('#NCS-yt-search-container')[0].innerHTML = 'No search results.';
+                    }
             });
             
     }
