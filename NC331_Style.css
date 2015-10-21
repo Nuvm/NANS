@@ -311,30 +311,30 @@ CSS For ANC331
 
 /* Textboxes!!! */
 input[type="text"] {
-  height: 16px;
-  padding: 8px 12px;
-  font-family: "Lato", Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  line-height: 1.467;
+  height: 16px !important;
+  padding: 8px 12px !important;
+  font-family: "Lato", Helvetica, Arial, sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.467 !important;
 
-  border: 2px solid #bdc3c7;
-  border-radius: 6px;
-  box-shadow: none;
-  -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
-          transition: border .25s linear, color .25s linear, background-color .25s linear;
+  border: 2px solid #bdc3c7 !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear !important;
+          transition: border .25s linear, color .25s linear, background-color .25s linear !important;
   }
 
   input[type="text"]:hover {
-    height: 16px;
-    padding: 8px 12px;
-    font-family: "Lato", Helvetica, Arial, sans-serif;
-    font-size: 15px;
-    line-height: 1.467;
-    border: 2px solid #00E6E6;
-    border-radius: 6px;
-    box-shadow: none;
-    -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
-            transition: border .25s linear, color .25s linear, background-color .25s linear;
+    height: 16px !important;
+    padding: 8px 12px !important;
+    font-family: "Lato", Helvetica, Arial, sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.467 !important;
+    border: 2px solid #00E6E6 !important;
+    border-radius: 6px !important;
+    box-shadow: none !important;
+    -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear !important;
+            transition: border .25s linear, color .25s linear, background-color .25s linear !important;
     }
 
 /* NCS Text Boxes */
@@ -679,8 +679,8 @@ body {
 
 /* This is the code the the button style. Change if you know what your doing, otherwise you'll break it */
 button {
-  color: #fff;
-  background-color: #1abc9c;
+  color: #fff !important;
+  background-color: #1abc9c !important;
   }
 button:hover,
 button.hover,
@@ -702,8 +702,8 @@ button[disabled]:active,
 button.disabled.active,
 button[disabled].active,
 button .badge {
-  color: #1abc9c;
-  background-color: #fff;
+  color: #1abc9c !important;
+  background-color: #fff !important;
   }
 
 /* Custom NCS Buttons */
