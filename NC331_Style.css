@@ -196,13 +196,14 @@ CSS For ANC331
     width:                      85px;
     text-align:                 center;
 }
-/* The "Type a message and hit enter" message box. */
+/* The "Type a message and hit enter" message box. 
 #msg-in {
 	border:2px solid #456879;
 	border-radius:10px;
 	height: 15px;
 	width: 350px;
 }
+*/
 
 #chat-button {
     width:                      123px;
@@ -251,13 +252,14 @@ CSS For ANC331
     font:                       14px 'Not Sans', sans-serif !important;
 }
 
-/* Custom YT Box Styling */
+/* Custom YT Box Styling 
 #song-in {
 	border:2px solid #456879 !important;
 	border-radius:10px !important;
 	height: 15px !important;
 	width: 350px !important;
 }
+*/
 
 #chat .msg {
     clear:                      both;
