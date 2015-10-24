@@ -102,4 +102,11 @@ function cfun(){
       document.getElementById('icon-NCS'+i).style.backgroundImage = "url('http://i.imgur.com/LM6dld8.png')";
       //unamestuff.style.color='#9966FF';
     }
+    if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Raiko-Senpai'){
+      i++;       
+      unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];       
+      $(unamestuff).before('<i id='+("icon-NCS"+i)+' class="icon" style="background-image:none"></i>');       
+      document.getElementById('icon-NCS'+i).style.backgroundImage = "url('http://i.imgur.com/iEKADSh.png')";       
+      unamestuff.style.color='#D65CFF';
+    }
 }
