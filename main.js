@@ -56,7 +56,7 @@ function cfns(data) {
 function cfnm(data) {
   if (document.getElementById('messages').lastChild.id !== prevObj) {
     prevObj = document.getElementById('messages').lastChild.id;
-    if (document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.slice(0, 4) === '/NCS') {
+    if (document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.slice(0, 4) === '$NCS') {
       NCScommandSorter(document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerText, document.getElementById('messages').lastChild.getElementsByClassName('uname')[0], document.getElementById('messages').lastChild)
     }
     if ($('#NCS-f3').hasClass('enabled') && !document.hasFocus()) {
