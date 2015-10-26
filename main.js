@@ -1,6 +1,6 @@
 var version = '0.5 | Pumpkin Time!';
 var startUpMsg = "Welcome to NCS version " + version;
-var newFeaturesMsg = "Custom Mention Sounds!<br>Disable Custom Names!<br><a href='https://electricgaming.ga/ncs/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
+var newFeaturesMsg = "Custom Mention Sounds!<br>Disable Custom Names!<br><a href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
 var uname,lastSelected,prevObj,unamestuff,unameicon,checkIfReady,ccid,previousBg,ytNextPage, ytPrevPage, ytPage,ytCurrentSearch;
 var ytCurPage = 0,rotateDeg = 0,rotateDeg2 = 0;
@@ -448,41 +448,11 @@ function makeRequest(e) {
             
     }
 function cTWI(e){
-  $.get("https://www.googleapis.com/youtube/v3/videos?id=" + e.target.id + "&key=" + apiKey + "&part=contentDetails", function (data) {
-            var durs = data.items[0].contentDetails.duration.match(/\d+[a-zA-Z]/g);
-            var cid = e.target.id;
-            dur = 0;
-            durs.forEach(function (e, i, a) {
-                var str = durs[i];
-                var op = str.slice(-1);
-                var number = Number(str.substr(0, str.length - 1));
-
-                switch (op) {
-                    case "S":
-                        dur = dur + (number);
-                        break;
-                    case "M":
-                        dur = dur + (number * 60);
-                        break;
-                    case "H":
-                        dur = dur + (number * 60 * 60);
-                        break;
-                }
-            });
-
-            dur = dur * 1000;
-            socket.send(JSON.stringify({
-                name: username,
-                type: 'booth',
-                operation : 'join',
-                data: {
-                    cid: cid,
-                    dur: dur
-                }
-            }));
-        });
+  $('#song-in').val('https://youtu.be/'+e.target.id);
+  console.log($('#song-in').val());
+  setTimeout(function(){$('#waitlist-join').click();},50);
 }
 function googleApiClientReady(){
-                gapi.client.setApiKey(apiKey);
+                gapi.client.setApiKey('AIzaSyARvwirFktEIi_BTaKcCi9Ja-m3IEJYIRk');
                 gapi.client.load('youtube', 'v3');
         }
