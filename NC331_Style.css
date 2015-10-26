@@ -624,7 +624,7 @@ input[type="text"] {
 
 .uname {
     position: relative;
-    bottom: 6px;
+    /* bottom: 6px; */
     font-weight:                bold;
     margin-right:               5px;
     color:                      #777f92;
@@ -934,8 +934,11 @@ button-circle:hover i.animated {
 
 p {
     margin:                     8px;
-    position: relative;
-    bottom: 9px
+}
+
+#app > nav.navbar.header > div.nav-form.nav-right > p {
+  position: relative;
+  bottom: 9px   
 }
 
 #app {
