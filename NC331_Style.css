@@ -624,6 +624,7 @@ input[type="text"] {
 
 .uname {
     position: relative;
+    top: 6px;
     /* bottom: 6px; */
     font-weight:                bold;
     margin-right:               5px;
