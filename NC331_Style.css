@@ -652,12 +652,6 @@ input[type="text"] {
     background: linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(28, 31, 37, 0.7)) !important;
 }
 
-
-#uname {
- position: relative;
- bottom: 12px;
-}
-
 .admin {
     color:                      #009CDD;
 }
