@@ -351,7 +351,7 @@ function NCSfeatures(eventData) {
       $('#NCS-notif').css('display','block');
       $('#NCS-notif-title-text')[0].innerHTML = '<b>[NCS]</b> Custom Mention Sound';
       $('#NCS-notif-content-text')[0].innerHTML = '<span style="marge:20px">Custom Mention Sound:</span><input type="text" placeholder="OGG/MP3/WAV Audio URL" id="NCS-customSoundInput" value="" style="margin:20px;"/>';
-      $('#NCS-customSoundInput')[0].addEventListener('blur',function(){if(/^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:ogg|mp3|wav)$/ig.test($('#NCS-customSoundInput')[0].value)){$('#chat-sound-1')[0].src = $('#NCS-customSoundInput')[0].value;$('#NCS-f10c').css('display','block');$('#NCS-f10').removeClass('disabled').addClass('enabled');NCSsettings[9]=$('#NCS-customSoundInput')[0].value;}else{alert('Not a valid audio URL.');}});
+      $('#NCS-customSoundInput')[0].addEventListener('blur',function(){if(/^https?:\/\/(?:[a-z\-0-9]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:ogg|mp3|wav)$/ig.test($('#NCS-customSoundInput')[0].value)){$('#chat-sound-1')[0].src = $('#NCS-customSoundInput')[0].value;$('#NCS-f10c').css('display','block');$('#NCS-f10').removeClass('disabled').addClass('enabled');NCSsettings[9]=$('#NCS-customSoundInput')[0].value;}else{alert('Not a valid audio URL.');}});
     } else {
       $('#chat-sound-1')[0].src = 'https://cdn.bssecure.net/nightcore/audio/notif.mp3';
       $('#NCS-f10c').css('display', 'none');
