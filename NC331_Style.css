@@ -935,13 +935,13 @@ button-circle:hover i.animated {
 
 #logout {
  position: relative;
- bottom: 13px;
+ bottom: 11px;
 }
 
 p {
     margin:                     8px;
     position: relative;
-    bottom: 11px
+    bottom: 9px
 }
 
 #app {
