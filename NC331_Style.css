@@ -652,10 +652,6 @@ input[type="text"] {
     background: linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(28, 31, 37, 0.7)) !important;
 }
 
-#logout {
- position: relative;
- bottom: 8px;
-}
 
 #uname {
  position: relative;
@@ -937,10 +933,15 @@ button-circle:hover i.animated {
     border-left: 1px solid #F44336;
 }
 
+#logout {
+ position: relative;
+ bottom: 13px;
+}
+
 p {
     margin:                     8px;
     position: relative;
-    bottom: 5px;
+    bottom: 11px
 }
 
 #app {
