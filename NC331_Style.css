@@ -38,7 +38,7 @@ CSS For ANC331
     66% {
         -webkit-transform: rotate(2deg);
         -moz-transform: rotate(2deg);
-        -o-transform: rotate21deg);
+        -o-transform: rotate21deg;
         transform: rotate(2deg);
     }
 
@@ -488,7 +488,7 @@ input[type="text"] {
     -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear !important;
             transition: border .25s linear, color .25s linear, background-color .25s linear !important;	
   }
-  }
+  
 
 /* NCS Text Boxes */
 #NCS-yt-search-query {
@@ -623,6 +623,8 @@ input[type="text"] {
 }
 
 .uname {
+    position: relative;
+    bottom: 6px;
     font-weight:                bold;
     margin-right:               5px;
     color:                      #777f92;
@@ -648,6 +650,11 @@ input[type="text"] {
     background: -o-linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(28, 31, 37, 0.7)) !important;
     background: -moz-linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(28, 31, 37, 0.7)) !important;
     background: linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(28, 31, 37, 0.7)) !important;
+}
+
+#logout {
+ position: relative;
+ bottom: 6px
 }
 
 .admin {
@@ -919,7 +926,11 @@ button-circle:hover i.animated {
     -moz-animation-timing-function: linear;
 }
 
-
+#btn-meh {
+    border-top: 1px solid #F44336;
+    border-right: 1px solid #F44336;
+    border-left: 1px solid #F44336;
+}
 
 p {
     margin:                     8px;
