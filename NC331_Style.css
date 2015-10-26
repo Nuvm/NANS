@@ -932,13 +932,14 @@ button-circle:hover i.animated {
  bottom: 11px;
 }
 
+
 p {
     margin:                     8px;
 }
 
 #app > nav.navbar.header > div.nav-form.nav-right > p {
   position: relative;
-  bottom: 9px   
+  bottom: 11px   
 }
 
 #app {
