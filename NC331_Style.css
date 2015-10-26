@@ -855,7 +855,7 @@ button .badge {
   }
 */
 
-.btn {
+.button {
     border-radius: 0;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -865,21 +865,21 @@ button .badge {
     transition: all .3s ease-in-out;
 }
 
-.btn-default {
+.button-default {
     border: 1px solid #42dca3;
     color: #42dca3;
     background-color: transparent;
 }
 
-.btn-default:hover,
-.btn-default:focus {
+.button-default:hover,
+.button-default:focus {
     border: 1px solid #42dca3;
     outline: 0;
     color: #000;
     background-color: #42dca3;
 }
 
-.btn-circle {
+.button-circle {
     width: 70px;
     height: 70px;
     margin-top: 15px;
@@ -894,21 +894,21 @@ button .badge {
     transition: background .3s ease-in-out;
 }
 
-.btn-circle:hover,
-.btn-circle:focus {
+.button-circle:hover,
+.button-circle:focus {
     outline: 0;
     color: #fff;
     background: rgba(255,255,255,.1);
 }
 
-.btn-circle i.animated {
+.button-circle i.animated {
     -webkit-transition-property: -webkit-transform;
     -webkit-transition-duration: 1s;
     -moz-transition-property: -moz-transform;
     -moz-transition-duration: 1s;
 }
 
-.btn-circle:hover i.animated {
+.button-circle:hover i.animated {
     -webkit-animation-name: pulse;
     -moz-animation-name: pulse;
     -webkit-animation-duration: 1.5s;
