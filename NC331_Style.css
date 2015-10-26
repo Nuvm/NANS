@@ -654,7 +654,12 @@ input[type="text"] {
 
 #logout {
  position: relative;
- bottom: 6px
+ bottom: 8px;
+}
+
+#uname {
+ position: relative;
+ bottom: 12px;
 }
 
 .admin {
@@ -934,6 +939,8 @@ button-circle:hover i.animated {
 
 p {
     margin:                     8px;
+    position: relative;
+    bottom: 5px;
 }
 
 #app {
