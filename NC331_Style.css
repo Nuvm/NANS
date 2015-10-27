@@ -4,7 +4,6 @@ CSS For ANC331
     Elements>ID>Class>Extra.
     
     Origonal file by TheBanHammer and his team, modded by CSxKING
-    https://electricgaming.ga/ncs/
 */
 
 /************/
@@ -622,7 +621,7 @@ input[type="text"] {
     color:						#993366;
 }
 
-uname {
+.uname {
     position: relative;
     top: -2px;
     /* bottom: 6px; */
@@ -691,7 +690,7 @@ uname {
 }
 
 .icon {
-    top:                      2px;
+    bottom:                      2px;
     left:                       -3px;
     position:                   relative;
     float:                      left;
