@@ -622,7 +622,7 @@ input[type="text"] {
     color:						#993366;
 }
 
-.uname {
+uname {
     position: relative;
     top: -2px;
     /* bottom: 6px; */
