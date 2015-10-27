@@ -198,6 +198,10 @@ CSS For ANC331
 	bottom: 6px;
 }
 
+#logout {
+	position: relative;
+	bottom: 6px;
+}
 
 /* Video player */
 #player {
