@@ -195,12 +195,12 @@ CSS For ANC331
 /* Moving stuff like Logout Button to proper places */
 #app > nav.navbar.header > div.nav-form.nav-right > p {
 	position: relative;
-	bottom: 9px;
+	bottom: 11px;
 }
 
 #logout {
 	position: relative;
-	bottom: 9px;
+	bottom: 11px;
 }
 
 /* Video player */
