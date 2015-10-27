@@ -192,6 +192,13 @@ CSS For ANC331
     width:                      100%;
 }
 
+/* Moving stuff like Logout Button to proper places */
+#app > nav.navbar.header > div.nav-form.nav-right > p {
+	position: relative;
+	bottom: 6px;
+}
+
+
 /* Video player */
 #player {
     margin:                     0 auto;
