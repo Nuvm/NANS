@@ -317,10 +317,10 @@ CSS For ANC331
 /* Volume Stuffs */
 #volume {
     z-index:                    3;
-    top:                        395px;
-    right: 						486px;
+    top:                        430px;
+    right: 						800px;
     width: 						85px;
-    position:                   relative;
+    position:                   fixed;
     padding:                    0px;
     margin:                     0px;
     display:                    inline;
@@ -328,9 +328,9 @@ CSS For ANC331
 
 #volumePercent {
     z-index:                    -1;
-    top:                        415px;
-    right: 						395px;
-    position:                   relative;
+    top:                        440px;
+    right: 						830px;
+    position:                   fixed;
     display:                    inline;
 }
 
@@ -340,16 +340,16 @@ CSS For ANC331
 
 #dj-history-button {
     z-index: 3;
-    position: relative;
+    position: fixed;
     top: 65px;
-    right: 650px;
+    right: 1100px;
 }
 
 
 #btn-mute {
-    position: relative;
-    right: 355px;
-    top: 410px;
+    position: fixed;
+    right: 750px;
+    top: 430px;
 }
 
 .media-info {
