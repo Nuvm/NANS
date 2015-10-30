@@ -339,9 +339,12 @@ CSS For ANC331
 }
 
 #dj-history-button {
+    z-index: 3;
     position: relative;
-    left: 65px;
+    top: 65px;
+    right: 800px;
 }
+
 
 #btn-mute {
     position: relative;
