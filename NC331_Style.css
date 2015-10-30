@@ -5,9 +5,6 @@ CSS For ANC331
     
     Origonal file by TheBanHammer and his team, modded by CSxKING
     https://electricgaming.ga/ncs/
-
-    This has been patched to allow our button styles and such to work even for holiday themes,
-    while allowing those themes to set custom background images.
 */
 
 /************/
@@ -185,7 +182,7 @@ CSS For ANC331
 }
 
 /* Background image */
-#img {
+#img{
     position:                   absolute;
     z-index:                    -5;
     background-image:           url("http://electricgaming.ga/ncs/img/plugwall.jpg");
@@ -195,10 +192,13 @@ CSS For ANC331
     width:                      100%;
 }
 
+/* Move the volume stuff so that its not broken when running NCS */
+
+
 #ratingbuttons {
     position: absolute;
-    height: 50px;
-    bottom: -60px;
+    height: 90px;
+    bottom: -100px;
     width: 100%;
 }
 #ratingbuttons > div {
@@ -237,13 +237,16 @@ CSS For ANC331
     background-color: #3D3D3D;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
+    height: 50px;
 }
 #ratingbuttons #mehcontainer {
     right: 0;
     background-color: #3D3D3D;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
+    height: 50px;
 }
+
 #ratingbuttons #grabcontainer {
     left: 39%;
     width: 22%;
@@ -277,6 +280,17 @@ CSS For ANC331
 	bottom: 11px;
 }
 
+/* Moving stuff like Logout Button to proper places */
+#app > nav.navbar.header > div.nav-form.nav-right > p {
+	position: relative;
+	bottom: 7px;
+}
+
+#logout {
+	position: relative;
+	bottom: 8px;
+}
+
 /* Video player */
 #player {
     margin:                     0 auto;
@@ -303,20 +317,36 @@ CSS For ANC331
 /* Volume Stuffs */
 #volume {
     z-index:                    3;
-    top:                        19px;
-    position:                   absolute;
-    float:                      right;
-    right:                      555px;
+    top:                        395px;
+    right: 						486px;
+    width: 						85px;
+    position:                   relative;
     padding:                    0px;
     margin:                     0px;
+    display:                    inline;
 }
 
 #volumePercent {
     z-index:                    -1;
-    top:                        15px;
-    position:                   absolute;
-    float:                      right;
-    right:                      520px;
+    top:                        415px;
+    right: 						395px;
+    position:                   relative;
+    display:                    inline;
+}
+
+#room-title {
+ color: #3D3D3D;   
+}
+
+#dj-history-button {
+    position: relative;
+    left: 160px;
+}
+
+#btn-mute {
+    position: relative;
+    right: 355px;
+    top: 410px;
 }
 
 .media-info {
