@@ -5,9 +5,6 @@ CSS For ANC331
     
     Origonal file by TheBanHammer and his team, modded by CSxKING
     https://electricgaming.ga/ncs/
-
-    This has been patched to allow our button styles and such to work even for holiday themes,
-    while allowing those themes to set custom background images.
 */
 
 /************/
@@ -185,7 +182,7 @@ CSS For ANC331
 }
 
 /* Background image */
-#img {
+#img{
     position:                   absolute;
     z-index:                    -5;
     background-image:           url("http://electricgaming.ga/ncs/img/plugwall.jpg");
@@ -194,6 +191,9 @@ CSS For ANC331
     height:                     100%;
     width:                      100%;
 }
+
+/* Move the volume stuff so that its not broken when running NCS */
+
 
 #ratingbuttons {
     position: absolute;
@@ -234,35 +234,29 @@ CSS For ANC331
 }
 #ratingbuttons #wootcontainer {
     left: 0;
-    background-color: #3D3D3D;
+    background-color: #263238;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
 }
 #ratingbuttons #mehcontainer {
     right: 0;
-    background-color: #3D3D3D;
+    background-color: #263238;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 }
 #ratingbuttons #grabcontainer {
     left: 39%;
     width: 22%;
-    background-color: #3D3D3D;
+    background-color: #263238;
 }
 #ratingbuttons #btn-woot {
     border-bottom: 2px solid #4CAF50;
 }
-#ratingbuttons #btn-meh {
-    border-bottom: 2px solid #F44336;
-}
 
-#ratingbuttons #btn-woot.active, #ratingbuttons #btn-meh.active {
+#ratingbuttons #btn-woot.active {
     background-color: #37474F;
 }
 #ratingbuttons #btn-woot.active > img {
-    opacity: 1;
-}
-#ratingbuttons #btn-meh.active > img {
     opacity: 1;
 }
 
@@ -275,6 +269,17 @@ CSS For ANC331
 #logout {
 	position: relative;
 	bottom: 11px;
+}
+
+/* Moving stuff like Logout Button to proper places */
+#app > nav.navbar.header > div.nav-form.nav-right > p {
+	position: relative;
+	bottom: 7px;
+}
+
+#logout {
+	position: relative;
+	bottom: 8px;
 }
 
 /* Video player */
@@ -301,22 +306,9 @@ CSS For ANC331
     left:                       0;
 }
 /* Volume Stuffs */
-#volume {
-    z-index:                    3;
-    top:                        19px;
-    position:                   absolute;
-    float:                      right;
-    right:                      555px;
-    padding:                    0px;
-    margin:                     0px;
-}
 
-#volumePercent {
-    z-index:                    -1;
-    top:                        15px;
-    position:                   absolute;
-    float:                      right;
-    right:                      520px;
+#room-title {
+ color: #3D3D3D;   
 }
 
 .media-info {
