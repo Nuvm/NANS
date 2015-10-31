@@ -184,7 +184,7 @@ CSS For ANC331
 #img{
     position:                   absolute;
     z-index:                    -5;
-    background-image:           url("http://electricgaming.ga/ncs/img/plugwall.jpg");
+    background-image:           url("http://electricgaming.ga/ncs/img/plugwall.jpg") !important;
     background-size:            cover;
     background-position:        center;
     height:                     100%;
