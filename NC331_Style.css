@@ -976,20 +976,21 @@ button-circle:hover i.animated {
     background-color: #3D3D3D;
 }
 #ratingbuttons #btn-woot {
-    border-bottom: 2px solid #4CAF50;
+    border-bottom: 2px solid #3D3D3D;
+}
+#ratingbuttons #btn-meh {
+    border-bottom: 2px solid #3D3D3D;
 }
 
-#ratingbuttons #btn-woot.active {
+#ratingbuttons #btn-woot.active, #ratingbuttons #btn-meh.active {
     background-color: #37474F;
 }
 #ratingbuttons #btn-woot.active > img {
     opacity: 1;
 }
-
-#ratingbuttons #btn-meh.active {
-	background-color: #37474F;
+#ratingbuttons #btn-meh.active > img {
+    opacity: 1;
 }
-
 #btn-meh {
     border-top: 1px solid #F44336;
     border-right: 1px solid #F44336;
