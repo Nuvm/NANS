@@ -921,6 +921,71 @@ button-circle:hover i.animated {
     -moz-animation-timing-function: linear;
 }
 
+#ratingbuttons {
+    position: absolute;
+    height: 50px;
+    bottom: -60px;
+    width: 100%;
+}
+#ratingbuttons > div {
+    position: absolute;
+    width: 40%;
+    height: 100%;
+    overflow: hidden;
+}
+#ratingbuttons > div > div {
+    float: left;
+    width: 40%;
+    height: 100%;
+    line-height: 50px;
+    font-size: 14px;
+}
+#ratingbuttons > div > button {
+    position: relative;
+    float: left;
+    width: 60%;
+    height: 100%;
+    background-color: transparent;
+}
+#ratingbuttons img {
+    position: absolute;
+    top: 4px;
+    opacity: 0.5;
+    height: 40px;
+    width: 40px;
+    right: calc(50% - 20px);
+}
+#ratingbuttons button:focus {
+    outline: 0;
+}
+#ratingbuttons #wootcontainer {
+    left: 0;
+    background-color: #6D4ECB;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+#ratingbuttons #mehcontainer {
+    right: 0;
+    background-color: #6D4ECB;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+#ratingbuttons #grabcontainer {
+    left: 39%;
+    width: 22%;
+    background-color: #6D4ECB;
+}
+#ratingbuttons #btn-woot {
+    border-bottom: 2px solid #4CAF50;
+}
+
+#ratingbuttons #btn-woot.active {
+    background-color: #37474F;
+}
+#ratingbuttons #btn-woot.active > img {
+    opacity: 1;
+}
+
 #btn-meh {
     border-top: 1px solid #F44336;
     border-right: 1px solid #F44336;
