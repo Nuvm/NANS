@@ -4,7 +4,6 @@ CSS For ANC331
     Elements>ID>Class>Extra.
     
     Origonal file by TheBanHammer and his team, modded by CSxKING
-    https://electricgaming.ga/ncs/
 */
 
 /************/
@@ -192,105 +191,6 @@ CSS For ANC331
     width:                      100%;
 }
 
-/* Move the volume stuff so that its not broken when running NCS */
-
-
-#ratingbuttons {
-    position: absolute;
-    height: 90px;
-    bottom: -100px;
-    width: 100%;
-}
-#ratingbuttons > div {
-    position: absolute;
-    width: 40%;
-    height: 100%;
-    overflow: hidden;
-}
-#ratingbuttons > div > div {
-    float: left;
-    width: 40%;
-    height: 100%;
-    line-height: 50px;
-    font-size: 14px;
-}
-#ratingbuttons > div > button {
-    position: relative;
-    float: left;
-    width: 60%;
-    height: 100%;
-    background-color: transparent;
-}
-#ratingbuttons img {
-    position: absolute;
-    top: 4px;
-    opacity: 0.5;
-    height: 40px;
-    width: 40px;
-    right: calc(50% - 20px);
-}
-#ratingbuttons button:focus {
-    outline: 0;
-}
-#ratingbuttons #wootcontainer {
-    left: 0;
-    background-color: #3D3D3D;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-    height: 50px;
-}
-#ratingbuttons #mehcontainer {
-    right: 0;
-    background-color: #3D3D3D;
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
-    height: 50px;
-}
-
-#ratingbuttons #grabcontainer {
-    left: 39%;
-    width: 22%;
-    background-color: #3D3D3D;
-}
-#ratingbuttons #btn-woot {
-    border-bottom: 2px solid #4CAF50;
-}
-#ratingbuttons #btn-meh {
-    border-bottom: 2px solid #F44336;
-}
-
-#ratingbuttons #btn-woot.active, #ratingbuttons #btn-meh.active {
-    background-color: #37474F;
-}
-#ratingbuttons #btn-woot.active > img {
-    opacity: 1;
-}
-#ratingbuttons #btn-meh.active > img {
-    opacity: 1;
-}
-
-/* Moving stuff like Logout Button to proper places */
-#app > nav.navbar.header > div.nav-form.nav-right > p {
-	position: relative;
-	bottom: 11px;
-}
-
-#logout {
-	position: relative;
-	bottom: 11px;
-}
-
-/* Moving stuff like Logout Button to proper places */
-#app > nav.navbar.header > div.nav-form.nav-right > p {
-	position: relative;
-	bottom: 7px;
-}
-
-#logout {
-	position: relative;
-	bottom: 8px;
-}
-
 /* Video player */
 #player {
     margin:                     0 auto;
@@ -317,39 +217,20 @@ CSS For ANC331
 /* Volume Stuffs */
 #volume {
     z-index:                    3;
-    top:                        430px;
-    right: 						800px;
-    width: 						85px;
-    position:                   fixed;
+    top:                        19px;
+    position:                   absolute;
+    float:                      right;
+    right:                      555px;
     padding:                    0px;
     margin:                     0px;
-    display:                    inline;
 }
 
 #volumePercent {
     z-index:                    -1;
-    top:                        440px;
-    right: 						830px;
-    position:                   fixed;
-    display:                    inline;
-}
-
-#room-title {
- color: #3D3D3D;   
-}
-
-#dj-history-button {
-    z-index: 3;
-    position: fixed;
-    top: 65px;
-    right: 1100px;
-}
-
-
-#btn-mute {
-    position: fixed;
-    right: 750px;
-    top: 430px;
+    top:                        15px;
+    position:                   absolute;
+    float:                      right;
+    right:                      520px;
 }
 
 .media-info {
@@ -741,6 +622,9 @@ input[type="text"] {
 }
 
 .uname {
+    position: relative;
+    top: -2px;
+    /* bottom: 6px; */
     font-weight:                bold;
     margin-right:               5px;
     color:                      #777f92;
@@ -805,8 +689,8 @@ input[type="text"] {
     cursor:                     pointer;
 }
 
-.icon{
-    top:                        2px;
+.icon {
+    bottom:                      2px;
     left:                       -3px;
     position:                   relative;
     float:                      left;
@@ -1037,10 +921,25 @@ button-circle:hover i.animated {
     -moz-animation-timing-function: linear;
 }
 
+#btn-meh {
+    border-top: 1px solid #F44336;
+    border-right: 1px solid #F44336;
+    border-left: 1px solid #F44336;
+}
+
+#logout {
+ position: relative;
+ bottom: 11px;
+}
 
 
 p {
     margin:                     8px;
+}
+
+#app > nav.navbar.header > div.nav-form.nav-right > p {
+  position: relative;
+  bottom: 11px   
 }
 
 #app {
