@@ -986,6 +986,10 @@ button-circle:hover i.animated {
     opacity: 1;
 }
 
+#ratingbuttons #btn-meh.active {
+	background-color: #37474F;
+}
+
 #btn-meh {
     border-top: 1px solid #F44336;
     border-right: 1px solid #F44336;
