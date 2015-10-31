@@ -960,20 +960,20 @@ button-circle:hover i.animated {
 }
 #ratingbuttons #wootcontainer {
     left: 0;
-    background-color: ##3D3D3D;
+    background-color: #3D3D3D;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
 }
 #ratingbuttons #mehcontainer {
     right: 0;
-    background-color: ##3D3D3D;
+    background-color: #3D3D3D;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 }
 #ratingbuttons #grabcontainer {
     left: 39%;
     width: 22%;
-    background-color: ##3D3D3D;
+    background-color: #3D3D3D;
 }
 #ratingbuttons #btn-woot {
     border-bottom: 2px solid #4CAF50;
