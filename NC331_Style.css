@@ -295,10 +295,16 @@ CSS For ANC331
 }
 
 #messages .cm {
-    padding:                    7px 15px;
-    animation:                  fadein 0.30s;
-    position:                   relative;
-    background:			#2A2A2A;
+    border: 1px solid rgba(0,0,0,0);
+}
+
+#messages .cm:hover {
+ 	border: 1px solid lightblue;
+    -webkit-transition: border-color 1s ease;
+    -moz-transition: border-color 1s ease;
+    -ms-transition: border-color 1s ease;
+    -o-transition: border-color 1s ease;
+    transition: border-color 1s ease;
 }
 
 #messages .cm:nth-child(odd) {
