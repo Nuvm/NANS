@@ -296,6 +296,11 @@ CSS For ANC331
 
 #messages .cm {
     border: 1px solid rgba(0,0,0,0);
+        -webkit-transition: border-color 1s ease;
+    -moz-transition: border-color 1s ease;
+    -ms-transition: border-color 1s ease;
+    -o-transition: border-color 1s ease;
+    transition: border-color 1s ease;
 }
 
 #messages .cm:hover {
