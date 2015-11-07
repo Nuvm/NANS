@@ -882,10 +882,10 @@ button {
 
 button:hover,
 button:focus {
-    border: 1px solid #42dca3;
+    border: 1px solid #0953FA;
     outline: 0;
-    color: #000;
-    background-color: #42dca3;
+    color: #0953FA;
+    background-color: #0953FA;
 }
 
 button-circle {
