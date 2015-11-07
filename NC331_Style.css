@@ -305,6 +305,11 @@ CSS For ANC331
     background:                 #424242;
 }
 
+/* Custom Chat Stuff */
+#messages .cm:hover { 
+ border: 1px solid lightblue; 
+}
+
 #messages .cm:hover div.msg-del {
     display:                    block;
     border-color:		#45E0FF;
@@ -375,7 +380,8 @@ CSS For ANC331
 
 /* Custom Waitlist Join Box Styling */
 #waitlist-join {
-
+    position: relative;
+    opacity: 0.5;
 }
 
 #waitlist {
@@ -870,7 +876,8 @@ button {
 button {
     border: 1px solid #42dca3;
     color: #42dca3;
-    background-color: transparent;
+    opacity: 0.5;
+    background-color: #032C89;
 }
 
 button:hover,
