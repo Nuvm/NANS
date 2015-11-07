@@ -184,7 +184,7 @@ CSS For ANC331
 #img{
     position:                   absolute;
     z-index:                    -5;
-    background-image:           url("http://electricgaming.ga/ncs/img/plugwall.jpg") !important;
+    background-image:           url("http://electricgaming.ga/ncs/img/plugwall.jpg");
     background-size:            cover;
     background-position:        center;
     height:                     100%;
@@ -217,20 +217,16 @@ CSS For ANC331
 /* Volume Stuffs */
 #volume {
     z-index:                    3;
-    top:                        19px;
     position:                   absolute;
     float:                      right;
-    right:                      555px;
     padding:                    0px;
     margin:                     0px;
 }
 
 #volumePercent {
     z-index:                    -1;
-    top:                        15px;
     position:                   absolute;
     float:                      right;
-    right:                      520px;
 }
 
 .media-info {
@@ -250,26 +246,24 @@ CSS For ANC331
 }
 
 /* Custom Dialog Stuffs */
+.userDialog.hidden {
+  display: block;
+ pointer-events:none; 
+ opacity: 0;   
+}
+
 .userDialog {
--webkit-opacity: 0.35;
-  -moz-opacity: 0.35;
-   opacity: 0.35;
--webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+ opacity: .3;
+ transition: opacity .2s ease-in-out;
+ -moz-transition: opacity .2s ease-in-out;
+ -webkit-transition: opacity .2s ease-in-out;
 }
 
 .userDialog:hover {
--webkit-opacity: 1;
- -moz-opacity: 1;
-  opacity: 1;
--webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+ opacity: 1;
+ transition: opacity .2s ease-in-out;
+ -moz-transition: opacity .2s ease-in-out;
+ -webkit-transition: opacity .2s ease-in-out;
 }
 
 /***********/
@@ -955,31 +949,36 @@ button-circle:hover i.animated {
     -moz-animation-timing-function: linear;
 }
 
+/* Rating Buttons */
 #ratingbuttons {
+    display: flex;
     position: absolute;
-    height: 50px;
-    bottom: -60px;
+    height: 80px;
+    bottom: -90px;
     width: 100%;
 }
 #ratingbuttons > div {
     position: absolute;
-    width: 40%;
+    width: 33%;
     height: 100%;
-    overflow: hidden;
+    overflow: visible;
 }
-#ratingbuttons > div > div {
-    float: left;
-    width: 40%;
-    height: 100%;
-    line-height: 50px;
+#ratingbuttons > div > .count {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
     font-size: 14px;
 }
 #ratingbuttons > div > button {
     position: relative;
     float: left;
-    width: 60%;
-    height: 100%;
+    width: 100%;
+    height: 50px;
     background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
 }
 #ratingbuttons img {
     position: absolute;
@@ -994,41 +993,124 @@ button-circle:hover i.animated {
 }
 #ratingbuttons #wootcontainer {
     left: 0;
-    background-color: #3D3D3D;
+    z-index: 3;
+    background-color: #263238;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
 }
 #ratingbuttons #mehcontainer {
     right: 0;
-    background-color: #3D3D3D;
+    z-index: 3;
+    background-color: #263238;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 }
 #ratingbuttons #grabcontainer {
-    left: 39%;
-    width: 22%;
-    background-color: #3D3D3D;
+    z-index: 2;
+    left: 32%;
+    width: 36%;
+    background-color: #263238;
 }
 #ratingbuttons #btn-woot {
     border-bottom: 2px solid #4CAF50;
+    border-top: 1px solid #4CAF50;
+    border-right: 1px solid #4CAF50;
+    border-left: 1px solid #4CAF50;
 }
 #ratingbuttons #btn-meh {
     border-bottom: 2px solid #F44336;
-}
-
-#ratingbuttons #btn-woot.active, #ratingbuttons #btn-meh.active {
-    background-color: #37474F;
-}
-#ratingbuttons #btn-woot.active > img {
-    opacity: 1;
-}
-#ratingbuttons #btn-meh.active > img {
-    opacity: 1;
-}
-#btn-meh {
     border-top: 1px solid #F44336;
     border-right: 1px solid #F44336;
     border-left: 1px solid #F44336;
+
+}
+#ratingbuttons #btn-grab {
+    border-bottom: 2px solid #2196F3;
+    border-top: 1px solid #2196F3 !important;
+    border-right: 1px solid #2196F3 !important;
+    border-left: 1px solid #2196F3 !important;
+}
+
+#ratingbuttons button.active {
+    background-color: #37474F;
+}
+#ratingbuttons button.active > img {
+    opacity: 1;
+}
+#ratingbuttons #grab-playlists {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 5%;
+    width: calc(80% - 4px);
+    background-color: #37474F;
+    padding: 5px 5%;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 2px solid #2196F3;
+    border-top: none;
+}
+#ratingbuttons #grab-playlists span {
+    display: block;
+    position: relative;
+    height: 25px;
+    width: 100%;
+    line-height: 25px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: normal;
+    padding-left: 20px;
+    cursor: pointer;
+}
+#ratingbuttons #grab-playlists span.is-on-playlist::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 0px;
+    width: 16px;
+    height: 16px;
+    background-image: url("../img/grab.png");
+    background-position: center;
+    background-size: contain;
+}
+#ratingbuttons #grabcontainer {
+    overflow: visible;
+}
+#ratingbuttons #grabcontainer:hover #grab-playlists {
+    display: block;
+}
+
+#wootcontainer, #grabcontainer, #mehcontainer {
+    flex-grow: 1;
+    position: relative;
+    width: auto;
+    left: auto;
+}
+
+#btn-woot{
+ border: 1px solid #4CAF50;
+}
+
+#btn-grab {
+ border: 1px solid #2196F3;
+}
+
+#btn-meh {
+ border: 1px solid #F44336;
+}
+
+/* Playlists Customization */
+#playlists.hidden {
+ display: block;
+ pointer-events:none; 
+ opacity: 0;
+}
+
+#playlists {
+ opacity: 1;
+  transition: opacity .2s ease-in-out;
+ -moz-transition: opacity .2s ease-in-out;
+ -webkit-transition: opacity .2s ease-in-out:
 }
 
 #logout {
