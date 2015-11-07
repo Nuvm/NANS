@@ -291,6 +291,7 @@ CSS For ANC331
     height:                     calc(100% - 40px);
     width:                      100%;
     font:                       14px 'Noto Sans', sans-serif !important;
+    background: #030C16;
     /* Experimenting.... */
     
     text-shadow: 0 0 0.9px #28C2B9;
@@ -318,6 +319,7 @@ CSS For ANC331
     -ms-transition: border-color 1s ease;
     -o-transition: border-color 1s ease;
     transition: border-color 1s ease;
+
 }
 
 #messages .cm:hover {
@@ -329,8 +331,12 @@ CSS For ANC331
     transition: border-color 1s ease;
 }
 
+#messages .cm:nth-child(even) {
+	background: #051628;
+}
+
 #messages .cm:nth-child(odd) {
-    background:                 #424242;
+    background: #072039;
 }
 
 #messages .cm:hover div.msg-del {
@@ -1110,7 +1116,7 @@ button-circle:hover i.animated {
  opacity: 1;
   transition: opacity .2s ease-in-out;
  -moz-transition: opacity .2s ease-in-out;
- -webkit-transition: opacity .2s ease-in-out:
+ -webkit-transition: opacity .2s ease-in-out;
 }
 
 #logout {
