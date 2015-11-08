@@ -184,7 +184,7 @@ CSS For ANC331
 #img{
     position:                   absolute;
     z-index:                    -5;
-    background-image:           url("http://electricgaming.ga/ncs/img/plugwall.jpg");
+    background-image:           url("http://wallpaper.pickywallpapers.com/1600x900/deep-blue-space.jpg");
     background-size:            cover;
     background-position:        center;
     height:                     100%;
@@ -377,6 +377,10 @@ CSS For ANC331
 }
 */
 
+#msg-in {
+ background: #071D34;   
+}
+
 #chat-button {
     width:                      123px;
     font-size:                  20px;
@@ -488,6 +492,7 @@ input[type="text"] {
   font-family: "Lato", Helvetica, Arial, sans-serif !important;
   font-size: 15px !important;
   line-height: 1.467 !important;
+  color: #071D34;
 
   border: 2px solid #bdc3c7 !important;
   border-radius: 6px !important;
@@ -673,17 +678,17 @@ input[type="text"] {
 }
 
 .mention{
-	background: -webkit-linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(0, 0, 0, 0)) !important;
-    background: -o-linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(0, 0, 0, 0)) !important;
-    background: -moz-linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(0, 0, 0, 0)) !important;
-    background: linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(0, 0, 0, 0)) !important;
+	background: -webkit-linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(0, 0, 0, 0)) !important;
+    background: -o-linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(0, 0, 0, 0)) !important;
+    background: -moz-linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(0, 0, 0, 0)) !important;
+    background: linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(0, 0, 0, 0)) !important;
 }
 
 #messages .cm:nth-child(odd).mention {
-	background: -webkit-linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(28, 31, 37, 0.7)) !important;
-    background: -o-linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(28, 31, 37, 0.7)) !important;
-    background: -moz-linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(28, 31, 37, 0.7)) !important;
-    background: linear-gradient(160deg, rgba(255,0,174,0.10) , rgba(28, 31, 37, 0.7)) !important;
+	background: -webkit-linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(28, 31, 37, 0.7)) !important;
+    background: -o-linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(28, 31, 37, 0.7)) !important;
+    background: -moz-linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(28, 31, 37, 0.7)) !important;
+    background: linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(28, 31, 37, 0.7)) !important;
 }
 
 .admin {
@@ -1020,21 +1025,23 @@ button-circle:hover i.animated {
 #ratingbuttons #btn-woot {
     border-bottom: 2px solid #4CAF50;
     border-top: 1px solid #4CAF50;
-    border-right: 1px solid #4CAF50;
-    border-left: 1px solid #4CAF50;
+    border-right: none;
+    border-left: none;
+
 }
 #ratingbuttons #btn-meh {
     border-bottom: 2px solid #F44336;
     border-top: 1px solid #F44336;
-    border-right: 1px solid #F44336;
-    border-left: 1px solid #F44336;
+	border-right: none;
+    border-left: none;
 
 }
 #ratingbuttons #btn-grab {
     border-bottom: 2px solid #2196F3;
     border-top: 1px solid #2196F3 !important;
-    border-right: 1px solid #2196F3 !important;
-    border-left: 1px solid #2196F3 !important;
+    border-right: none;
+    border-left: none;
+
 }
 
 #ratingbuttons button.active {
@@ -1091,18 +1098,6 @@ button-circle:hover i.animated {
     position: relative;
     width: auto;
     left: auto;
-}
-
-#btn-woot{
- border: 1px solid #4CAF50;
-}
-
-#btn-grab {
- border: 1px solid #2196F3;
-}
-
-#btn-meh {
- border: 1px solid #F44336;
 }
 
 /* Playlists Customization */
@@ -1189,9 +1184,13 @@ p {
     left:                       0;
     margin:                     0;
     padding:                    0;
-    background:                 #3D3D3D;
+    background:                 #071D34;
     vertical-align:             middle;
     text-align:                 center;
+}
+
+div#menu {
+    background: #071D34;
 }
 
 /* The Right of the Navbar */
