@@ -43,7 +43,7 @@ function start() {
 }
 
 function cfns(data) {
-  ccid = data.media.cid;
+  //ccid = data.media.cid;
   /*if($('#NCS-f5').hasClass('enabled')){
     if(wsongs.indexOf(ccid)!==-1){
       setTimeout(function(){$('#btn-woot').click();},1500);
@@ -59,14 +59,30 @@ function cfns(data) {
         $('#chat-sound-1')[0].play();
       }
     }*/
-
-  if (songHistory.length == 49) {
+  if (NCSsettings[6]) {
+    var inWaitlist = false;
+    for (var i in wl) {
+      var wlData = wl[i];
+      if (wlData.user.userid == User.userid) {
+        inWaitlist = true;
+      }
+    }
+    if (!inWaitlist) {
+      console.log('joining waitlist');
+      socket.send(JSON.stringify({
+        name: username,
+        type: 'booth',
+        operation : 'join',
+      }));
+    }
+  }
+  /*if (songHistory.length == 49) {
     songHistory.pop();
   }
   songHistory.unshift({
     'cid': data.media.cid,
     'user': data.user.username
-  });
+  });*/
 }
 
 
@@ -209,10 +225,10 @@ function NCSinit() {
       $('#NCS-menu').css('display', 'none')
     }
   });
-  $('#NCS-f1,#NCS-f2,#NCS-f3,#NCS-f4,' /*#NCS-f5,*/ + '#NCS-f6,#NCS-f7,#NCS-f8,#NCS-f9,#NCS-f10').on('click', NCSfeatures);
+  $('#NCS-f1,#NCS-f2,#NCS-f3,#NCS-f4,'/*#NCS-f5,*/ + '#NCS-f6,#NCS-f7,'/*#NCS-f8,*/+'#NCS-f9,#NCS-f10').on('click', NCSfeatures);
   $('head').append('<style type="text/css">#NCS-btn:hover{cursor:pointer;background-color:grey;}.NCS-checkmark{float:right;background-image:url("http://i.imgur.com/rF5fHxr.png");background-repeat:no-repeat;height:15px;width:15px;margin-right:25px;}.NCSf{height:15px;word-wrap:break-word;opacity:0.8;padding-top:9.5px;padding-bottom:9.5px;padding-left:15px;color:white;}.NCSf:hover{cursor:pointer;box-shadow:inset 0px 0px 9px 1px rgba(255,255,255,0.8);}.NCScopiable{height:30px;text-align:left;padding:30px;padding-bottom:33px;overflow-wrap:break-word;display:block;}</style>');
   $('#messages').append('<center id="NCS-startupmsg" class="cm log mention animated flip" style="color:whitesmoke;text-align:center;font-weight:200;font-size:120%;padding:30px;">' + startUpMsg + '<br><span style="font-weight:100;font-size:85%">' + newFeaturesMsg + '</span></center>');
-  document.getElementById("chat-sound-1").play();
+  //document.getElementById("chat-sound-1").play();
   $('#messages')[0].scrollIntoView(false);
   for (i = 0; i < NCSsettings.length; i++) {
     if (i === 5) {
@@ -284,14 +300,14 @@ function NCSfeatures(eventData) {
       $('#NCS-f4c').css('display', 'block');
       $('#player').remove();
       $('#messages').append('<center class="NCSalert cm log mention animated fadeInLeftBig" style="color:whitesmoke;text-align:center;font-weight:150;font-size:30;">You will have to disable this option and refresh in order to have the video player back. Sorry, this is how it works currently!</center>');
-      document.getElementById("chat-sound-1").play();
+      //document.getElementById("chat-sound-1").play();
       $('#messages')[0].scrollIntoView(false);
       NCSsettings[3] = true;
       $('#NCS-f4').removeClass('disabled').addClass('enabled')
     } else {
       $('#NCS-f4c').css('display', 'none');
       $('#messages').append('<center class="NCSalert cm log mention animated fadeInLeftBig" style="color:whitesmoke;text-align:center;font-weight:150;font-size:30;">Refresh the page to get the video player back!</center>');
-      document.getElementById("chat-sound-1").play();
+      //document.getElementById("chat-sound-1").play();
       $('#messages')[0].scrollIntoView(false);
       NCSsettings[3] = false;
       $('#NCS-f4').removeClass('enabled').addClass('disabled')
@@ -345,8 +361,8 @@ function NCSfeatures(eventData) {
     if ($('#NCS-f7').hasClass('disabled')) {
       $('#NCS-f7c').css('display', 'block');
       NCSsettings[6] = true;
-      $('#NCS-f7').removeClass('disabled').addClass('enabled')
-      joinWaitlist();
+      $('#NCS-f7').removeClass('disabled').addClass('enabled');
+      cfns();
     } else {
       $('#NCS-f7c').css('display', 'none');
       NCSsettings[6] = false;
@@ -508,16 +524,4 @@ function cTWI(e) {
   setTimeout(function() {
     $('#waitlist-join').click();
   }, 50);
-}
-
-function googleApiClientReady() {
-  gapi.client.setApiKey('AIzaSyARvwirFktEIi_BTaKcCi9Ja-m3IEJYIRk');
-  gapi.client.load('youtube', 'v3');
-}
-
-API.on(API.events.ADVANCE, join);
-
-function joinWaitlist() {
-  if (NCSsettings[6] && $('#waitlist-join').text().toLowerCase().indexOf('join') >= 0)
-    $('#waitlist-join').click();
 }
