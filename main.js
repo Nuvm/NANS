@@ -3,9 +3,10 @@
 
 // Version 0.5.3, temporary method of update. Used it to remove broken features in prep for the new NC331 patch.
 
-var version = '0.5.5 | Don is a wizard!';
+var version = '0.5.6 | Nuvm is the best wizard!';
 var startUpMsg = "Welcome to NCS version " + version;
-var newFeaturesMsg = "Custom Mention Sounds!<br>Disable Custom Names!<br>Waitlist Autojoin created by Donvoo!<br><a href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
+var newFeaturesMsg = "Custom Mention Sounds!<br>Disable Custom Names!<br>Waitlist Autojoin created by Pixel!<br><a href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
+var alertMsg = "Custom Usernames should now be fixed along with autojoin.";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
 var uname, lastSelected, prevObj, unamestuff, unameicon, checkIfReady, ccid, previousBg, ytNextPage, ytPrevPage, ytPage, ytCurrentSearch;
 var ytCurPage = 0,
@@ -227,7 +228,8 @@ function NCSinit() {
   });
   $('#NCS-f1,#NCS-f2,#NCS-f3,#NCS-f4,'/*#NCS-f5,*/ + '#NCS-f6,#NCS-f7,'/*#NCS-f8,*/+'#NCS-f9,#NCS-f10').on('click', NCSfeatures);
   $('head').append('<style type="text/css">#NCS-btn:hover{cursor:pointer;background-color:grey;}.NCS-checkmark{float:right;background-image:url("http://i.imgur.com/rF5fHxr.png");background-repeat:no-repeat;height:15px;width:15px;margin-right:25px;}.NCSf{height:15px;word-wrap:break-word;opacity:0.8;padding-top:9.5px;padding-bottom:9.5px;padding-left:15px;color:white;}.NCSf:hover{cursor:pointer;box-shadow:inset 0px 0px 9px 1px rgba(255,255,255,0.8);}.NCScopiable{height:30px;text-align:left;padding:30px;padding-bottom:33px;overflow-wrap:break-word;display:block;}</style>');
-  $('#messages').append('<center id="NCS-startupmsg" class="cm log mention animated flip" style="color:whitesmoke;text-align:center;font-weight:200;font-size:120%;padding:30px;">' + startUpMsg + '<br><span style="font-weight:100;font-size:85%">' + newFeaturesMsg + '</span></center>');
+  $('#messages').append('<center id="NCS-startupmsg" class="cm log mention" style="color:whitesmoke;text-align:center;font-weight:200;font-size:120%;padding:30px;">' + startUpMsg + '<br><span style="font-weight:100;font-size:85%">' + newFeaturesMsg + '</span></center>');
+  $('#messages').append('<center id="NCS-startupalert" class="cm log mention" style="color:whitesmoke;text-align:center;font-weight:100;font-size:85%;padding:30px;">'+alertMsg);
   //document.getElementById("chat-sound-1").play();
   $('#messages')[0].scrollIntoView(false);
   for (i = 0; i < NCSsettings.length; i++) {
