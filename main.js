@@ -3,7 +3,7 @@
 
 // Version 0.5.3, temporary method of update. Used it to remove broken features in prep for the new NC331 patch.
 
-var version = '0.5.6 | Nuvm is the best wizard!';
+var version = '0.5.7 | Managers dont want Autojoin, rip';
 var startUpMsg = "Welcome to NCS version " + version;
 var newFeaturesMsg = "Custom Mention Sounds!<br>Disable Custom Names!<br>Waitlist Autojoin created by Pixel!<br><a href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
 var alertMsg = "Custom Usernames should now be fixed along with autojoin.";
@@ -204,7 +204,9 @@ function NCSinit() {
   $('#NCS-menu').append('<div id="NCS-f4" class="disabled animated NCSf">Remove Video Player<span id="NCS-f4c" class="NCS-checkmark" style="display:none"/></div>');
   //$('#NCS-menu').append('<div id="NCS-f5" class="disabled animated NCSf" style="top:170px;">Smartvote<span id="NCS-f5c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f6" class="disabled animated NCSf">Custom Background<span id="NCS-f6c" class="NCS-checkmark" style="display:none"/></div>');
-  $('#NCS-menu').append('<div id="NCS-f7" class="disabled animated NCSf">Autojoin Waitlist<span id="NCS-f7c" class="NCS-checkmark" style="display:none"/></div>');
+  if(username==='Nuvm'||username==='CSxKING'||username==='Pixel'||username==='Don'){
+    $('#NCS-menu').append('<div id="NCS-f7" class="disabled animated NCSf">Autojoin Waitlist<span id="NCS-f7c" class="NCS-checkmark" style="display:none"/></div>');
+  }
   //$('#NCS-menu').append('<div id="NCS-f8" class="disabled animated NCSf">YouTube Search<span id="NCS-f8c" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f9" class="disabled animated NCSf">Disable Custom Usernames<span id="NCS-f9c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f10" class="disabled animated NCSf">Custom Mention Sounds<span id="NCS-f10c" class="NCS-checkmark" style="display:none"/></div>');
