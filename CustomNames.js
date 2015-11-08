@@ -20,10 +20,8 @@ function cfun(){
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='_Mio_'){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
-      unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
-      $(unameicon).before('<i id='+("icon-NCS"+i)+' class="icon" style="background-image:none"></i>');
+      $(unamestuff).before('<i id='+("icon-NCS"+i)+' class="icon" style="background-image:none"></i>');
       document.getElementById('icon-NCS'+i).style.backgroundImage = "url('http://imgur.com/f5HTF9D.png')";
-      $(unamestuff).removeClass('rank-2');
       unamestuff.style.color='#B20DA5';
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Elitehunter47'){
@@ -36,12 +34,12 @@ function cfun(){
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Nuvm'){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
-      unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-3');
-      $(unameicon).before('<i id='+("icon-NCS"+i)+' class="icon icon-rank-10"></i>');
+      unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-4');
+      $(unameicon).before('<i id='+("icon-NCS"+i)+' class="icon icon-rank-3"></i>');
       //document.getElementById('icon-NCS'+i).style.backgroundImage = "url('http://i.imgur.com/Wyh8Mbv.png')";
       //unamestuff.style.color='#EA6900';
-      $(unamestuff).removeClass('rank-3');
-      $(unamestuff).addClass('rank-10');
+      $(unamestuff).removeClass('rank-4');
+      $(unamestuff).addClass('rank-3');
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Koalaaa__'){
       i++;
@@ -62,7 +60,7 @@ function cfun(){
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Daisy-Chan'){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
-      unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-3');
+      unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-4');
       $(unameicon).before('<i id='+("icon-NCS"+i)+' class="icon" style="background-image:none"></i>');
       document.getElementById('icon-NCS'+i).style.backgroundImage = "url('http://i.imgur.com/1kemcRT.pngQ')";
       //$(unamestuff).removeClass('rank-2');
