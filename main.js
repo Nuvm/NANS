@@ -40,13 +40,15 @@ function cfns(data) {
       setTimeout(function(){$('#btn-meh').click();},1500);
     }
   }*/
-  if($('#NCS-f7').hasClass('enabled')){
+  
+  /*if($('#NCS-f7').hasClass('enabled')){
     for(i=0;i<songHistory.length;i++){
       if(songHistory[i].cid==data.media.cid){
         $('#messages').append('<center class="NCSalert cm log mention" style="color:whitesmoke;text-align:center;font-weight:100;font-size:28;padding:5px;"><b>[NCS]</b> This song is in history and was played '+(i+1)+' songs ago by ' + songHistory[i].user + '!</center>');
         $('#chat-sound-1')[0].play();
       }
-    }
+    }*/
+    
     if(songHistory.length==49){
       songHistory.pop();
     }
@@ -167,7 +169,7 @@ function NCSinit() {
   $('#NCS-menu').append('<div id="NCS-f4" class="disabled animated NCSf">Remove Video Player<span id="NCS-f4c" class="NCS-checkmark" style="display:none"/></div>');
   //$('#NCS-menu').append('<div id="NCS-f5" class="disabled animated NCSf" style="top:170px;">Smartvote<span id="NCS-f5c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f6" class="disabled animated NCSf">Custom Background<span id="NCS-f6c" class="NCS-checkmark" style="display:none"/></div>');
-  //$('#NCS-menu').append('<div id="NCS-f7" class="disabled animated NCSf">History Alert<span id="NCS-f7c" class="NCS-checkmark" style="display:none"/></div>');
+  //$('#NCS-menu').append('<div id="NCS-f7" class="disabled animated NCSf">Autojoin Waitlist<span id="NCS-f7c" class="NCS-checkmark" style="display:none"/></div>');
   //$('#NCS-menu').append('<div id="NCS-f8" class="disabled animated NCSf">YouTube Search<span id="NCS-f8c" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f9" class="disabled animated NCSf">Disable Custom Usernames<span id="NCS-f9c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f10" class="disabled animated NCSf">Custom Mention Sounds<span id="NCS-f10c" class="NCS-checkmark" style="display:none"/></div>');
@@ -456,3 +458,8 @@ function googleApiClientReady(){
                 gapi.client.setApiKey('AIzaSyARvwirFktEIi_BTaKcCi9Ja-m3IEJYIRk');
                 gapi.client.load('youtube', 'v3');
         }
+
+$('<div id="NCS-f7" class="disabled animated NCSf">Autojoin Waitlist<span id="NCS-f7c" class="NCS-checkmark" style="display:none"/></div>').click(function() {
+ var s = $(this);
+ s.attr('enabled', s.attr('enabled') == 'true');
+}).appendTo('#NCS-menu');
