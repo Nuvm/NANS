@@ -1229,6 +1229,59 @@ div#menu {
 }
 */
 
+/* Secret Stuff */
+/* AutoJoin Button */
+#settings-autojoin {
+     border-radius: 0;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+#settings-autojoin {
+ border: 1px solid #42dca3;
+    color: #42dca3;
+    background-color: transparent;   
+}
+
+#settings-autojoin:hover,
+#settings-autojoin:focus {
+    border: 1px solid #42dca3;
+    outline: 0;
+    color: #000;
+    background-color: #42dca3;
+}
+
+/* DJ History Button */
+#dj-history-button {
+     border-radius: 0;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+#dj-history-button {
+ border: 1px solid #42dca3;
+    color: #42dca3;
+    background-color: transparent;   
+}
+
+#dj-history-button:hover,
+#dj-history-button:focus {
+    border: 1px solid #42dca3;
+    outline: 0;
+    color: #000;
+    background-color: #42dca3;
+}
+
 /**************/
 /*TO BE SORTED*/
 /**************/
