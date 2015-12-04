@@ -598,6 +598,9 @@ input[type="text"] {
   background: transparent;
 }
 
+.disabled { background-color: #B92C2C !important; color: black !important; } 
+.enabled { background-color: #42dca3 !important; color: black !important; }
+
 .app-right-selector {
     position:                   absolute;
     text-align:                 center;
