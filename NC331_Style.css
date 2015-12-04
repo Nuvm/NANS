@@ -621,41 +621,6 @@ input[type="text"] {
     background-color:           rgba(28, 31, 37, 0.7);
 }
 
-/*VIP*/
-.uname.rank-1{
-    color:                      #1bbc5f !important;
-}
-
-/*RDJ*/
-.uname.rank-2{
-    color:                      #547bc9 !important;
-}
-
-/*Bouncer*/
-.uname.rank-3 {
-    color:                      #626cbc !important;
-}
-
-/*Manager*/
-.uname.rank-4{
-    color:                      #7854a9 !important;
-}
-
-/*Co-Host*/
-.uname.rank-5{
-    color:                      #87449c !important;
-}
-
-/*Host*/
-.uname.rank-6{
-    color:                      #923892 !important;
-}
-
-/*Dev*/
-.uname.rank-10{
-    color:                      #1eb6e7 !important;
-}
-
 .cm .uname{
     float:                      left;
     color:						#993366;
@@ -736,41 +701,6 @@ input[type="text"] {
     float:                      left;
     height:                     15px;
     width:                      15px;
-}
-
-/*VIP*/
-.icon-rank-1 {
-    background:                 url("http://i.imgur.com/HWucg1I.png") !important;
-}
-
-/*RDJ*/
-.icon-rank-2 {
-    background:                 url("http://i.imgur.com/EBEFOAY.png") !important;
-}
-
-/*Bouncer*/
-.icon-rank-3 {
-    background:                 url("http://i.imgur.com/jA7CGAX.png") !important;
-}
-
-/*Manager*/
-.icon-rank-4 {
-    background:                 url("http://i.imgur.com/bebMb8k.png") !important;
-}
-
-/*Co-Host*/
-.icon-rank-5 {
-    background:                 url("http://i.imgur.com/JOlqRg9.png") !important;
-}
-
-/*Host*/
-.icon-rank-6 {
-    background:                 url("http://i.imgur.com/JOlqRg9.png") !important;
-}
-
-/*Dev*/
-.icon-rank-10 {
-    background:                 url("http://i.imgur.com/WNaG27h.png") !important;
 }
 
 .wl-position {
