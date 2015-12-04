@@ -412,9 +412,7 @@ CSS For ANC331
 }
 
 /* Custom Waitlist Join Box Styling */
-#waitlist-join {
-
-}
+#waitlist-join { width: 130px; }
 
 #waitlist {
     display:                    none;
