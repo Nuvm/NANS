@@ -5,7 +5,7 @@
  // This update fixes/moves the NCS issue button.
 var version = '0.5.9 | Still no autojoin... :(';
 var startUpMsg = "Welcome to NCS version " + version;
-var newFeaturesMsg = "Custom Mention Sounds!<br>Disable Custom Names!<br>Waitlist Autojoin created by Pixel!<br><a href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
+var newFeaturesMsg = "Custom Mention Sounds!<br>Disable Custom Names!<br><a href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
 var alertMsg = "The '[NCS] Report an Issue' has been moved. Its now in the NCS menu as 'Found an issue? Report it here!'";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
 var uname, lastSelected, prevObj, unamestuff, unameicon, checkIfReady, ccid, previousBg, ytNextPage, ytPrevPage, ytPage, ytCurrentSearch;
