@@ -117,7 +117,7 @@ function cfnm(data) {
 function NCScommandSorter(msg, user, element) {
   msg = msg.slice(4, 255);
   if (msg === 'update') {
-    if (user.innerHTML === 'Nuvm' || user.innerHTML === 'CSxKING' || user.innerHTML === 'Pixel') {
+    if (user.innerHTML === 'Nuvm' || user.innerHTML === 'CSxKING' || user.innerHTML === 'PixelBreeze') {
       $('#messages').append('<center class="NCSalert cm log mention" style="color:whitesmoke;text-align:center;font-weight:200;font-size:46;padding:5px;">A new update is available for NCS!<br><span style="font-weight:100;font-size:28">Refresh your page to get the latest update!</span></center>');
       $('#chat-sound-1')[0].play();
       setTimeout(function() {
@@ -204,13 +204,14 @@ function NCSinit() {
   $('#NCS-menu').append('<div id="NCS-f4" class="disabled animated NCSf">Remove Video Player<span id="NCS-f4c" class="NCS-checkmark" style="display:none"/></div>');
   //$('#NCS-menu').append('<div id="NCS-f5" class="disabled animated NCSf" style="top:170px;">Smartvote<span id="NCS-f5c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f6" class="disabled animated NCSf">Custom Background<span id="NCS-f6c" class="NCS-checkmark" style="display:none"/></div>');
-  if(username==='Nuvm'||username==='CSxKING'||username==='Pixel'||username==='Don'){
+  if(username==='Nuvm'||username==='CSxKING'||username==='PixelBreeze'||username==='Don'){
     $('#NCS-menu').append('<div id="NCS-f7" class="disabled animated NCSf">Autojoin Waitlist<span id="NCS-f7c" class="NCS-checkmark" style="display:none"/></div>');
   }
   //$('#NCS-menu').append('<div id="NCS-f8" class="disabled animated NCSf">YouTube Search<span id="NCS-f8c" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f9" class="disabled animated NCSf">Disable Custom Usernames<span id="NCS-f9c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f10" class="disabled animated NCSf">Custom Mention Sounds<span id="NCS-f10c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f11" class="disabled animated NCSf"><a style="text-decoration: none; color: white;"  target="_blank" href="http://electricgaming.ga/forums/en/forumdisplay.php?fid=24">Found An Issue? Report It Here!</a></div>');
+  $('#NCS-menu').append('<div id="NCS-f12" class="disabled animated NCSf">AFK responder<span id="NCS-f12c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-btn').on('click', function() {
     if ($('#NCS-menu').css('display') === 'block') {
       $('#' + lastSelected.split('-button')[0]).css('display', 'block');
