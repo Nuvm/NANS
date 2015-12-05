@@ -421,6 +421,16 @@ function NCSfeatures(eventData) {
       NCSsettings[9] = false;
       $('#NCS-f10').removeClass('enabled').addClass('disabled');
     }
+  } else if (eventData.target.id === 'NCS-f12') {
+    if ($('#NCS-f12').hasClass('disabled')) {
+      $('#NCS-f12c').css('display', 'block');
+      NCSsettings[11] = true;
+      $('#NCS-f12').removeClass('disabled').addClass('enabled')
+    } else {
+      $('#NCS-f12c').css('display', 'none');
+      NCSsettings[11] = false;
+      $('#NCS-f12').removeClass('enabled').addClass('disabled');
+    }
   }
 }
  
