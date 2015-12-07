@@ -1242,6 +1242,19 @@ div#djhistory-container {
  -webkit-transition: opacity .2s ease-in-out;
 }
 
+/* Fixes 4 dayz */
+#app-right { z-index: 2 !important; }
+
+#room-title {
+	position: relative;
+	right: 50px;
+}
+
+.media-info {
+	position: relative;
+	right: 100px;
+}
+
 /**************/
 /*TO BE SORTED*/
 /**************/
