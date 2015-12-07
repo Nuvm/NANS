@@ -1222,11 +1222,11 @@ div.experience-box {
 }
 
 div#profile-settings {
-	visibility: transparent;
+	background: transparent;
 }
 
 div#showLeft {
-	visibility: transparent;
+	background: transparent;
 }
 
 div#djhistory-container.hidden {
