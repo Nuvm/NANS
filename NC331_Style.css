@@ -424,7 +424,6 @@ CSS For ANC331
     overflow-y:                 auto;
     word-wrap:                  break-word;
     height:                     calc(100% - 40px);
-    width:                      100%;
     font:                       14px 'Not Sans', sans-serif !important;
 }
 
