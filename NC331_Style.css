@@ -4,6 +4,8 @@ CSS For ANC331
     Elements>ID>Class>Extra.
     
     Origonal file by TheBanHammer and his team, modded by CSxKING
+
+	This version adds mode animation to menus (still fade, currently). Specifically the DJ History menu.
 */
 
 /************/
@@ -197,7 +199,7 @@ CSS For ANC331
     background:                 #0a0a0a;
     width:                      854px;
     height:                     480px;
-    z-index:                    2;
+    z-index:                    -1;
     box-shadow:                 0px 0px 30px 20px rgba(0,0,0,0.7);
     text-align:                 center;
     vertical-align:             middle;
@@ -1211,6 +1213,114 @@ div#menu {
     outline: 0;
     color: #000;
     background-color: #42dca3;
+}
+
+
+
+img#room-title {
+    position: relative;
+	right: 50px;
+}
+
+.media-info {
+    position: relative;
+    right: 100px;
+}
+
+#settings-autojoin {
+ z-index: -1;   
+}
+
+.song {
+ position: relative;
+ right: 43px;
+}
+
+.dj {
+ position: relative;
+ right: 8px;
+}
+
+#waitlist-join {
+    position: relative;
+    font-size: 12px;
+    bottom: 5px;
+    width: 100px;
+    right: 15px;
+}
+
+#show-playlist {
+    position: relative;
+    font-size: 12px;
+    bottom: 5px;
+    width: 100px;
+}
+
+#active-song {
+    position: relative;
+    right: 75px;
+}
+
+div#profile-settings {
+    background: transparent;
+}
+
+div#showLeft {
+    background: transparent;
+}
+
+div.experience-box {
+    position: relative;
+    bottom: 10px;
+}
+
+/* Dj History Customization */
+
+div#djhistory-container.hidden {
+ display: block;
+ pointer-events:none; 
+ opacity: 0;
+}
+
+div#djhistory-container {
+  opacity: 1;
+  transition: opacity .2s ease-in-out;
+ -moz-transition: opacity .2s ease-in-out;
+ -webkit-transition: opacity .2s ease-in-out;	
+}
+
+/* Customizing the Account page (cog icon). A bit harder then expected. */
+div.notification .notif-title.hidden {
+    background-color: #263238;
+    height: 40px;
+    width: 600px;
+	display: block;
+ 	pointer-events:none; 
+ 	opacity: 0;
+}
+
+div.notification .notif-content.hidden {
+    background: #111619;
+    height: 360px;
+    width: 600px;
+    overflow: auto;
+ 	display: block;
+ 	pointer-events:none; 
+ 	opacity: 0;
+}
+
+div.notification .notif-title {
+  opacity: 1;
+  transition: opacity .2s ease-in-out;
+ -moz-transition: opacity .2s ease-in-out;
+ -webkit-transition: opacity .2s ease-in-out;
+}
+
+div.notification .notif-content-text {
+  opacity: 1;
+  transition: opacity .2s ease-in-out;
+ -moz-transition: opacity .2s ease-in-out;
+ -webkit-transition: opacity .2s ease-in-out;
 }
 
 /**************/
