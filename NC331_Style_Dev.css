@@ -1,0 +1,1281 @@
+/*
+CSS For ANC331
+    Sections Are Organized By Aplphabetical Order, 
+    Elements>ID>Class>Extra.
+    
+    Origonal file by TheBanHammer and his team, modded by CSxKING
+*/
+
+/************/
+/*ANIMATIONS*/
+/************/
+
+@keyframes fadein {
+    from {
+        opacity:                0;
+    }
+    to {
+        opacity:                1;
+    }
+}
+
+@keyframes tilt {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    33% {
+        -webkit-transform: rotate(-2deg);
+        -moz-transform: rotate(-2deg);
+        -o-transform: rotate(-2deg);
+        transform: rotate(-2deg);
+    }
+
+    66% {
+        -webkit-transform: rotate(2deg);
+        -moz-transform: rotate(2deg);
+        -o-transform: rotate21deg;
+        transform: rotate(2deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+}
+
+@media(min-width:767px) {
+    .content-section {
+        padding-top: 250px;
+    }
+
+    .download-section {
+        padding: 100px 0;
+    }
+
+    #map {
+        height: 400px;
+        margin-top: 250px;
+    }
+}
+
+@media(max-width:1199px) {
+    ul.banner-social-buttons {
+        margin-top: 15px;
+    }
+}
+
+@media(max-width:767px) {
+    ul.banner-social-buttons li {
+        display: block;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    ul.banner-social-buttons li:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media(min-width:768px) {
+    p {
+        margin: 0 0 35px;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+}
+
+@media(min-width:768px) {
+    .navbar-custom {
+        padding: 20px 0;
+        border-bottom: 0;
+        letter-spacing: 1px;
+        background: 0 0;
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+    }
+
+    .navbar-custom.top-nav-collapse {
+        padding: 0;
+        border-bottom: 1px solid rgba(255,255,255,.3);
+        background: #000;
+    }
+}
+
+@media(min-width:768px) {
+    .intro {
+        height: 100%;
+        padding: 0;
+    }
+
+    .intro .intro-body .brand-heading {
+        font-size: 100px;
+    }
+
+    .intro .intro-body .intro-text {
+        font-size: 26px;
+    }
+}
+
+@-webkit-keyframes pulse {    
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@-moz-keyframes pulse {    
+    0% {
+        -moz-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -moz-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    100% {
+        -moz-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+
+/**********/
+/*APP-LEFT*/
+/**********/
+
+#app-left {
+    position:                   absolute;
+    top:                        51px;
+    z-index:                    2;
+    width:                      calc(100% - 400px);
+    height:                     calc(100% - 102px);
+}
+/* Idk what this is */
+#dance {
+    overflow:                   hidden;
+    text-align:                 center;
+    vertical-align:             middle;
+    margin:                     50px auto 0 auto;
+    z-index:                    2;
+    width:                      854px;
+    height:                     calc(100% - 552px);
+}
+
+/* Background image */
+#img{
+    position:                   absolute;
+    z-index:                    -5;
+    background-image:           url("http://wallpaper.pickywallpapers.com/1600x900/deep-blue-space.jpg");
+    background-size:            cover;
+    background-position:        center;
+    height:                     100%;
+    width:                      100%;
+}
+
+/* Video player */
+#player {
+    margin:                     0 auto;
+    background:                 #0a0a0a;
+    width:                      854px;
+    height:                     480px;
+    z-index:                    2;
+    box-shadow:                 0px 0px 30px 20px rgba(0,0,0,0.7);
+    text-align:                 center;
+    vertical-align:             middle;
+    line-height:                450px;
+    position:                   relative;
+    font-size:                  x-large;
+    font-weight:                bold;
+    
+}
+
+/* Video thats played */
+#video{
+    position:                   absolute;
+    top:                        0;
+    left:                       0;
+}
+/* Volume Stuffs */
+#volume {
+    z-index:                    3;
+    position:                   absolute;
+    float:                      right;
+    padding:                    0px;
+    margin:                     0px;
+}
+
+#volumePercent {
+    z-index:                    -1;
+    position:                   absolute;
+    float:                      right;
+}
+
+.media-info {
+    display:                    inline-block;
+    text-align:                 left;
+    float:                      left;
+    margin-left:                50px;
+    margin-top:                 5px;
+}
+
+.media-info>div>div{
+    display:                    inline-block;
+}
+
+.media-title {
+    width:                      80px;
+}
+
+/* Custom Dialog Stuffs */
+.userDialog.hidden {
+  display: block;
+ pointer-events:none; 
+ opacity: 0;   
+}
+
+.userDialog {
+ opacity: .3;
+ transition: opacity .2s ease-in-out;
+ -moz-transition: opacity .2s ease-in-out;
+ -webkit-transition: opacity .2s ease-in-out;
+}
+
+.userDialog:hover {
+ opacity: 1;
+ transition: opacity .2s ease-in-out;
+ -moz-transition: opacity .2s ease-in-out;
+ -webkit-transition: opacity .2s ease-in-out;
+}
+
+/***********/
+/*APP-RIGHT*/
+/***********/
+
+#app-right {
+    position:                   absolute;
+    z-index:                    1;
+    right:                      0;
+    background:                 #0a0a0a;
+    width:                      400px;
+    top:                        50px;
+    bottom:                     50px;
+    box-shadow:                 0px 0px 30px 20px rgba(0,0,0,0.7);
+}
+
+/* The Chat! */
+#chat {
+    position:                   absolute;
+    z-index:                    0;
+    overflow-x:                 hidden;
+    overflow-y:                 auto;
+    word-wrap:                  break-word;
+    height:                     calc(100% - 40px);
+    width:                      100%;
+    font:                       14px 'Noto Sans', sans-serif !important;
+    background: #030C16;
+    /* Experimenting.... */
+    
+    text-shadow: 0 0 0.9px #28C2B9;
+    /* Warning! Don't ever enable the two shadow sets below, they make chat look awful!
+    /* box-shadow			10px 10px 5px #888888; */
+    /* text-shadow: 		0 0 2px #44B3BB, 0 0 2px #368F96; */
+}
+
+/* Chat Hover */
+#chat:hover {
+	/* background-color: 		#1c1f25; */
+	/* color:			#0092A8; */
+}
+
+/* Messages.... */
+#messages {
+    margin:                     0;
+    padding:                    0;
+}
+
+#messages .cm {
+    border: 1px solid rgba(0,0,0,0);
+        -webkit-transition: border-color 1s ease;
+    -moz-transition: border-color 1s ease;
+    -ms-transition: border-color 1s ease;
+    -o-transition: border-color 1s ease;
+    transition: border-color 1s ease;
+
+}
+
+#messages .cm:hover {
+ 	border: 1px solid lightblue;
+    -webkit-transition: border-color 1s ease;
+    -moz-transition: border-color 1s ease;
+    -ms-transition: border-color 1s ease;
+    -o-transition: border-color 1s ease;
+    transition: border-color 1s ease;
+}
+
+#messages .cm:nth-child(even) {
+	background: #051628;
+}
+
+#messages .cm:nth-child(odd) {
+    background: #072039;
+}
+
+#messages .cm:hover div.msg-del {
+    display:                    block;
+    border-color:		#45E0FF;
+}
+
+#messages .msg-del {
+    display:                    none;
+    position:                   absolute;
+    right:                      -6px;
+    top:                        25px;
+    text-overflow:              inherit;
+    width:                      85px;
+    text-align:                 center;
+    cursor:                     pointer;
+}
+
+#messages .cm:hover div.msg-del {
+    display:                    block;
+}
+
+#messages .msg-del {
+    display:                    none;
+    position:                   absolute;
+    right:                      -6px;
+    top:                        25px;
+    text-overflow:              inherit;
+    width:                      85px;
+    text-align:                 center;
+}
+/* The "Type a message and hit enter" message box. 
+#msg-in {
+	border:2px solid #456879;
+	border-radius:10px;
+	height: 15px;
+	width: 350px;
+}
+*/
+
+#msg-in {
+ background: #071D34;   
+}
+
+#chat-button {
+    width:                      123px;
+    font-size:                  20px;
+    background-color:       #b500ba;
+}
+
+#users {
+    position:                   absolute;
+    z-index:                    2;
+    overflow-x:                 hidden;
+    overflow-y:                 auto;
+    height:                     calc(100% - 40px);
+    width:                      100%;
+    display:                    none;
+}
+
+#users-button {
+    width:                      123px;
+    font-size:                  20px;
+    left:                       125px;
+    background-color:           #8300ba;
+}
+
+#waitlist-button {
+    width:                      148px;
+    font-size:                  20px;
+    left:                       250px;
+    background-color:           #166fc7;
+}
+
+/* Custom Waitlist Join Box Styling */
+#waitlist-join { width: 130px; }
+
+#waitlist {
+    display:                    none;
+    position:                   absolute;
+    z-index:                    2;
+    overflow-x:                 hidden;
+    overflow-y:                 auto;
+    word-wrap:                  break-word;
+    height:                     calc(100% - 40px);
+    width:                      100%;
+    font:                       14px 'Not Sans', sans-serif !important;
+}
+
+/* Custom YT Box Styling 
+#song-in {
+	border:2px solid #456879 !important;
+	border-radius:10px !important;
+	height: 15px !important;
+	width: 350px !important;
+}
+*/
+
+#chat .msg {
+    clear:                      both;
+    margin-left:                30px;
+    /* padding-top:                5px; */
+}
+
+#chat .msg-timestamp {
+    float:                      right;
+    font-size:                  11px;
+    color:                      #424242;
+}
+
+#chat .msg a, #chat .log a{
+    color:                      #009cdd;
+}
+
+#chat .msg img {
+    max-width: 100%;
+    max-height: 400px;
+}
+
+#user-name,#pass-word {
+    width:                      180px !important;
+
+}
+
+#waitlist {
+    display:                    none;
+}
+
+/* Chat Suggestons. (Eg. @ing a user.) */
+#chat-suggestion {
+    display:                    none;
+    position:                   absolute;
+    bottom:                     45px;
+    background-color:           #0a0a0a;
+    height:                     20px;
+    width:                      380px;
+    text-align:                 left;
+    color:                      white;
+    border:                     1px #1B1B1B solid;
+}
+
+/* Message Form */
+#msg-form {
+    display:                    none;
+}
+
+/* Textboxes!!! */
+input[type="text"] {
+  height: 16px !important;
+  padding: 8px 12px !important;
+  font-family: "Lato", Helvetica, Arial, sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.467 !important;
+  color: #071D34;
+
+  border: 2px solid #bdc3c7 !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear !important;
+          transition: border .25s linear, color .25s linear, background-color .25s linear !important;
+  }
+
+  input[type="text"]:hover {
+    height: 16px !important;
+    padding: 8px 12px !important;
+    font-family: "Lato", Helvetica, Arial, sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.467 !important;
+    border: 2px solid #00E6E6 !important;
+    border-radius: 6px !important;
+    box-shadow: none !important;
+    -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear !important;
+            transition: border .25s linear, color .25s linear, background-color .25s linear !important;
+    }
+
+  input[type="text"]:active {
+  height: 16px !important;
+    padding: 8px 12px !important;
+    font-family: "Lato", Helvetica, Arial, sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.467 !important;
+    border: 2px solid #00E6E6 !important;
+    border-radius: 6px !important;
+    box-shadow: none !important;
+    -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear !important;
+            transition: border .25s linear, color .25s linear, background-color .25s linear !important;	
+  }
+  
+
+/* NCS Text Boxes */
+#NCS-yt-search-query {
+   height: 11px;
+  padding: 8px 12px;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.467;
+  border: 2px solid #00E6E6;
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+#NCS-yt-search-query:hover {
+      height: 11px;
+  padding: 8px 12px;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.467;
+  border: 2px solid #00E6E6;
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+/* ANS Menu */
+.ans-menu {
+	display: none;
+	position: absolute;
+	bottom: 52px;
+	background-color: #0a0a0a;
+	height: 80px;
+	width: 200px;
+	color: gray;
+	border: 2px #1B1B1B solid;
+	text-align: left;
+}
+
+/* Scroll Bars! */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #bab5b5;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #cdcdcd;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #cbc9c9;
+}
+::-webkit-scrollbar-track {
+  background: #5d5d5d;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.disabled { background-color: #B92C2C !important; color: black !important; } 
+.enabled { background-color: #42dca3 !important; color: black !important; }
+
+.app-right-selector {
+    position:                   absolute;
+    text-align:                 center;
+    background-color:           #565656;
+    border:                     1px #0a0a0a solid;
+    cursor:                     pointer;
+}
+
+.app-right-selector.selected {
+    background-color:           #0a0a0a;
+}
+
+.chat-suggestion-list {
+    padding:                    0px 12px;
+}
+
+.selected {
+    background-color:           rgba(28, 31, 37, 0.7);
+}
+
+.cm .uname{
+    float:                      left;
+    color:						#993366;
+}
+
+.uname {
+    position: relative;
+    top: -2px;
+    /* bottom: 6px; */
+    font-weight:                bold;
+    margin-right:               5px;
+    color:                      #777f92;
+}
+
+.userlist-user{
+    margin:                     10px;
+}
+
+.deleted-chat{
+    opacity:                    0.3;
+}
+
+.mention{
+	background: -webkit-linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(0, 0, 0, 0)) !important;
+    background: -o-linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(0, 0, 0, 0)) !important;
+    background: -moz-linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(0, 0, 0, 0)) !important;
+    background: linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(0, 0, 0, 0)) !important;
+}
+
+#messages .cm:nth-child(odd).mention {
+	background: -webkit-linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(28, 31, 37, 0.7)) !important;
+    background: -o-linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(28, 31, 37, 0.7)) !important;
+    background: -moz-linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(28, 31, 37, 0.7)) !important;
+    background: linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(28, 31, 37, 0.7)) !important;
+}
+
+.admin {
+    color:                      #009CDD;
+}
+
+.mod {
+    color:                      #89BE6C;
+}
+
+.log {
+    color:                      #bbb;
+}
+
+/*
+
+.log {
+    color:                      #A72690;
+    font-weight:                600;
+}
+
+.log .uname {
+    color:                      #D012C0 !important;
+}
+
+*/
+
+.system {
+    color:                      #F46B40;
+}
+
+.hidden {
+    display:                    none;
+}
+
+.clickable {
+    cursor:                     pointer;
+}
+
+.icon {
+    bottom:                      2px;
+    left:                       -3px;
+    position:                   relative;
+    float:                      left;
+    height:                     15px;
+    width:                      15px;
+}
+
+.wl-position {
+    float:                      left;
+    margin-right:               5px;
+}
+
+/********/
+/*INPUTS*/
+/********/
+
+input[type=range] {
+  -webkit-appearance: none;
+    width:                      100px;
+    cursor:                     pointer;
+    margin:                     25px;
+}
+
+input:focus {
+  outline:                      none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width:                        100px;
+  height:                       3px;
+  background:                   #444A59;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  height:                       12px;
+  width:                        12px;
+  border-radius:                10px;
+  background:                   #ddd;
+  -webkit-appearance:           none;
+  margin-top:                   -4px;
+}
+
+input[type=range]::-moz-range-track {
+  width:                        150px;
+  height:                       3px;
+  background:                   #444A59;
+}
+
+input[type=range]::-moz-range-thumb {
+  box-shadow:                   1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border:                       1px solid #000000;
+  height:                       36px;
+  width:                        16px;
+  border-radius:                3px;
+  background:                   #ffffff;
+}
+
+input[type=text] {
+    width:                      360px;
+    background:                 #444A59;
+    border:                     none;
+    border-radius:              4px;
+    height:                     20px;
+    padding:                    6px 12px;
+    font-size:                  14px;
+    color:                      #ddd;
+}
+
+input[type=password] {
+    width:                      360px;
+    background:                 #444A59;
+    border:                     none;
+    border-radius:              4px;
+    height:                     20px;
+    padding:                    6px 12px;
+    font-size:                  14px;
+    color:                      #ddd;
+}
+
+#msg-i
+
+/***************/
+/*MAIN ELEMENTS*/
+/***************/
+
+/* Look of the site body */
+body {
+    margin:                     0;
+    padding:                    0;
+    /*background:               #0a0a0a;*/
+    /*color:                    #bbb;*/
+    outline:                    none;
+    border:                     none;
+    list-style:                 none;
+    font-family:                'Open Sans',sans-serif;
+    font-weight:                400;
+    font-size:                  14px;
+    background:                 #000;
+    color:                      #eee;
+}
+
+/* This is the code the the button style. Change if you know what your doing, otherwise you'll break it */
+/* button {
+  color: #fff !important;
+  background-color: #1abc9c !important;
+  }
+button:hover,
+button.hover,
+button:focus,
+button:active,
+button.active,
+button:active,
+button.active,
+button.disabled,
+button[disabled],
+button.disabled:hover,
+button[disabled]:hover,
+button.disabled.hover,
+button[disabled].hover,
+button.disabled:focus,
+button[disabled]:focus,
+button.disabled:active,
+button[disabled]:active,
+button.disabled.active,
+button[disabled].active,
+button .badge {
+  color: #1abc9c !important;
+  background-color: #fff !important;
+  }
+*/
+
+button {
+    border-radius: 0;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+button {
+    border: 1px solid #42dca3;
+    color: #42dca3;
+    background-color: transparent;
+}
+
+button:hover,
+button:focus {
+    border: 1px solid #42dca3;
+    outline: 0;
+    color: #000;
+    background-color: #42dca3;
+}
+
+button-circle {
+    width: 70px;
+    height: 70px;
+    margin-top: 15px;
+    padding: 7px 16px;
+    border: 2px solid #fff;
+    border-radius: 100%!important;
+    font-size: 40px;
+    color: #fff;
+    background: 0 0;
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+
+button-circle:hover,
+button-circle:focus {
+    outline: 0;
+    color: #fff;
+    background: rgba(255,255,255,.1);
+}
+
+button-circle i.animated {
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 1s;
+    -moz-transition-property: -moz-transform;
+    -moz-transition-duration: 1s;
+}
+
+button-circle:hover i.animated {
+    -webkit-animation-name: pulse;
+    -moz-animation-name: pulse;
+    -webkit-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+}
+
+/* Rating Buttons */
+#ratingbuttons {
+    display: flex;
+    position: absolute;
+    height: 80px;
+    bottom: -90px;
+    width: 100%;
+}
+#ratingbuttons > div {
+    position: absolute;
+    width: 33%;
+    height: 100%;
+    overflow: visible;
+}
+#ratingbuttons > div > .count {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+#ratingbuttons > div > button {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+#ratingbuttons img {
+    position: absolute;
+    top: 4px;
+    opacity: 0.5;
+    height: 40px;
+    width: 40px;
+    right: calc(50% - 20px);
+}
+#ratingbuttons button:focus {
+    outline: 0;
+}
+#ratingbuttons #wootcontainer {
+    left: 0;
+    z-index: 3;
+    background-color: #263238;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+#ratingbuttons #mehcontainer {
+    right: 0;
+    z-index: 3;
+    background-color: #263238;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+#ratingbuttons #grabcontainer {
+    z-index: 2;
+    left: 32%;
+    width: 36%;
+    background-color: #263238;
+}
+#ratingbuttons #btn-woot {
+    border-bottom: 2px solid #4CAF50;
+    border-top: 1px solid #4CAF50;
+    border-right: none;
+    border-left: none;
+
+}
+#ratingbuttons #btn-meh {
+    border-bottom: 2px solid #F44336;
+    border-top: 1px solid #F44336;
+	border-right: none;
+    border-left: none;
+
+}
+#ratingbuttons #btn-grab {
+    border-bottom: 2px solid #2196F3;
+    border-top: 1px solid #2196F3 !important;
+    border-right: none;
+    border-left: none;
+
+}
+
+#ratingbuttons button.active {
+    background-color: #37474F;
+}
+#ratingbuttons button.active > img {
+    opacity: 1;
+}
+#ratingbuttons #grab-playlists {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 5%;
+    width: calc(80% - 4px);
+    background-color: #37474F;
+    padding: 5px 5%;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 2px solid #2196F3;
+    border-top: none;
+}
+#ratingbuttons #grab-playlists span {
+    display: block;
+    position: relative;
+    height: 25px;
+    width: 100%;
+    line-height: 25px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: normal;
+    padding-left: 20px;
+    cursor: pointer;
+}
+#ratingbuttons #grab-playlists span.is-on-playlist::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 0px;
+    width: 16px;
+    height: 16px;
+    background-image: url("../img/grab.png");
+    background-position: center;
+    background-size: contain;
+}
+#ratingbuttons #grabcontainer {
+    overflow: visible;
+}
+#ratingbuttons #grabcontainer:hover #grab-playlists {
+    display: block;
+}
+
+#wootcontainer, #grabcontainer, #mehcontainer {
+    flex-grow: 1;
+    position: relative;
+    width: auto;
+    left: auto;
+}
+
+/* Playlists Customization */
+#playlists.hidden {
+ display: block;
+ pointer-events:none; 
+ opacity: 0;
+}
+
+#playlists {
+ opacity: 1;
+  transition: opacity .2s ease-in-out;
+ -moz-transition: opacity .2s ease-in-out;
+ -webkit-transition: opacity .2s ease-in-out;
+}
+
+#logout {
+ position: relative;
+ bottom: 11px;
+}
+
+
+p {
+    margin:                     8px;
+}
+
+#app > nav.navbar.header > div.nav-form.nav-right > p {
+  position: relative;
+  bottom: 11px   
+}
+
+#app {
+    width:                      100%;
+    height:                     100%;
+}
+
+#messages .cm:hover { 
+ border: 1px solid lightblue; 
+}
+
+/* Header */
+.header {
+    top:                        0;
+    border-bottom:              1px solid #1B1B1B;
+    color:						#33C4F5;
+}
+
+/* Footer */
+.footer {
+    bottom:                     0;
+    border-top:                 1px solid #1B1B1B;
+}
+
+/* Loading */
+.loading {
+    position:                   absolute;
+    width:                      100%;
+    height:                     100%;
+    background:                 #0a0a0a;
+    color:                      #bbb;
+    z-index:                    99;
+    display:                    table;
+}
+
+/* Loading Text */
+.loading .center {
+    font-size:                  30px;
+    display:                    table-cell;
+    vertical-align:             middle;
+    text-align:                 center;
+}
+
+
+/******/
+/*NAV*/
+/*****/
+
+/* Navbar */
+.navbar {
+    position:                   absolute;
+    width:                      100%;
+    height:                     52px;
+    z-index:                    4;
+    left:                       0;
+    margin:                     0;
+    padding:                    0;
+    background:                 #071D34;
+    vertical-align:             middle;
+    text-align:                 center;
+}
+
+div#menu {
+    background: #071D34;
+}
+
+/* The Right of the Navbar */
+.nav-right {
+    float:                      right !important;
+}
+
+/* The Left of the Navbar */
+.nav-left {
+    float:                      left !important;
+}
+
+/* The Navbar's Text */
+.nav-text {
+    font-size:                  16px;
+    line-height:                50px;
+    vertical-align:             middle;
+    text-align:                 center;
+    padding:                    0 10px;
+    color:						#33C4F5;
+}
+
+/* Navform */
+.nav-form {
+    margin:                     10px;
+}
+
+/* Navbar Title */
+/* .nav-title {
+    font-size:                  20px;
+    line-height:                50px;
+    vertical-align:             middle;
+    text-align:                 center;
+    padding:                    0 10px;
+    color:						#33C4F5;
+}
+*/
+
+/* Secret Stuff */
+/* AutoJoin Button */
+#settings-autojoin {
+     border-radius: 0;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+#settings-autojoin {
+ border: 1px solid #42dca3;
+    color: #42dca3;
+    background-color: transparent;   
+}
+
+#settings-autojoin:hover,
+#settings-autojoin:focus {
+    border: 1px solid #42dca3;
+    outline: 0;
+    color: #000;
+    background-color: #42dca3;
+}
+
+/* DJ History Button */
+#dj-history-button {
+     border-radius: 0;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+#dj-history-button {
+ border: 1px solid #42dca3;
+    color: #42dca3;
+    background-color: transparent;   
+}
+
+#dj-history-button:hover,
+#dj-history-button:focus {
+    border: 1px solid #42dca3;
+    outline: 0;
+    color: #000;
+    background-color: #42dca3;
+}
+
+
+
+img#room-title {
+    position: relative;
+	right: 50px;
+}
+
+.media-info {
+    position: relative;
+    right: 100px;
+}
+
+#settings-autojoin {
+ z-index: -1;   
+}
+
+.song {
+ position: relative;
+ right: 43px;
+}
+
+.dj {
+ position: relative;
+ right: 8px;
+}
+
+#waitlist-join {
+    position: relative;
+    font-size: 12px;
+    bottom: 5px;
+    width: 100px;
+    right: 15px;
+}
+
+#show-playlist {
+    position: relative;
+    font-size: 12px;
+    bottom: 5px;
+    width: 100px;
+}
+
+#active-song {
+    position: relative;
+    right: 75px;
+}
+
+div#profile-settings {
+    background: transparent;
+}
+
+div#showLeft {
+    background: transparent;
+}
+
+div.experience-box {
+    position: relative;
+    bottom: 10px;
+}
+
+/**************/
+/*TO BE SORTED*/
+/**************/
+
+/*.userlist-user:nth-child(odd){
+    background:                 rgba(28, 31, 37, 0.7);
+}*/
