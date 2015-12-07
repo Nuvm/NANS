@@ -1221,11 +1221,11 @@ div.experience-box {
 	bottom: 10px;
 }
 
-i.fa.fa-cog.fa-3x {
+div#profile-settings {
 	visibility: transparent;
 }
 
-i.fa.fa-bars {
+div#showLeft {
 	visibility: transparent;
 }
 
