@@ -10,3 +10,5 @@
   
 ###Important stuff to do:  
 #####Smartvote system (Make the video ID's get saved into localStorage as an array on '#btn-woot' click).
+
+Also, get Nuvm online as he's been missing from the internet for like a month. ~coughcoughhinthint~
