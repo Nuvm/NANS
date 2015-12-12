@@ -3,9 +3,9 @@
  
 // Version 0.6.0, temporary method of update. Used it to remove broken features in prep for the new NC331 patch.
  // This update fixes/moves the NCS issue button.
-var version = '0.6.0 | Theme Changes!';
+var version = '0.6.1 | More Theme Changes!';
 var startUpMsg = "Welcome to NCS version " + version;
-var newFeaturesMsg = "Moved buttons, title, and some other things.<br>Added fade animation to DJ History<br>Removed black boxes surrounding Account Settings and Menu icons.<br><a href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
+var newFeaturesMsg = "Changed mention colors to match NCS theme. (Now blue, and faded in the bottom right)<br>Changed window settings to make them blue rather then gray (Eg. Click settings in the menu)<br><a href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
 var alertMsg = "The '[NCS] Report an Issue' has been moved. Its now in the NCS menu as 'Found an issue? Report it here!'";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
 var uname, lastSelected, prevObj, unamestuff, unameicon, checkIfReady, ccid, previousBg, ytNextPage, ytPrevPage, ytPage, ytCurrentSearch;
