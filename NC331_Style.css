@@ -1,6 +1,6 @@
 /*
 CSS For ANC331
-    Sections Are Organized By Aplphabetical Order, 
+    Sections Are Organized By Aplphabetical Order,
     Elements>ID>Class>Extra.
     
     Origonal file by TheBanHammer and his team, modded by CSxKING
@@ -125,7 +125,7 @@ CSS For ANC331
     }
 }
 
-@-webkit-keyframes pulse {    
+@-webkit-keyframes pulse {
     0% {
         -webkit-transform: scale(1);
         transform: scale(1);
@@ -142,7 +142,7 @@ CSS For ANC331
     }
 }
 
-@-moz-keyframes pulse {    
+@-moz-keyframes pulse {
     0% {
         -moz-transform: scale(1);
         transform: scale(1);
@@ -250,8 +250,8 @@ CSS For ANC331
 /* Custom Dialog Stuffs */
 .userDialog.hidden {
   display: block;
- pointer-events:none; 
- opacity: 0;   
+ pointer-events:none;
+ opacity: 0;
 }
 
 .userDialog {
@@ -370,7 +370,7 @@ CSS For ANC331
     width:                      85px;
     text-align:                 center;
 }
-/* The "Type a message and hit enter" message box. 
+/* The "Type a message and hit enter" message box.
 #msg-in {
 	border:2px solid #456879;
 	border-radius:10px;
@@ -380,14 +380,16 @@ CSS For ANC331
 */
 
 #msg-in {
- background: #071D34;   
+ background: #071D34;
 }
 
+/*
 #chat-button {
     width:                      123px;
     font-size:                  20px;
     background-color:       #b500ba;
 }
+*/
 
 #users {
     position:                   absolute;
@@ -399,19 +401,23 @@ CSS For ANC331
     display:                    none;
 }
 
+/*
 #users-button {
     width:                      123px;
     font-size:                  20px;
     left:                       125px;
     background-color:           #8300ba;
 }
+*/
 
+/*
 #waitlist-button {
     width:                      148px;
     font-size:                  20px;
     left:                       250px;
     background-color:           #166fc7;
 }
+*/
 
 /* Custom Waitlist Join Box Styling */
 #waitlist-join { width: 130px; }
@@ -428,7 +434,7 @@ CSS For ANC331
     font:                       14px 'Not Sans', sans-serif !important;
 }
 
-/* Custom YT Box Styling 
+/* Custom YT Box Styling
 #song-in {
 	border:2px solid #456879 !important;
 	border-radius:10px !important;
@@ -524,7 +530,7 @@ input[type="text"] {
     border-radius: 6px !important;
     box-shadow: none !important;
     -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear !important;
-            transition: border .25s linear, color .25s linear, background-color .25s linear !important;	
+            transition: border .25s linear, color .25s linear, background-color .25s linear !important;
   }
   
 
@@ -600,19 +606,44 @@ input[type="text"] {
   background: transparent;
 }
 
-.disabled { background-color: #B92C2C !important; color: black !important; } 
+.disabled { background-color: #B92C2C !important; color: black !important; }
 .enabled { background-color: #42dca3 !important; color: black !important; }
 
+/* Custom Header Buttons (Chat, Waitlist, Users) */
 .app-right-selector {
     position:                   absolute;
     text-align:                 center;
-    background-color:           #565656;
+    background-color:           #0C3763;
     border:                     1px #0a0a0a solid;
     cursor:                     pointer;
 }
 
+#chat {
+  
+}
+
+input#volume {
+  width: 95px;
+}
+
+div.notification .notif-content {
+  background-color: #172B40;
+}
+
+div.notification .notif-title {
+    background-color: #1F3D5C;
+}
+
+nav.navbar.footer {
+  height: 20px;
+}
+
+.app-right-selector.hover {
+  background-color:             #124E8C;
+}
+
 .app-right-selector.selected {
-    background-color:           #0a0a0a;
+    background-color:           #124E8C;
 }
 
 .chat-suggestion-list {
@@ -646,17 +677,17 @@ input[type="text"] {
 }
 
 .mention{
-	background: -webkit-linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(0, 0, 0, 0)) !important;
-    background: -o-linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(0, 0, 0, 0)) !important;
-    background: -moz-linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(0, 0, 0, 0)) !important;
-    background: linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(0, 0, 0, 0)) !important;
+  	background: -webkit-linear-gradient(160deg, rgba(50, 170, 225) , rgba(0, 0, 0, 0)) !important;
+    background: -o-linear-gradient(160deg, rgba(50, 170, 225) , rgba(0, 0, 0, 0)) !important;
+    background: -moz-linear-gradient(160deg, rgba(50, 170, 225) , rgba(0, 0, 0, 0)) !important;
+    background: linear-gradient(160deg, rgba(50, 170, 225) , rgba(0, 0, 0, 0)) !important;
 }
 
 #messages .cm:nth-child(odd).mention {
-	background: -webkit-linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(28, 31, 37, 0.7)) !important;
-    background: -o-linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(28, 31, 37, 0.7)) !important;
-    background: -moz-linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(28, 31, 37, 0.7)) !important;
-    background: linear-gradient(160deg, rgba(33, 0, 16, 43) , rgba(28, 31, 37, 0.7)) !important;
+	background: -webkit-linear-gradient(160deg, rgba(143, 179, 216) , rgba(28, 31, 37, 0.7)) !important;
+    background: -o-linear-gradient(160deg, rgba(143, 179, 216) , rgba(28, 31, 37, 0.7)) !important;
+    background: -moz-linear-gradient(160deg, rgba(143, 179, 216) , rgba(28, 31, 37, 0.7)) !important;
+    background: linear-gradient(160deg, rgba(143, 179, 216) , rgba(28, 31, 37, 0.7)) !important;
 }
 
 .admin {
@@ -1036,7 +1067,7 @@ button-circle:hover i.animated {
 /* Playlists Customization */
 #playlists.hidden {
  display: block;
- pointer-events:none; 
+ pointer-events:none;
  opacity: 0;
 }
 
@@ -1059,7 +1090,7 @@ p {
 
 #app > nav.navbar.header > div.nav-form.nav-right > p {
   position: relative;
-  bottom: 11px   
+  bottom: 11px
 }
 
 #app {
@@ -1067,8 +1098,8 @@ p {
     height:                     100%;
 }
 
-#messages .cm:hover { 
- border: 1px solid lightblue; 
+#messages .cm:hover {
+ border: 1px solid lightblue;
 }
 
 /* Header */
@@ -1178,7 +1209,7 @@ div#menu {
 #settings-autojoin {
  border: 1px solid #42dca3;
     color: #42dca3;
-    background-color: transparent;   
+    background-color: transparent;
 }
 
 #settings-autojoin:hover,
@@ -1204,7 +1235,7 @@ div#menu {
 #dj-history-button {
  border: 1px solid #42dca3;
     color: #42dca3;
-    background-color: transparent;   
+    background-color: transparent;
 }
 
 #dj-history-button:hover,
@@ -1231,7 +1262,7 @@ div#showLeft {
 
 div#djhistory-container.hidden {
  display: block;
- pointer-events:none; 
+ pointer-events:none;
  opacity: 0;
 }
 
