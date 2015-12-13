@@ -210,6 +210,10 @@ CSS For ANC331
     
 }
 
+/* Footer Stuff */
+.footer-right {
+}
+
 /* Video thats played */
 #video{
     position:                   absolute;
@@ -422,6 +426,9 @@ CSS For ANC331
 /* Custom Waitlist Join Box Styling */
 #waitlist-join { width: 130px; }
 
+#waitlist-join::after {
+}
+
 #waitlist {
     display:                    none;
     position:                   absolute;
@@ -491,27 +498,27 @@ CSS For ANC331
     display:                    none;
 }
 
-/* Textboxes!!! */
+/* Text Boxes */
 input[type="text"] {
-  height: 16px !important;
-  padding: 8px 12px !important;
+  height: 12px;
+  position: relative;
+  padding: 8px 5px !important;
   font-family: "Lato", Helvetica, Arial, sans-serif !important;
-  font-size: 15px !important;
+  font-size: 11px !important;
   line-height: 1.467 !important;
   color: #071D34;
-
-  border: 2px solid #bdc3c7 !important;
+  bottom: 5px;
+  border: 1px solid #bdc3c7 !important;
   border-radius: 6px !important;
   box-shadow: none !important;
   -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear !important;
           transition: border .25s linear, color .25s linear, background-color .25s linear !important;
   }
-
+  
   input[type="text"]:hover {
-    height: 16px !important;
-    padding: 8px 12px !important;
+    padding: 8px 5px !important;
     font-family: "Lato", Helvetica, Arial, sans-serif !important;
-    font-size: 15px !important;
+    font-size: 11px !important;
     line-height: 1.467 !important;
     border: 2px solid #00E6E6 !important;
     border-radius: 6px !important;
@@ -521,10 +528,10 @@ input[type="text"] {
     }
 
   input[type="text"]:active {
-  height: 16px !important;
-    padding: 8px 12px !important;
+    padding: 8px 5px !important;
     font-family: "Lato", Helvetica, Arial, sans-serif !important;
-    font-size: 15px !important;
+    
+    font-size: 11px !important;
     line-height: 1.467 !important;
     border: 2px solid #00E6E6 !important;
     border-radius: 6px !important;
@@ -532,7 +539,6 @@ input[type="text"] {
     -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear !important;
             transition: border .25s linear, color .25s linear, background-color .25s linear !important;
   }
-  
 
 /* NCS Text Boxes */
 #NCS-yt-search-query {
@@ -791,7 +797,7 @@ input[type=text] {
     background:                 #444A59;
     border:                     none;
     border-radius:              4px;
-    height:                     20px;
+    height:                     12px;
     padding:                    6px 12px;
     font-size:                  14px;
     color:                      #ddd;
@@ -1284,6 +1290,12 @@ div#djhistory-container {
 .media-info {
 	position: relative;
 	right: 100px;
+}
+
+#chat {
+    position relative;
+    bottom: 10px;
+    height: 525px;
 }
 
 /**************/
