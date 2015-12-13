@@ -541,3 +541,20 @@ function cTWI(e) {
     $('#waitlist-join').click();
   }, 50);
 }
+
+// ETA System by Thomas
+(function() {
+  $('head').prepend('<style>#waitlist-join::after { content: attr(data-eta); display: block; }</style>');
+
+  function readable(total) {
+    var hours = ~~(total / 3600);
+    var minutes = (~~(total / 60)) % 60;
+    var seconds = total % 60;
+    return hours + ':' + minutes + ':' + seconds;
+  }
+
+  setInterval(function() {
+    var eta = ~~((wl.length * (3.5 * 60)) + (player.getDuration() - player.getCurrentTime()));
+    $('#waitlist-join').attr('data-eta', readable(eta));
+  }, 1000);
+})();
