@@ -550,7 +550,7 @@ function cTWI(e) {
     var hours = ~~(total / 3600);
     var minutes = (~~(total / 60)) % 60;
     var seconds = total % 60;
-    return normalise(hours) + ':' + normalize(minutes) + ':' + normalize(seconds);
+    return normalize(hours) + ':' + normalize(minutes) + ':' + normalize(seconds);
   }
 
   function normalize(number) {
