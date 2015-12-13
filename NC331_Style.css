@@ -500,44 +500,44 @@ CSS For ANC331
 
 /* Text Boxes */
 input[type="text"] {
-  height: 12px;
-  position: relative;
-  padding: 8px 5px !important;
-  font-family: "Lato", Helvetica, Arial, sans-serif !important;
-  font-size: 11px !important;
-  line-height: 1.467 !important;
-  color: #071D34;
-  bottom: 5px;
-  border: 1px solid #bdc3c7 !important;
-  border-radius: 6px !important;
-  box-shadow: none !important;
+  position: relative !important;
+  top: -8px;
+  height: 13px;
+  padding: 8px 12px;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.467;
+  border: 2px solid #bdc3c7;
+  border-radius: 6px;
+  box-shadow: none;
   -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear !important;
           transition: border .25s linear, color .25s linear, background-color .25s linear !important;
   }
-  
+
   input[type="text"]:hover {
-    padding: 8px 5px !important;
-    font-family: "Lato", Helvetica, Arial, sans-serif !important;
-    font-size: 11px !important;
-    line-height: 1.467 !important;
-    border: 2px solid #00E6E6 !important;
-    border-radius: 6px !important;
-    box-shadow: none !important;
+    height: 13px;
+    padding: 8px 12px;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.467;
+    border: 2px solid #00E6E6;
+    border-radius: 6px;
+    box-shadow: none;
     -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear !important;
             transition: border .25s linear, color .25s linear, background-color .25s linear !important;
     }
 
   input[type="text"]:active {
-    padding: 8px 5px !important;
-    font-family: "Lato", Helvetica, Arial, sans-serif !important;
-    
-    font-size: 11px !important;
-    line-height: 1.467 !important;
-    border: 2px solid #00E6E6 !important;
-    border-radius: 6px !important;
-    box-shadow: none !important;
+  height: 13px;
+    padding: 8px 12px;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.467;
+    border: 2px solid #00E6E6;
+    border-radius: 6px;
+    box-shadow: none;
     -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear !important;
-            transition: border .25s linear, color .25s linear, background-color .25s linear !important;
+            transition: border .25s linear, color .25s linear, background-color .25s linear !important;	
   }
 
 /* NCS Text Boxes */
