@@ -500,45 +500,12 @@ CSS For ANC331
 
 /* Text Boxes */
 input[type="text"] {
-  position: relative !important;
-  top: -8px;
-  height: 13px;
-  padding: 8px 12px;
-  font-family: "Lato", Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  line-height: 1.467;
-  border: 2px solid #bdc3c7;
-  border-radius: 6px;
-  box-shadow: none;
-  -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear !important;
-          transition: border .25s linear, color .25s linear, background-color .25s linear !important;
-  }
-
-  input[type="text"]:hover {
-    height: 13px;
-    padding: 8px 12px;
-    font-family: "Lato", Helvetica, Arial, sans-serif;
-    font-size: 12px;
-    line-height: 1.467;
-    border: 2px solid #00E6E6;
-    border-radius: 6px;
-    box-shadow: none;
-    -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear !important;
-            transition: border .25s linear, color .25s linear, background-color .25s linear !important;
-    }
-
-  input[type="text"]:active {
-  height: 13px;
-    padding: 8px 12px;
-    font-family: "Lato", Helvetica, Arial, sans-serif;
-    font-size: 12px;
-    line-height: 1.467;
-    border: 2px solid #00E6E6;
-    border-radius: 6px;
-    box-shadow: none;
-    -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear !important;
-            transition: border .25s linear, color .25s linear, background-color .25s linear !important;	
-  }
+    position: relative;
+    bottom: 8px;
+    right: 2px;
+    width: 228px;
+    height: 12px;
+}
 
 /* NCS Text Boxes */
 #NCS-yt-search-query {
