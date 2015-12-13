@@ -566,11 +566,13 @@ function cTWI(e) {
       if (wl[i].user.userid == userid)
         return i;
     }
-    return 0;
+    return -1;
   }
 
   setInterval(function() {
-    var eta = ~~(((wl.length - getPosition()) * (3.5 * 60)) + (player.getDuration() - player.getCurrentTime()));
+    var position = getPosition();
+    position = (position < 0) ? wl.length : position;
+    var eta = ~~((position * (3.5 * 60)) + (player.getDuration() - player.getCurrentTime()));
     $('#waitlist-join').attr('data-eta', readable(eta));
   }, 1000);
 })();
