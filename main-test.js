@@ -118,7 +118,8 @@ function NCScommandSorter(msg, user, element) {
   msg = msg.slice(4, 255);
   if (msg === 'update') {
     if (user.innerHTML === 'Nuvm' || user.innerHTML === 'CSxKING' || user.innerHTML === 'Pixel') {
-      $('#messages').append('<center class="NCSalert cm log mention" style="color:whitesmoke;text-align:center;font-weight:200;font-size:46;padding:5px;">A new update is available for NCS!<br><span style="font-weight:100;font-size:28">Refresh your page to get the latest update!</span></center>');
+      $('#messages').append('<center class="NCSalert cm log" style="color: whitesmoke; background-color: #1166b7;">A new update is available for NCS!<br>Refresh your page to get the latest update!</center>');
+      // $('#messages').append('<center class="NCSalert cm log mention" style="color:whitesmoke;text-align:center;font-weight:200;font-size:46;padding:5px;">A new update is available for NCS!<br><span style="font-weight:100;font-size:28">Refresh your page to get the latest update!</span></center>');
       $('#chat-sound-1')[0].play();
       setTimeout(function() {
         $(element).remove()
