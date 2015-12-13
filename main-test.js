@@ -550,11 +550,27 @@ function cTWI(e) {
     var hours = ~~(total / 3600);
     var minutes = (~~(total / 60)) % 60;
     var seconds = total % 60;
-    return hours + ':' + minutes + ':' + seconds;
+    return normalise(hours) + ':' + normalize(minutes) + ':' + normalize(seconds);
+  }
+
+  function normalize(number) {
+    var addition = (number < 10
+      ? '0'
+      : '');
+    return addition + number;
+  }
+
+  function getPosition() {
+    var userid = User.userid;
+    for (var i = 0; i < wl.length; i++) {
+      if (wl[i].user.userid == userid)
+        return i;
+    }
+    return 0;
   }
 
   setInterval(function() {
-    var eta = ~~((wl.length * (3.5 * 60)) + (player.getDuration() - player.getCurrentTime()));
+    var eta = ~~(((wl.length - getPosition()) * (3.5 * 60)) + (player.getDuration() - player.getCurrentTime()));
     $('#waitlist-join').attr('data-eta', readable(eta));
   }, 1000);
 })();
