@@ -3,10 +3,10 @@
  
 // Version 0.6.0, temporary method of update. Used it to remove broken features in prep for the new NC331 patch.
  // This update fixes/moves the NCS issue button.
-var version = '0.6.5 | Bug fixes and ETA!';
+var version = '0.6.6 | Bug fixes... Again...';
 var startUpMsg = "Welcome to NCS version " + version;
 var newFeaturesMsg = "Added ETA countdown for Waitlist button (Shows ETA till you dj, currently not toggleable)<br>Fixed Send Message textbox being under the footer for some users.<br><a href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
-var alertMsg = "The '[NCS] Report an Issue' has been moved. Its now in the NCS menu as 'Found an issue? Report it here!'";
+var alertMsg = "The chat has been fixed!";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
 var uname, lastSelected, prevObj, unamestuff, unameicon, checkIfReady, ccid, previousBg, ytNextPage, ytPrevPage, ytPage, ytCurrentSearch;
 var ytCurPage = 0,
@@ -534,7 +534,8 @@ function cTWI(e) {
 // ETA Script by Thomas
 (function() {
   $('head').prepend('<style>#waitlist-join::after { content: attr(data-eta); display: block; }</style>');
-  $('head').prepend('<style>input[type="text"] { position: relative; bottom: 11px; right: 0px; width: 230px; height: 11px; }</style>');
+  $('head').append('<style>#waitlist-join { padding: 0px !important; }</style>');
+  // $('head').prepend('<style>input[type="text"] { position: relative; bottom: 11px; right: 0px; width: 230px; height: 11px; }</style>');
 
   function readable(total) {
     var hours = ~~(total / 3600);
