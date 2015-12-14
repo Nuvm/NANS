@@ -1261,8 +1261,10 @@ div#djhistory-container {
 
 #chat {
     position relative;
+    /* Note, dont ever fucking do this again.
     bottom: 10px;
     height: 525px;
+    */
 }
 
 /**************/
