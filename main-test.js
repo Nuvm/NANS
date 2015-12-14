@@ -534,7 +534,8 @@ function cTWI(e) {
 // ETA Script by Thomas
 (function() {
   $('head').prepend('<style>#waitlist-join::after { content: attr(data-eta); display: block; }</style>');
-  $('head').prepend('<style>input[type="text"] { position: relative; bottom: 11px; right: 0px; width: 230px; height: 11px; }</style>');
+  $('head').append('<style>#waitlist-join { padding: 0px !important; }</style>');
+  // $('head').prepend('<style>input[type="text"] { position: relative; bottom: 11px; right: 0px; width: 230px; height: 11px; }</style>');
 
   function readable(total) {
     var hours = ~~(total / 3600);
