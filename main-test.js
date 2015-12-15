@@ -211,6 +211,7 @@ function NCSinit() {
   $('#NCS-menu').append('<div id="NCS-f9" class="disabled animated NCSf">Disable Custom Usernames<span id="NCS-f9c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f10" class="disabled animated NCSf">Custom Mention Sounds<span id="NCS-f10c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f11" class="disabled animated NCSf"><a style="text-decoration: none; color: white;"  target="_blank" href="http://electricgaming.ga/forums/en/forumdisplay.php?fid=24">Found An Issue? Report It Here!</a></div>');
+  $('#NCS-menu').append('<div id="NCS-f12" class="disabled animated NCSf">ETA<span id="NCS-f12c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-btn').on('click', function() {
     if ($('#NCS-menu').css('display') === 'block') {
       $('#' + lastSelected.split('-button')[0]).css('display', 'block');
