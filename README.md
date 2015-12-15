@@ -18,6 +18,7 @@ To report an issue or request a feature, please use the Github issues page, foun
 * Nuvm (Seems to be missing from the internet.)
 * CSxKING
 * Pixel (Seems to not be doing anything for the project anymore.)
+* WindWalk
 
 ### Contributers
 * Don
