@@ -582,12 +582,13 @@ var ETAInterval = setInterval(function() {
     $('#waitlist-join').attr('data-eta', readable(eta));
   }, 1000);
 })();
+} else {
+  clearInterval(ETAInterval);
 }
 };
 function ETAOff() {
  if (NCSsettings[12] == false) {
   $('#waitlist-join').removeAttr('data-eta');
   $('head').append('<style>#waitlist-join { padding: 7px !important; }</style>');
-  clearInterval(ETAInterval);
   }
 };
