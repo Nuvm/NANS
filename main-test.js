@@ -426,6 +426,7 @@ function NCSfeatures(eventData) {
      $('#NCS-f12c').css('display', 'block');
      NCSsettings[12] = true;
      $('#NCS-f12').removeClass('disabled').addClass('enabled');
+     ETA();
    } else {
     $('#NCS-f12c').css('display', 'none');
     NCSsettings[12] = false;
