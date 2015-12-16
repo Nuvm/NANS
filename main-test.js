@@ -230,7 +230,7 @@ function NCSinit() {
       $('#NCS-menu').css('display', 'none')
     }
   });
-  $('#NCS-f1,#NCS-f2,#NCS-f3,#NCS-f4,'/*#NCS-f5,*/ + '#NCS-f6,#NCS-f7,'/*#NCS-f8,*/+'#NCS-f9,#NCS-f10').on('click', NCSfeatures);
+  $('#NCS-f1,#NCS-f2,#NCS-f3,#NCS-f4,'/*#NCS-f5,*/ + '#NCS-f6,#NCS-f7,'/*#NCS-f8,*/+'#NCS-f9,#NCS-f10,#NCS-f12').on('click', NCSfeatures);
   $('head').append('<style type="text/css">#NCS-btn:hover{cursor:pointer;background-color:grey;}.NCS-checkmark{float:right;background-image:url("http://i.imgur.com/rF5fHxr.png");background-repeat:no-repeat;height:15px;width:15px;margin-right:25px;}.NCSf{height:15px;word-wrap:break-word;opacity:0.8;padding-top:9.5px;padding-bottom:9.5px;padding-left:15px;color:white;}.NCSf:hover{cursor:pointer;box-shadow:inset 0px 0px 9px 1px rgba(255,255,255,0.8);}.NCScopiable{height:30px;text-align:left;padding:30px;padding-bottom:33px;overflow-wrap:break-word;display:block;}</style>');
   $('#messages').append('<center id="NCS-startupmsg" class="cm log mention" style="color:whitesmoke;text-align:center;font-weight:200;font-size:120%;padding:30px;">' + startUpMsg + '<br><span style="font-weight:100;font-size:85%">' + newFeaturesMsg + '</span></center>');
   $('#messages').append('<center id="NCS-startupalert" class="cm log mention" style="color:whitesmoke;text-align:center;font-weight:100;font-size:85%;padding:30px;">'+alertMsg);
