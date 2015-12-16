@@ -544,7 +544,7 @@ function cTWI(e) {
 }
 
 // ETA Script by Thomas. Made toggleable by WindWalk.
-function ETA {
+function ETA() {
 if (NCSsettings[12] == true) {
 (function() {
   $('head').prepend('<style>#waitlist-join::after { content: attr(data-eta); display: block; }</style>');
