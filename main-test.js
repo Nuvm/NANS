@@ -543,7 +543,7 @@ function cTWI(e) {
 }
 
 // ETA Script by Thomas. Made toggleable by WindWalk.
-if (NCSsettings[12] = true) {
+if (NCSsettings[12] == true) {
 (function() {
   $('head').prepend('<style>#waitlist-join::after { content: attr(data-eta); display: block; }</style>');
   $('head').append('<style>#waitlist-join { padding: 0px !important; }</style>');
@@ -578,6 +578,6 @@ if (NCSsettings[12] = true) {
     var eta = ~~((position * (3.5 * 60)) + (player.getDuration() - player.getCurrentTime()));
     $('#waitlist-join').attr('data-eta', readable(eta));
   }, 1000);
-})()} else if (NCSsettings[12] = false) {
+})()} else if (NCSsettings[12] == false) {
   $('#waitlist-join').removeAttr('data-eta');
 };
