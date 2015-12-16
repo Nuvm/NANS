@@ -423,9 +423,11 @@ function NCSfeatures(eventData) {
     }
   } else if (eventData.target.id === 'NCS-f12') {
     if ($('#NCS-f12').hasClass('disabled')) {
+     $('#NCS-f12c').css('display', 'block');
      NCSsettings[12] = true;
      $('#NCS-f12').removeClass('disabled').addClass('enabled');
    } else {
+    $('#NCS-f12c').css('display', 'none');
     NCSsettings[12] = false;
     $('#NCS-f12').removeClass('enabled').addClass('disabled');
    }
