@@ -575,7 +575,7 @@ if (NCSsettings[12] == true) {
     return -1;
   }
 
-  setInterval(function() {
+var ETAInterval = setInterval(function() {
     var position = getPosition();
     position = (position < 0) ? wl.length : position;
     var eta = ~~((position * (3.5 * 60)) + (player.getDuration() - player.getCurrentTime()));
@@ -588,5 +588,6 @@ function ETAOff() {
  if (NCSsettings[12] == false) {
   $('#waitlist-join').removeAttr('data-eta');
   $('head').append('<style>#waitlist-join { padding: 7px !important; }</style>');
+  clearInterval(ETAInterval);
   }
 };
