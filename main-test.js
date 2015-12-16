@@ -578,8 +578,7 @@ if (NCSsettings[12] == true) {
     var eta = ~~((position * (3.5 * 60)) + (player.getDuration() - player.getCurrentTime()));
     $('#waitlist-join').attr('data-eta', readable(eta));
   }, 1000);
-})()
- ETA();
+})();
 } else if (NCSsettings[12] == false) {
   $('#waitlist-join').removeAttr('data-eta');
 };
