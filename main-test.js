@@ -17,7 +17,7 @@ var wsongs = [],
   ytSearchResults = [],
   songHistory = [];
 var apiKey = 'AIzaSyARvwirFktEIi_BTaKcCi9Ja-m3IEJYIRk';
-var NCSsettings = [false, false, false, false, false, false, false, false, false, false];
+var NCSsettings = [false, false, false, false, false, false, false, false, false, false, false, false];
 setTimeout(function() {
   checkIfReady = setInterval(function() {
     if (document.getElementsByClassName('loading').length !== 1) {
@@ -421,6 +421,14 @@ function NCSfeatures(eventData) {
       NCSsettings[9] = false;
       $('#NCS-f10').removeClass('enabled').addClass('disabled');
     }
+  } else if (eventData.target.id === 'NCS-f12') {
+    if ($('#NCS-f12').hasClass('disabled')) {
+     NCSsettings[12] = true;
+     $('#NCS-f12').removeClass('disabled').addClass('enabled');
+   } else {
+    NCSsettings[12] = false;
+    $('#NCS-f12').removeClass('enabled').addClass('disabled');
+   }
   }
 }
  
