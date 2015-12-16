@@ -431,7 +431,7 @@ function NCSfeatures(eventData) {
     $('#NCS-f12c').css('display', 'none');
     NCSsettings[12] = false;
     $('#NCS-f12').removeClass('enabled').addClass('disabled');
-    ETA();
+    ETAOff();
    }
   }
 }
@@ -583,6 +583,9 @@ if (NCSsettings[12] == true) {
   }, 1000);
 })();
 } else if (NCSsettings[12] == false) {
+  function ETAOff(){
   $('#waitlist-join').removeAttr('data-eta');
-};
+  $('head').append('<style>#waitlist-join { padding: 7px !important; }</style>');
+  }
+ }
 };
