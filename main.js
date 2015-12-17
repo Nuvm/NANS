@@ -3,7 +3,7 @@
  
 // Version 0.6.0, temporary method of update. Used it to remove broken features in prep for the new NC331 patch.
  // This update fixes/moves the NCS issue button.
-var version = '0.6.6 | Bug fixes... Again...';
+var version = '0.6.7 | The lolis have escaped!';
 var startUpMsg = "Welcome to NCS version " + version;
 var newFeaturesMsg = "Added ETA countdown for Waitlist button (Shows ETA till you dj, currently not toggleable)<br>Fixed Send Message textbox being under the footer for some users.<br><a href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
 var alertMsg = "The chat has been fixed!";
@@ -567,3 +567,13 @@ function cTWI(e) {
     $('#waitlist-join').attr('data-eta', readable(eta));
   }, 1000);
 })();
+
+// Loli Counter Script
+
+$('#app-left').prepend('<span id="loli-counter"></span>');
+
+var lolis = 0;
+API.on(0, function(chat) {
+  lolis += (chat.message.match(/loli/gi) || []).length;
+  $('#loli-counter').text('Loli count: ' + lolis);
+});
