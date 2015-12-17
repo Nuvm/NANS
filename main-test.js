@@ -431,7 +431,6 @@ function NCSfeatures(eventData) {
     $('#NCS-f12c').css('display', 'none');
     NCSsettings[12] = false;
     $('#NCS-f12').removeClass('enabled').addClass('disabled');
-    ETA();
     ETAOff();
    }
   }
