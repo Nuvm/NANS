@@ -591,3 +591,12 @@ function ETAOff() {
   $('head').append('<style>#waitlist-join { padding: 7px !important; }</style>');
   }
 };
+
+// Loli Counter script
+$('#app-left').prepend('<span id="loli-counter"></span>');
+
+var lolis = 0;
+API.on(0, function(chat) {
+  lolis += (chat.message.match(/loli/gi) || []).length;
+  $('#loli-counter').text('Loli count: ' + lolis);
+});
