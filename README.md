@@ -2,7 +2,7 @@
 
 ### Installation and Activation
 
-NCS can be installed by visiting http://ncs.electricgaming.ga/#install and bookmarking the button there.
+NCS can be installed by visiting http://ncs.electricgaming.ga/new/#download and bookmarking the button there.
 
 ### What is NCS
 
