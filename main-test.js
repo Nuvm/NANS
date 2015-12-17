@@ -549,7 +549,7 @@ function ETA() {
 if (NCSsettings[12] == true) {
 (function() {
   $('head').prepend('<style>#waitlist-join::after { content: attr(data-eta); display: block; }</style>');
-  $('head').append('<style>#waitlist-join { padding: 0px !important; }</style>');
+  $('head').prepend('<style>#waitlist-join::after { padding: 0px !important; }</style>');
   // $('head').prepend('<style>input[type="text"] { position: relative; bottom: 11px; right: 0px; width: 230px; height: 11px; }</style>');
 
   function readable(total) {
@@ -586,7 +586,7 @@ var ETAInterval = setInterval(function() {
 };
 function ETAOff() {
  if (NCSsettings[12] == false) {
-  $('head').append('<style>#waitlist-join::after { display: none; }</style>');
-  $('head').append('<style>#waitlist-join { padding: 7px !important; }</style>');
+  $('head').prepend('<style>#waitlist-join::after { display: none; }</style>');
+  $('head').prepend('<style>#waitlist-join::after { padding: 7px !important; }</style>');
   }
 };
