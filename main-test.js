@@ -600,3 +600,5 @@ API.on(0, function(chat) {
   lolis += (chat.message.match(/loli/gi) || []).length;
   $('#loli-counter').text('Loli count: ' + lolis);
 });
+
+$('msg-form').prepend('<div id="emoji-suggestion" style="display: none; height: 60px;"></div>')
