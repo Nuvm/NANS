@@ -31,4 +31,6 @@ We plan to port NCS over to turn.fm , and , if it ever re-realeases like we thin
 over to plug.dj again.
 
 ### Support/Help
-If you need help with this please feel free to join the turn.fm discord and @ CSxKING there, or, @ CSxKING on Alpha.nightcore-331.net
+If you need help, feel free to @CSxKING on Alpha or Discord. You may also contact @WindWalk on Alpha or Discord.
+
+If neither are an option, you can email CSxKING at csxking@electricgaming.ga
