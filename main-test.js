@@ -601,4 +601,5 @@ API.on(0, function(chat) {
   $('#loli-counter').text('Loli count: ' + lolis);
 });
 
-$('#msg-form').append('<div id="emoji-suggestion" style="display: none; height: 60px;"></div>')
+$('#msg-form').append('<div id="emoji-suggestion"></div>');
+$('head').append('>´<style>#emofi-suggestion {    display: none; position: absolute; bottom: 32px; background-color: #263238; height: 20px; width: 397px; text-align: left; color: white; border: 2px #37474F solid;}</style>');
