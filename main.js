@@ -3,9 +3,9 @@
  
 // Version 0.6.0, temporary method of update. Used it to remove broken features in prep for the new NC331 patch.
  // This update fixes/moves the NCS issue button.
-var version = '0.6.7 | The lolis have escaped!';
+var version = '0.6.8 | The lolis continue to rampage!';
 var startUpMsg = "Welcome to NCS version " + version;
-var newFeaturesMsg = "Added Loli Counter!<br>Fixed Bug Report Button<br><a href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
+var newFeaturesMsg = "Added ETA button to the NCS menu, allows toggleing of ETA countdown.<br><a href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
 var alertMsg = "The chat has been fixed!";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
 var uname, lastSelected, prevObj, unamestuff, unameicon, checkIfReady, ccid, previousBg, ytNextPage, ytPrevPage, ytPage, ytCurrentSearch;
@@ -17,7 +17,7 @@ var wsongs = [],
   ytSearchResults = [],
   songHistory = [];
 var apiKey = 'AIzaSyARvwirFktEIi_BTaKcCi9Ja-m3IEJYIRk';
-var NCSsettings = [false, false, false, false, false, false, false, false, false, false];
+var NCSsettings = [false, false, false, false, false, false, false, false, false, false, false, false];
 setTimeout(function() {
   checkIfReady = setInterval(function() {
     if (document.getElementsByClassName('loading').length !== 1) {
@@ -210,6 +210,7 @@ function NCSinit() {
   //$('#NCS-menu').append('<div id="NCS-f8" class="disabled animated NCSf">YouTube Search<span id="NCS-f8c" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f9" class="disabled animated NCSf">Disable Custom Usernames<span id="NCS-f9c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f10" class="disabled animated NCSf">Custom Mention Sounds<span id="NCS-f10c" class="NCS-checkmark" style="display:none"/></div>');
+  $('#NCS-menu').append('<div id="NCS-f12" class="disabled animated NCSf">ETA<span id="NCS-f12c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f11" class="disabled animated NCSf"><a style="text-decoration: none; color: white;"  target="_blank" href="https://github.com/Nuvm/NCS/issues">Found An Issue? Report It Here!</a></div>');
   $('#NCS-btn').on('click', function() {
     if ($('#NCS-menu').css('display') === 'block') {
@@ -229,7 +230,7 @@ function NCSinit() {
       $('#NCS-menu').css('display', 'none')
     }
   });
-  $('#NCS-f1,#NCS-f2,#NCS-f3,#NCS-f4,'/*#NCS-f5,*/ + '#NCS-f6,#NCS-f7,'/*#NCS-f8,*/+'#NCS-f9,#NCS-f10').on('click', NCSfeatures);
+  $('#NCS-f1,#NCS-f2,#NCS-f3,#NCS-f4,'/*#NCS-f5,*/ + '#NCS-f6,#NCS-f7,'/*#NCS-f8,*/+'#NCS-f9,#NCS-f10,#NCS-f12').on('click', NCSfeatures);
   $('head').append('<style type="text/css">#NCS-btn:hover{cursor:pointer;background-color:grey;}.NCS-checkmark{float:right;background-image:url("http://i.imgur.com/rF5fHxr.png");background-repeat:no-repeat;height:15px;width:15px;margin-right:25px;}.NCSf{height:15px;word-wrap:break-word;opacity:0.8;padding-top:9.5px;padding-bottom:9.5px;padding-left:15px;color:white;}.NCSf:hover{cursor:pointer;box-shadow:inset 0px 0px 9px 1px rgba(255,255,255,0.8);}.NCScopiable{height:30px;text-align:left;padding:30px;padding-bottom:33px;overflow-wrap:break-word;display:block;}</style>');
   $('#messages').append('<center id="NCS-startupmsg" class="cm log mention" style="color:whitesmoke;text-align:center;font-weight:200;font-size:120%;padding:30px;">' + startUpMsg + '<br><span style="font-weight:100;font-size:85%">' + newFeaturesMsg + '</span></center>');
   $('#messages').append('<center id="NCS-startupalert" class="cm log mention" style="color:whitesmoke;text-align:center;font-weight:100;font-size:85%;padding:30px;">'+alertMsg);
@@ -420,6 +421,18 @@ function NCSfeatures(eventData) {
       NCSsettings[9] = false;
       $('#NCS-f10').removeClass('enabled').addClass('disabled');
     }
+  } else if (eventData.target.id === 'NCS-f12') {
+    if ($('#NCS-f12').hasClass('disabled')) {
+     $('#NCS-f12c').css('display', 'block');
+     NCSsettings[12] = true;
+     $('#NCS-f12').removeClass('disabled').addClass('enabled');
+     ETA();
+   } else {
+    $('#NCS-f12c').css('display', 'none');
+    NCSsettings[12] = false;
+    $('#NCS-f12').removeClass('enabled').addClass('disabled');
+    ETAOff();
+   }
   }
 }
  
@@ -531,10 +544,13 @@ function cTWI(e) {
   }, 50);
 }
 
-// ETA Script by Thomas
+// ETA Script by Thomas. Made toggleable by WindWalk.
+function ETA() {
+if (NCSsettings[12] == true) {
 (function() {
   $('head').prepend('<style>#waitlist-join::after { content: attr(data-eta); display: block; }</style>');
   $('head').append('<style>#waitlist-join { padding: 0px !important; }</style>');
+  $('head').append('<style>#waitlist-join::after { display: block; }</style>');
   // $('head').prepend('<style>input[type="text"] { position: relative; bottom: 11px; right: 0px; width: 230px; height: 11px; }</style>');
 
   function readable(total) {
@@ -560,16 +576,23 @@ function cTWI(e) {
     return -1;
   }
 
-  setInterval(function() {
+var ETAInterval = setInterval(function() {
     var position = getPosition();
     position = (position < 0) ? wl.length : position;
     var eta = ~~((position * (3.5 * 60)) + (player.getDuration() - player.getCurrentTime()));
     $('#waitlist-join').attr('data-eta', readable(eta));
   }, 1000);
 })();
+}
+};
+function ETAOff() {
+ if (NCSsettings[12] == false) {
+  $('head').append('<style>#waitlist-join::after { display: none; }</style>');
+  $('head').append('<style>#waitlist-join { padding: 7px !important; }</style>');
+  }
+};
 
-// Loli Counter Script
-
+// Loli Counter script
 $('#app-left').prepend('<span id="loli-counter"></span>');
 
 var lolis = 0;
