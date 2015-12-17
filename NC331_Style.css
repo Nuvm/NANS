@@ -1267,6 +1267,39 @@ div#djhistory-container {
     */
 }
 
+/* Loli Counter */
+
+#loli-counter.hidden {
+  display: block;
+ pointer-events:none;
+ opacity: 0;
+}
+
+#loli-counter {
+        position: absolute;
+    left: 0;
+    top: 0;
+    margin: 15px;
+    padding: 5px; 
+    background: rgba(0,0,0,0.6); 
+    font-size: 24px; 
+    font-family: arial, sans-serif;
+    border: 2px lightblue;
+    border-style: solid;
+ opacity: .3;
+ transition: opacity .2s ease-in-out;
+ -moz-transition: opacity .2s ease-in-out;
+ -webkit-transition: opacity .2s ease-in-out;
+}
+
+#loli-counter:hover {
+ opacity: 1;
+ transition: opacity .2s ease-in-out;
+ -moz-transition: opacity .2s ease-in-out;
+ -webkit-transition: opacity .2s ease-in-out;
+}
+
+
 /**************/
 /*TO BE SORTED*/
 /**************/
