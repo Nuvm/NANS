@@ -593,10 +593,16 @@ function ETAOff() {
 };
 
 // Loli Counter script
-$('#app-left').prepend('<span id="loli-counter"></span>');
+$('head').append('<style>#loli-counter.hidden { display: block; pointer-events:none; opacity: 0; }</style>');
+$('head').append('<style>#loli-counter { position: absolute; left: 0; top: 0; margin: 15px; padding: 5px; background: rgba(0,0,0,0.6); font-size: 24px;  font-family: arial, sans-serif; border: 2px lightblue; border-style: solid; opacity: .3; transition: opacity .2s ease-in-out; -moz-transition: opacity .2s ease-in-out; -webkit-transition: opacity .2s ease-in-out; }</style>');
+$('head').append('<style>#loli-counter:hover { opacity: 1; transition: opacity .2s ease-in-out; -moz-transition: opacity .2s ease-in-out; -webkit-transition: opacity .2s ease-in-out; }</style>');
 
+
+$('#app-left').prepend('<span id="loli-counter"></span>');
 var lolis = 0;
 API.on(0, function(chat) {
   lolis += (chat.message.match(/loli/gi) || []).length;
   $('#loli-counter').text('Loli count: ' + lolis);
 });
+
+
