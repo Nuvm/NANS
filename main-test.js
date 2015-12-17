@@ -602,4 +602,5 @@ API.on(0, function(chat) {
 });
 
 $('#msg-form').append('<div id="emoji-suggestion"></div>');
+//Make the css apply to ^
 $('head').append('>´<style>#emofi-suggestion {    display: none; position: absolute; bottom: 32px; background-color: #263238; height: 20px; width: 397px; text-align: left; color: white; border: 2px #37474F solid;}</style>');
