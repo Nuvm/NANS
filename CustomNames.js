@@ -7,7 +7,6 @@ function cfun(){
       unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
       $(unameicon).before('<i id='+("icon-NCS"+i)+' class="icon" style="background-image:none"></i>');
       document.getElementById('icon-NCS'+i).style.backgroundImage = "url('https://imgur.com/3hN3fNi.png')";
-      namecolor = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0] || document.getElementById('messages').lastChild.getElementsByClassName('rank-2')[0]
       namecolor.style.color='#FFDF00 !important'
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Loli'){
