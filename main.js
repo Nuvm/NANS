@@ -3,9 +3,9 @@
  
 // Version 0.6.0, temporary method of update. Used it to remove broken features in prep for the new NC331 patch.
  // This update fixes/moves the NCS issue button.
-var version = '0.6.8 | The lolis continue to rampage!';
+var version = '0.6.9 | AFK Auto Responder!';
 var startUpMsg = "Welcome to NCS version " + version;
-var newFeaturesMsg = "Added ETA button to the NCS menu, allows toggleing of ETA countdown.<br><a href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
+var newFeaturesMsg = "Added AFK Auto Responder! (Thank you, TheBanHammer!)<br><a href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
 var alertMsg = "The loli counter should now work on all themes. I didnt update the version number for this update.";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
 var uname, lastSelected, prevObj, unamestuff, unameicon, checkIfReady, ccid, previousBg, ytNextPage, ytPrevPage, ytPage, ytCurrentSearch;
@@ -17,7 +17,7 @@ var wsongs = [],
   ytSearchResults = [],
   songHistory = [];
 var apiKey = 'AIzaSyARvwirFktEIi_BTaKcCi9Ja-m3IEJYIRk';
-var NCSsettings = [false, false, false, false, false, false, false, false, false, false, false, false];
+var NCSsettings = [false, false, false, false, false, false, false, false, false, false, false, false, false, false];
 setTimeout(function() {
   checkIfReady = setInterval(function() {
     if (document.getElementsByClassName('loading').length !== 1) {
@@ -25,6 +25,9 @@ setTimeout(function() {
     }
   }, 100);
 }, 2000);
+var afkRespondCooldown = false;
+var afkRespondReset = null;
+ 
  
 function start() {
   $.getScript('https://rawgit.com/Nuvm/NCS/master/CustomNames.js');
@@ -88,6 +91,13 @@ function cfns(data) {
  
  
 function cfnm(data) {
+  if (data.message.indexOf('@' + User.username) > -1 && NCSsettings[13] == true) {
+    if (!afkRespondCooldown) {
+      afkRespondCooldown = true;
+      afkRespondReset = setTimeout(function () {afkRespondCooldown = false;},60000);
+      API.sendChat('[NCS] @' + data.user.username + ' I am currently AFK.');
+    }
+  }
   if (document.getElementById('messages').lastChild.id !== prevObj) {
     prevObj = document.getElementById('messages').lastChild.id;
     if (document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.slice(0, 4) === '$NCS') {
@@ -204,13 +214,14 @@ function NCSinit() {
   $('#NCS-menu').append('<div id="NCS-f4" class="disabled animated NCSf">Remove Video Player<span id="NCS-f4c" class="NCS-checkmark" style="display:none"/></div>');
   //$('#NCS-menu').append('<div id="NCS-f5" class="disabled animated NCSf" style="top:170px;">Smartvote<span id="NCS-f5c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f6" class="disabled animated NCSf">Custom Background<span id="NCS-f6c" class="NCS-checkmark" style="display:none"/></div>');
-  if(username==='Nuvm'||username==='CSxKING'||username==='Pixel'||username==='Don'){
+  //if(username==='Nuvm'||username==='CSxKING'||username==='Pixel'||username==='Don'){
     $('#NCS-menu').append('<div id="NCS-f7" class="disabled animated NCSf">Autojoin Waitlist<span id="NCS-f7c" class="NCS-checkmark" style="display:none"/></div>');
-  }
+  //}
   //$('#NCS-menu').append('<div id="NCS-f8" class="disabled animated NCSf">YouTube Search<span id="NCS-f8c" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f9" class="disabled animated NCSf">Disable Custom Usernames<span id="NCS-f9c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f10" class="disabled animated NCSf">Custom Mention Sounds<span id="NCS-f10c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f12" class="disabled animated NCSf">ETA<span id="NCS-f12c" class="NCS-checkmark" style="display:none"/></div>');
+   $('#NCS-menu').append('<div id="NCS-f13" class="disabled animated NCSf">AFK Responder<span id="NCS-f13c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f11" class="disabled animated NCSf"><a style="text-decoration: none; color: white;"  target="_blank" href="https://github.com/Nuvm/NCS/issues">Found An Issue? Report It Here!</a></div>');
   $('#NCS-btn').on('click', function() {
     if ($('#NCS-menu').css('display') === 'block') {
@@ -230,7 +241,7 @@ function NCSinit() {
       $('#NCS-menu').css('display', 'none')
     }
   });
-  $('#NCS-f1,#NCS-f2,#NCS-f3,#NCS-f4,'/*#NCS-f5,*/ + '#NCS-f6,#NCS-f7,'/*#NCS-f8,*/+'#NCS-f9,#NCS-f10,#NCS-f12').on('click', NCSfeatures);
+  $('#NCS-f1,#NCS-f2,#NCS-f3,#NCS-f4,'/*#NCS-f5,*/ + '#NCS-f6,#NCS-f7,'/*#NCS-f8,*/+'#NCS-f9,#NCS-f10,#NCS-f12,#NCS-f13').on('click', NCSfeatures);
   $('head').append('<style type="text/css">#NCS-btn:hover{cursor:pointer;background-color:grey;}.NCS-checkmark{float:right;background-image:url("http://i.imgur.com/rF5fHxr.png");background-repeat:no-repeat;height:15px;width:15px;margin-right:25px;}.NCSf{height:15px;word-wrap:break-word;opacity:0.8;padding-top:9.5px;padding-bottom:9.5px;padding-left:15px;color:white;}.NCSf:hover{cursor:pointer;box-shadow:inset 0px 0px 9px 1px rgba(255,255,255,0.8);}.NCScopiable{height:30px;text-align:left;padding:30px;padding-bottom:33px;overflow-wrap:break-word;display:block;}</style>');
   $('#messages').append('<center id="NCS-startupmsg" class="cm log mention" style="color:whitesmoke;text-align:center;font-weight:200;font-size:120%;padding:30px;">' + startUpMsg + '<br><span style="font-weight:100;font-size:85%">' + newFeaturesMsg + '</span></center>');
   $('#messages').append('<center id="NCS-startupalert" class="cm log mention" style="color:whitesmoke;text-align:center;font-weight:100;font-size:85%;padding:30px;">'+alertMsg);
@@ -433,6 +444,16 @@ function NCSfeatures(eventData) {
     $('#NCS-f12').removeClass('enabled').addClass('disabled');
     ETAOff();
    }
+  } else if (eventData.target.id === 'NCS-f13') {
+    if ($('#NCS-f13').hasClass('disabled')) {
+     $('#NCS-f13c').css('display', 'block');
+     NCSsettings[13] = true;
+     $('#NCS-f13').removeClass('disabled').addClass('enabled');
+   } else {
+    $('#NCS-f13c').css('display', 'none');
+    NCSsettings[13] = false;
+    $('#NCS-f13').removeClass('enabled').addClass('disabled');
+   }
   }
 }
  
@@ -605,4 +626,5 @@ API.on(0, function(chat) {
   $('#loli-counter').text('Loli count: ' + lolis);
 });
 
-
+//Append for the Image to fit the whole screen
+$('body').append('<div id="img-ncs"></div>');
