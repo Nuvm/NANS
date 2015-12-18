@@ -115,5 +115,6 @@ function cfun(){
       document.getElementById('icon-NCS'+i).style.backgroundImage = "url('https://imgur.com/3hN3fNi.png')";
       $(unamestuff).removeClass('rank-3');
       unamestuff.style.color='#A1BA00';
+      $(unamestuff).addClass('rank-3');
     }
 }
