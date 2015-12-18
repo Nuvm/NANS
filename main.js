@@ -127,7 +127,7 @@ function cfnm(data) {
 function NCScommandSorter(msg, user, element) {
   msg = msg.slice(4, 255);
   if (msg === 'update') {
-    if (user.innerHTML === 'Nuvm' || user.innerHTML === 'CSxKING' || user.innerHTML === 'Pixel') {
+    if (user.innerHTML === 'Nuvm' || user.innerHTML === 'CSxKING' || user.innerHTML === 'Pixel' || user.innerHTML === 'WindWalk') {
       $('#messages').append('<center class="NCSalert cm log mention" style="color:whitesmoke;text-align:center;font-weight:200;font-size:46;padding:5px;">A new update is available for NCS!<br><span style="font-weight:100;font-size:28">Refresh your page to get the latest update!</span></center>');
       $('#chat-sound-1')[0].play();
       setTimeout(function() {
@@ -135,14 +135,14 @@ function NCScommandSorter(msg, user, element) {
       }, 50)
     }
   } else if (msg.slice(0, 7) === 'message') {
-    if (user.innerHTML === 'Nuvm' || user.innerHTML === 'CSxKING' || user.innerHTML === 'Pixel') {
+    if (user.innerHTML === 'Nuvm' || user.innerHTML === 'CSxKING' || user.innerHTML === 'Pixel' || user.innerHTML === 'WindWalk') {
       $('#messages').append('<center class="NCSalert cm log mention" style="color:whitesmoke;text-align:center;font-weight:150;font-size:30;">[' + user.innerHTML + '] says: ' + msg.slice(7, 255) + '</center>');
       setTimeout(function() {
         $(element).remove()
       }, 50)
     }
   } else if (msg.slice(0, 5) === 'alert') {
-    if (user.innerHTML === 'Nuvm' || user.innerHTML === 'CSxKING' || user.innerHTML === 'Pixel') {
+    if (user.innerHTML === 'Nuvm' || user.innerHTML === 'CSxKING' || user.innerHTML === 'Pixel' || user.innerHTML === 'WindWalk') {
       $('#messages').append('<center class="NCSalert cm log mention" style="color:whitesmoke;text-align:center;font-weight:500;font-size:46;"><b>[NCS ALERT]</b><br> ' + msg.slice(5, 255) + '</center>');
       $('#chat-sound-1')[0].play();
       setTimeout(function() {
