@@ -210,7 +210,7 @@ function NCSinit() {
   $('#NCS-menu').css('top', '100%-35').css('height', $('#chat').css('height')).css('width', '100%');
   $('#NCS-menu').append('<div id="NCS-f1" class="disabled animated NCSf">Hide Video Player<span id="NCS-f1c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f2" class="disabled animated NCSf">Custom Theme<span id="NCS-f2c" class="NCS-checkmark" style="display:none"/></div>');
-  $('#NCS-menu').append('<div id="NCS-f14" class="disabled animated NCSf">Plug Theme<span id="NCS-f12c" class="NCS-checkmark" style="display:none"/></div>');
+  $('#NCS-menu').append('<div id="NCS-f14" class="disabled animated NCSf">Plug Theme<span id="NCS-f14c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f3" class="disabled animated NCSf">Desktop Notifications<span id="NCS-f3c" class="NCS-checkmark" style="display:none"/></div>');
   $('#NCS-menu').append('<div id="NCS-f4" class="disabled animated NCSf">Remove Video Player<span id="NCS-f4c" class="NCS-checkmark" style="display:none"/></div>');
   //$('#NCS-menu').append('<div id="NCS-f5" class="disabled animated NCSf" style="top:170px;">Smartvote<span id="NCS-f5c" class="NCS-checkmark" style="display:none"/></div>');
