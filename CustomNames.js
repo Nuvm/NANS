@@ -110,7 +110,7 @@ function cfun(){
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='WindWalk'){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
-      unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
+      unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-3');
       $(unameicon).before('<i id='+("icon-NCS"+i)+' class="icon" style="background-image:none"></i>');
       document.getElementById('icon-NCS'+i).style.backgroundImage = "url('https://imgur.com/3hN3fNi.png')";
       $(unamestuff).removeClass('rank-3');
