@@ -114,7 +114,7 @@ function cfun(){
       $(unameicon).before('<i id='+("icon-NCS"+i)+' class="icon" style="background-image:none"></i>');
       document.getElementById('icon-NCS'+i).style.backgroundImage = "url('https://imgur.com/3hN3fNi.png')";
       $(unamestuff).removeClass('rank-3');
-      unamestuff.style.color='#A1BA00', '!important';
+      unamestuff.style.color='#A1BA00!important';
       $(unamestuff).addClass('rank-3');
     }
 }
