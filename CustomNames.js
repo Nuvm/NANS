@@ -113,7 +113,6 @@ function cfun(){
       unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
       $(unameicon).before('<i id='+("icon-NCS"+i)+' class="icon" style="background-image:none"></i>');
       document.getElementById('icon-NCS'+i).style.backgroundImage = "url('https://imgur.com/3hN3fNi.png')";
-      $(unamestuff).removeClass('rank-2');
+      $(unamestuff).removeClass('rank-3');
       unamestuff.style.color='#A1BA00';
-      $(unamestuff).addClass('rank-2');
 }
