@@ -30,7 +30,7 @@ var afkRespondReset = null;
  
  
 function start() {
-  $.getScript('https://rawgit.com/Nuvm/NCS/master/CustomNames.js');
+  $.getScript('https://rawgit.com/Nuvm/NCS/dev/CustomNames.js');
   clearInterval(checkIfReady);
   if ($('#NCS-menu')[0] || $('#NCS-btn')[0] || $('#THEME_BUG')[0]) {
     $('#messages').append('<center class="NCSalert cm log mention" style="color:whitesmoke;text-align:center;font-weight:150;font-size:30;">' + errorMsg + '</center>');
