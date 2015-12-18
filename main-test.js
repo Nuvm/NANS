@@ -459,11 +459,11 @@ function NCSfeatures(eventData) {
   else if (eventData.target.id === 'NCS-f14') {
     if ($('#NCS-f14').hasClass('disabled')) {
      $('#NCS-f14c').css('display', 'block');
-     NCSsettings[13] = true;
+     NCSsettings[14] = true;
      $('#NCS-f14').removeClass('disabled').addClass('enabled');
    } else {
     $('#NCS-f14c').css('display', 'none');
-    NCSsettings[13] = false;
+    NCSsettings[14] = false;
     $('#NCS-f14').removeClass('enabled').addClass('disabled');
    }
   }
