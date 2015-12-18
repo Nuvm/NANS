@@ -7,7 +7,8 @@ function cfun(){
       unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
       $(unameicon).before('<i id='+("icon-NCS"+i)+' class="icon" style="background-image:none"></i>');
       document.getElementById('icon-NCS'+i).style.backgroundImage = "url('https://imgur.com/3hN3fNi.png')";
-      unamestuff.style.color='#FFDF00 !important'
+      $(unamestuff).removeClass('rank-2');
+      unamestuff.style.color='#A1BA00';
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Loli'){
       i++;
@@ -53,8 +54,8 @@ function cfun(){
       unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
       $(unameicon).before('<i id='+("icon-NCS"+i)+' class="icon" style="background-image:none"></i>');
       document.getElementById('icon-NCS'+i).style.backgroundImage = "url('https://i.imgur.com/LXoYihi.png')";
-      namecolor = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0] || document.getElementById('messages').lastChild.getElementsByClassName('rank-2')[0]
-      namecolor.style.color='#00E5EE !important';
+      $(unamestuff).removeClass('rank-2');
+      unamestuff.style.color='#00E5EE';
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Daisy-Chan'){
       i++;
@@ -71,8 +72,8 @@ function cfun(){
       unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
       $(unameicon).before('<i id='+("icon-NCS"+i)+' class="icon" style="background-image:none"></i>');
       document.getElementById('icon-NCS'+i).style.backgroundImage = "url('https://i.imgur.com/Gcf5bSn.png')";
-      namecolor = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0] || document.getElementById('messages').lastChild.getElementsByClassName('rank-2')[0]
-      namecolor.style.color='#FF29EE !important';
+      $(unamestuff).removeClass('rank-2');
+      unamestuff.style.color='#FF29EE';
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Danklight'){
       i++;
@@ -80,8 +81,8 @@ function cfun(){
       unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
       $(unameicon).before('<i id='+("icon-NCS"+i)+' class="icon icon-rank-2"'/* style="background-image:none"*/+'></i>');
       //document.getElementById('icon-NCS'+i).style.backgroundImage = "url('https://imgur.com/GT0yJLY.png')";
-      namecolor = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0] || document.getElementById('messages').lastChild.getElementsByClassName('rank-2')[0]
-      namecolor.style.color='#FF0000 !important';
+      $(unamestuff).removeClass('rank-2');
+      unamestuff.style.color='#FF0000';
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Elusive'){
       i++;
@@ -89,8 +90,8 @@ function cfun(){
       unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
       $(unameicon).before('<i id='+("icon-NCS"+i)+' class="icon" style="background-image:none"></i>');
       document.getElementById('icon-NCS'+i).style.backgroundImage = "url('https://i.imgur.com/S1HQJ1a.png?1')";
-      namecolor = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0] || document.getElementById('messages').lastChild.getElementsByClassName('rank-2')[0]
-      namecolor.style.color='#FFFF00 !important';
+      $(unamestuff).removeClass('rank-2');
+      unamestuff.style.color='#FFFF00';
     }
     if(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML==='Xfirenl'){
       i++;
@@ -104,6 +105,6 @@ function cfun(){
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];       
       $(unamestuff).before('<i id='+("icon-NCS"+i)+' class="icon" style="background-image:none"></i>');       
       document.getElementById('icon-NCS'+i).style.backgroundImage = "url('https://i.imgur.com/iEKADSh.png')";       
-      unamestuff.style.color='#D65CFF !important';
+      unamestuff.style.color='#D65CFF';
     }
 }
