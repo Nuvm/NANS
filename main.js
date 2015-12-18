@@ -106,7 +106,7 @@ function cfnm(data) {
     if ($('#NCS-f3').hasClass('enabled') && !document.hasFocus()) {
       if (document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerHTML.indexOf('@' + uname) !== -1) {
         var notif = new Notification(document.getElementById('messages').lastChild.getElementsByClassName('uname')[0].innerHTML, {
-          icon: 'http://i.imgur.com/5ThdRUd.png',
+          icon: 'https://i.imgur.com/5ThdRUd.png',
           body: document.getElementById('messages').lastChild.getElementsByClassName('msg')[0].innerText
         });
         notif.onclick = function() {
@@ -188,7 +188,7 @@ function NCSinit() {
     }
     $('#volumePercent').text(player.getVolume() + '%');
   });
-  $('#notifications').append('<div id="NCS-notif" class="notification" style="display:none"><div class="notif-title"><img src="http://i.imgur.com/5ThdRUd.png" class="notif-icon"><span id="NCS-notif-title-text" class="notif-title-text"></span><img id="NCS-notif-close" src="img/close.png" class="notif-close"></div><div id="NCS-notif-content" style="overflow-y:auto;overflow-x:hidden;" class="notif-content"><div id="NCS-notif-content-text" style="top:50px;position:absolute;" class="notif-content-text"></div></div></div>');
+  $('#notifications').append('<div id="NCS-notif" class="notification" style="display:none"><div class="notif-title"><img src="https://i.imgur.com/5ThdRUd.png" class="notif-icon"><span id="NCS-notif-title-text" class="notif-title-text"></span><img id="NCS-notif-close" src="img/close.png" class="notif-close"></div><div id="NCS-notif-content" style="overflow-y:auto;overflow-x:hidden;" class="notif-content"><div id="NCS-notif-content-text" style="top:50px;position:absolute;" class="notif-content-text"></div></div></div>');
   $('#NCS-notif-close').on('click', function() {
     $('#NCS-notif').css('display', 'none');
     $('#notifications').css('display', 'none');
@@ -196,7 +196,7 @@ function NCSinit() {
   $('#chat-button').parent().append('<div id="NCS-btn" class="animated" style="transform:rotate(0deg);background-image:none;height:30px;width:30px;float:right;margin-right:5px;-webkit-user-select: none;"></div>');
   $('#NCS-btn').append('<div id="NCS-name" style="position:absolute;transform:rotate(0deg);font-family:IM Fell English SC;color:black;bottom:10px;text-shadow:0px 0px 2px #FFD700;"><b>NCS</b></div>');
   //$('.navbar.header').append('<a href="http://electricgaming.ga/forums/en/forumdisplay.php?fid=24" target="_blank"><button id="THEME_BUG" class="nav-form nav-right">[NCS] Report an Issue</button></a>');
-  $('#NCS-btn')[0].style.backgroundImage = "url('http://i.imgur.com/5ThdRUd.png')";
+  $('#NCS-btn')[0].style.backgroundImage = "url('https://i.imgur.com/5ThdRUd.png')";
   initialWidth1 = $('#chat-button').css('width').split('px')[0];
   initialWidth2 = $('#users-button').css('width').split('px')[0];
   initialWidth3 = $('#waitlist-button').css('width').split('px')[0];
@@ -242,7 +242,7 @@ function NCSinit() {
     }
   });
   $('#NCS-f1,#NCS-f2,#NCS-f3,#NCS-f4,'/*#NCS-f5,*/ + '#NCS-f6,#NCS-f7,'/*#NCS-f8,*/+'#NCS-f9,#NCS-f10,#NCS-f12,#NCS-f13').on('click', NCSfeatures);
-  $('head').append('<style type="text/css">#NCS-btn:hover{cursor:pointer;background-color:grey;}.NCS-checkmark{float:right;background-image:url("http://i.imgur.com/rF5fHxr.png");background-repeat:no-repeat;height:15px;width:15px;margin-right:25px;}.NCSf{height:15px;word-wrap:break-word;opacity:0.8;padding-top:9.5px;padding-bottom:9.5px;padding-left:15px;color:white;}.NCSf:hover{cursor:pointer;box-shadow:inset 0px 0px 9px 1px rgba(255,255,255,0.8);}.NCScopiable{height:30px;text-align:left;padding:30px;padding-bottom:33px;overflow-wrap:break-word;display:block;}</style>');
+  $('head').append('<style type="text/css">#NCS-btn:hover{cursor:pointer;background-color:grey;}.NCS-checkmark{float:right;background-image:url("https://i.imgur.com/rF5fHxr.png");background-repeat:no-repeat;height:15px;width:15px;margin-right:25px;}.NCSf{height:15px;word-wrap:break-word;opacity:0.8;padding-top:9.5px;padding-bottom:9.5px;padding-left:15px;color:white;}.NCSf:hover{cursor:pointer;box-shadow:inset 0px 0px 9px 1px rgba(255,255,255,0.8);}.NCScopiable{height:30px;text-align:left;padding:30px;padding-bottom:33px;overflow-wrap:break-word;display:block;}</style>');
   $('#messages').append('<center id="NCS-startupmsg" class="cm log mention" style="color:whitesmoke;text-align:center;font-weight:200;font-size:120%;padding:30px;">' + startUpMsg + '<br><span style="font-weight:100;font-size:85%">' + newFeaturesMsg + '</span></center>');
   $('#messages').append('<center id="NCS-startupalert" class="cm log mention" style="color:whitesmoke;text-align:center;font-weight:100;font-size:85%;padding:30px;">'+alertMsg);
   //document.getElementById("chat-sound-1").play();
