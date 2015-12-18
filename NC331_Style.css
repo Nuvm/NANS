@@ -185,7 +185,7 @@ CSS For ANC331
 #img{
     position:                   absolute;
     z-index:                    -5;
-    background-image:           url("http://electricgaming.ga/ncs/img/plugwall.jpg");
+    background-image:           url("https://electricgaming.ga/ncs/img/plugwall.jpg");
     background-size:            cover;
     background-position:        center;
     height:                     100%;
@@ -775,37 +775,37 @@ input[type="text"] {
 
 /*VIP*/
 .icon-rank-1 {
-    background:                 url("http://i.imgur.com/HWucg1I.png") !important;
+    background:                 url("https://i.imgur.com/HWucg1I.png") !important;
 }
 
 /*RDJ*/
 .icon-rank-2 {
-    background:                 url("http://i.imgur.com/EBEFOAY.png") !important;
+    background:                 url("https://i.imgur.com/EBEFOAY.png") !important;
 }
 
 /*Bouncer*/
 .icon-rank-3 {
-    background:                 url("http://i.imgur.com/jA7CGAX.png") !important;
+    background:                 url("https://i.imgur.com/jA7CGAX.png") !important;
 }
 
 /*Manager*/
 .icon-rank-4 {
-    background:                 url("http://i.imgur.com/bebMb8k.png") !important;
+    background:                 url("https://i.imgur.com/bebMb8k.png") !important;
 }
 
 /*Co-Host*/
 .icon-rank-5 {
-    background:                 url("http://i.imgur.com/JOlqRg9.png") !important;
+    background:                 url("https://i.imgur.com/JOlqRg9.png") !important;
 }
 
 /*Host*/
 .icon-rank-6 {
-    background:                 url("http://i.imgur.com/JOlqRg9.png") !important;
+    background:                 url("https://i.imgur.com/JOlqRg9.png") !important;
 }
 
 /*Dev*/
 .icon-rank-10 {
-    background:                 url("http://i.imgur.com/WNaG27h.png") !important;
+    background:                 url("https://i.imgur.com/WNaG27h.png") !important;
 }
 
 .wl-position {
