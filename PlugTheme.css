@@ -1,4 +1,7 @@
-
+/* App has no longer a height so it had to be changed. I'm not sure why it lost it's height suddenly */
+#app {
+	height: 100vh;
+}
 
 #room-title {
     background-color: transparent;
