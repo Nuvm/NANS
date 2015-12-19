@@ -660,7 +660,7 @@ function applyPlugTheme() {
 function plugThemeOff() {
  if (NCSsettings[14] == false) {
   $('#logout').remove();
-  $('.header').find('.nav-right').prepend('<button id="logout">Logout</button>')
+  $('.header').find('.nav-right').not('#loginForm').prepend('<button id="logout">Logout</button>')
   $('#PlugTheme').remove();
   $('#logout').click(function() {if (localStorage.authToken !== undefined) {
    localStorage.removeItem('authToken');
