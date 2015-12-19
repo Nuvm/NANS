@@ -645,7 +645,6 @@ API.on(0, function(chat) {
 //Stuff for the plug theme
 function applyPlugTheme() {
  if (NCSsettings[14] == true) {
-  (function(){
    $('#logout').remove();
    $('#menu').append('<div class="menu-tile" id="logout"><span class="tile-text">Logout</span></div>');
    $('body').prepend('<div id="img-ncs"></div>');
@@ -654,10 +653,8 @@ function applyPlugTheme() {
    $('#logout').click(function() {if (localStorage.authToken !== undefined) {
    localStorage.removeItem('authToken');
    location.href = location.href.replace('#', "");
-  }});
-  }
- )}
-};
+  }})
+}};
 //To take the theme off
 function plugThemeOff() {
  if (NCSsettings[14] == false) {
