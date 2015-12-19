@@ -669,3 +669,11 @@ function plugThemeOff() {
   }})
  }
 };
+
+//To remove plugTheme if you apply another theme in the themeselector
+$('.theme').on('click', function() {
+  $('#NCS-f14c').css('display', 'none');
+   NCSsettings[14] = false;
+   $('#NCS-f14').removeClass('enabled').addClass('disabled');
+   plugThemeOff();
+ });
