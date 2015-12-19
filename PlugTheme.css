@@ -1,1 +1,34 @@
+#img-ncs {
+    background-image: url("http://cdn.wonderfulengineering.com/wp-content/uploads/2014/04/space-wallpaper-1.jpg");
+    height: 100%;
+    width: 100%;
+}
 
+#img {
+  opacity: 0;
+}
+
+div#showLeft {
+  background:transparent;
+  border-bottom-right-radius:12px;
+  cursor:pointer;
+  float:left;
+  font-size:40px;
+  height:52px;
+  width:50px;
+}
+
+div#profile-settings {
+    background: transparent;
+}
+
+/* Footer Stuff */
+
+.navbar {
+    opacity: .75;
+}
+
+.experience-box {
+    position: relative;
+    bottom: 10px;
+}
