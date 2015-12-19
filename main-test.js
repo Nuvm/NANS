@@ -647,7 +647,7 @@ function applyPlugTheme() {
  if (NCSsettings[14] == true) {
    $('#logout').remove();
    $('#menu').append('<div class="menu-tile" id="logout"><span class="tile-text">Logout</span></div>');
-   $('body').prepend('<div id="img-ncs"></div>');
+   $('#app').prepend('<div id="img-ncs"></div>');
    $('head').append('<link id="PlugTheme" rel="stylesheet" href="https://rawgit.com/Nuvm/NCS/dev/PlugTheme.css">');
    //function to make the logout button work again as we remove it and then the click listener is removed too
    $('#logout').click(function() {if (localStorage.authToken !== undefined) {
