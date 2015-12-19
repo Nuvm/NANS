@@ -662,6 +662,7 @@ function plugThemeOff() {
   $('#logout').remove();
   $('.header').find('.nav-right').not('#loginForm').prepend('<button id="logout">Logout</button>')
   $('#PlugTheme').remove();
+  $('#img-ncs').remove();
   $('#logout').click(function() {if (localStorage.authToken !== undefined) {
    localStorage.removeItem('authToken');
    location.href = location.href.replace('#', "");
