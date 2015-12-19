@@ -1,4 +1,4 @@
-@import url("https://alpha.nightcore-331.net/css/style.css");
+
 
 #room-title {
     background-color: transparent;
@@ -12,10 +12,6 @@
 
 #img {
   opacity: 0;
-}
-
-#app {
-	height: 100vh;
 }
 
 div#showLeft {
