@@ -1,3 +1,9 @@
+@import url("https://alpha.nightcore-331.net/css/style.css");
+
+#room-title {
+    background-color: transparent;
+}
+
 #img-ncs {
     background-image: url("http://cdn.wonderfulengineering.com/wp-content/uploads/2014/04/space-wallpaper-1.jpg");
     height: 100%;
@@ -26,9 +32,362 @@ div#profile-settings {
 
 .navbar {
     opacity: .75;
+    background-color: #042547;
+    position:                   absolute;
+    width:                      100%;
+    height:                     52px;
+    z-index:                    4;
+    left:                       0;
+    margin:                     0;
+    padding:                    0;
+    background:                 #071D34;
+    vertical-align:             middle;
+    text-align:                 center;
+    
+}
+
+.nav-title {
+    font-size:                  20px;
+    line-height:                50px;
+    vertical-align:             middle;
+    text-align:                 center;
+    padding:                    0 10px;
+    color:						#33C4F5;
 }
 
 .experience-box {
     position: relative;
     bottom: 10px;
+}
+
+/* Chat */
+#chat {
+    position:                   absolute;
+    z-index:                    0;
+    overflow-x:                 hidden;
+    overflow-y:                 auto;
+    word-wrap:                  break-word;
+    height:                     calc(100% - 40px);
+    width:                      100%;
+    font:                       14px 'Noto Sans', sans-serif !important;
+    background: #030C16;
+    /* Experimenting.... */
+    
+    /* text-shadow: 0 0 0.9px #28C2B9; */
+    /* Warning! Don't ever enable the two shadow sets below, they make chat look awful!
+    /* box-shadow			10px 10px 5px #888888; */
+    /* text-shadow: 		0 0 2px #44B3BB, 0 0 2px #368F96; */
+}
+
+/* Chat Hover */
+#chat:hover {
+	/* background-color: 		#1c1f25; */
+	/* color:			#0092A8; */
+}
+
+#profile {
+    position: relative;
+    top: 5px;
+}
+
+/* Messages.... */
+#messages {
+    margin:                     0;
+    padding:                    0;
+}
+
+#messages .cm {
+    border: 1px solid rgba(0,0,0,0);
+        -webkit-transition: border-color 1s ease;
+    -moz-transition: border-color 1s ease;
+    -ms-transition: border-color 1s ease;
+    -o-transition: border-color 1s ease;
+    transition: border-color 1s ease;
+
+}
+
+#messages .cm:hover {
+ 	border: 1px solid lightblue;
+    -webkit-transition: border-color 1s ease;
+    -moz-transition: border-color 1s ease;
+    -ms-transition: border-color 1s ease;
+    -o-transition: border-color 1s ease;
+    transition: border-color 1s ease;
+}
+
+#messages .cm:nth-child(even) {
+	background: #051628;
+}
+
+#messages .cm:nth-child(odd) {
+    background: #072039;
+}
+
+#messages .cm:hover div.msg-del {
+    display:                    block;
+    border-color:		#45E0FF;
+}
+
+#messages .msg-del {
+    display:                    none;
+    position:                   absolute;
+    right:                      -6px;
+    top:                        25px;
+    text-overflow:              inherit;
+    width:                      85px;
+    text-align:                 center;
+    cursor:                     pointer;
+}
+
+#messages .cm:hover div.msg-del {
+    display:                    block;
+}
+
+#messages .msg-del {
+    display:                    none;
+    position:                   absolute;
+    right:                      -6px;
+    top:                        25px;
+    text-overflow:              inherit;
+    width:                      85px;
+    text-align:                 center;
+}
+
+/* Moving Stuff */
+#room-title {
+    position: relative;
+    right: 50px;
+}
+
+.media-info {
+    position: relative !important;
+    right: 100px;
+}
+
+/* Hide the old username info */
+.header>.nav-right {
+    opacity: 0;
+}
+
+/* Move more stuff */
+#volume-settings {
+    position: relative !important;
+    left: -10px !important;
+}
+
+/* Inputs */
+
+input[type="text"] {
+	background-color: #030C16;
+}
+
+/* Custom Button Colors */
+.app-right-selector {
+	background-color: #0f385c;
+}
+
+.selected {
+    background-color: #195d99;
+}
+
+/* Custom Menu Stuff */
+#menu {
+    background-color: #030C16;
+    opacity: .70;
+}
+
+/* Progress Bar */
+#progress {
+    background-color: #195d99;
+}
+
+/* Buttons */
+button {
+    border-radius: 0;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+button {
+    border: 1px solid #2196F3;
+    color: #2196F3;
+    background-color: transparent;
+}
+
+button:hover,
+button:focus {
+    border: 1px solid #2196F3;
+    outline: 0;
+    color: #000;
+    background-color: #2196F3;
+}
+
+#settings-autojoin {
+    visibility: hidden;
+}
+
+.userDialog.hidden {
+  display: block;
+ pointer-events:none;
+ opacity: 0;
+}
+
+.userDialog {
+ opacity: .3;
+ transition: opacity .2s ease-in-out;
+ -moz-transition: opacity .2s ease-in-out;
+ -webkit-transition: opacity .2s ease-in-out;
+}
+
+.userDialog:hover {
+ opacity: 1;
+ transition: opacity .2s ease-in-out;
+ -moz-transition: opacity .2s ease-in-out;
+ -webkit-transition: opacity .2s ease-in-out;
+}
+
+div.notification .notif-content {
+  background-color: #172B40;
+}
+
+div.notification .notif-title {
+    background-color: #1F3D5C;
+}
+
+#waitlist-join { width: 130px; }
+
+#ratingbuttons {
+    display: flex;
+    position: absolute;
+    height: 80px;
+    bottom: -90px;
+    width: 100%;
+}
+#ratingbuttons > div {
+    position: absolute;
+    width: 33%;
+    height: 100%;
+    overflow: visible;
+}
+#ratingbuttons > div > .count {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+#ratingbuttons > div > button {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+#ratingbuttons img {
+    position: absolute;
+    top: 4px;
+    opacity: 0.5;
+    height: 40px;
+    width: 40px;
+    right: calc(50% - 20px);
+}
+#ratingbuttons button:focus {
+    outline: 0;
+}
+#ratingbuttons #wootcontainer {
+    left: 0;
+    z-index: 3;
+    background-color: #263238;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+#ratingbuttons #mehcontainer {
+    right: 0;
+    z-index: 3;
+    background-color: #263238;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+#ratingbuttons #grabcontainer {
+    z-index: 2;
+    left: 32%;
+    width: 36%;
+    background-color: #263238;
+}
+#ratingbuttons #btn-woot {
+    border-bottom: 2px solid #4CAF50;
+    border-top: 1px solid #4CAF50;
+    border-right: none;
+    border-left: none;
+
+}
+#ratingbuttons #btn-meh {
+    border-bottom: 2px solid #F44336;
+    border-top: 1px solid #F44336;
+	border-right: none;
+    border-left: none;
+
+}
+#ratingbuttons #btn-grab {
+    border-bottom: 2px solid #2196F3;
+    border-top: 1px solid #2196F3 !important;
+    border-right: none;
+    border-left: none;
+
+}
+
+#ratingbuttons button.active {
+    background-color: #37474F;
+}
+#ratingbuttons button.active > img {
+    opacity: 1;
+}
+#ratingbuttons #grab-playlists {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 5%;
+    width: calc(80% - 4px);
+    background-color: #37474F;
+    padding: 5px 5%;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 2px solid #2196F3;
+    border-top: none;
+}
+#ratingbuttons #grab-playlists span {
+    display: block;
+    position: relative;
+    height: 25px;
+    width: 100%;
+    line-height: 25px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: normal;
+    padding-left: 20px;
+    cursor: pointer;
+}
+#ratingbuttons #grab-playlists span.is-on-playlist::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 0px;
+    width: 16px;
+    height: 16px;
+    background-image: url("../img/grab.png");
+    background-position: center;
+    background-size: contain;
+}
+#ratingbuttons #grabcontainer {
+    overflow: visible;
+}
+#ratingbuttons #grabcontainer:hover #grab-playlists {
+    display: block;
 }
