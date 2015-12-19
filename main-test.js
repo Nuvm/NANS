@@ -455,16 +455,17 @@ function NCSfeatures(eventData) {
     NCSsettings[13] = false;
     $('#NCS-f13').removeClass('enabled').addClass('disabled');
    }
-  }
-  else if (eventData.target.id === 'NCS-f14') {
+  } else if (eventData.target.id === 'NCS-f14') {
     if ($('#NCS-f14').hasClass('disabled')) {
      $('#NCS-f14c').css('display', 'block');
      NCSsettings[14] = true;
      $('#NCS-f14').removeClass('disabled').addClass('enabled');
+     applyPlugTheme();
    } else {
     $('#NCS-f14c').css('display', 'none');
     NCSsettings[14] = false;
     $('#NCS-f14').removeClass('enabled').addClass('disabled');
+    plugThemeOff();
    }
   }
 }
@@ -639,6 +640,33 @@ API.on(0, function(chat) {
 });
 
 //Append for the Image to fit the whole screen
-$('body').prepend('<div id="img-ncs"></div>');
+
 
 //Stuff for the plug theme
+function applyPlugTheme() {
+ if (NCSsettings[14] == true) {
+  (function(){
+   $('#logout').remove();
+   $('#menu').append('<div class="menu-tile" id="logout"><span class="tile-text">Logout</span></div>');
+   $('body').prepend('<div id="img-ncs"></div>');
+   $('head').append('<link id="PlugTheme" rel="stylesheet" href="https://rawgit.com/Nuvm/NCS/dev/PlugTheme.css">');
+   //function to make the logout button work again as we remove it and then the click listener is removed too
+   $('#logout').click(function() {if (localStorage.authToken !== undefined) {
+   localStorage.removeItem('authToken');
+   location.href = location.href.replace('#', "");
+  }});
+  }
+ )}
+};
+//To take the theme off
+function plugThemeOff() {
+ if (NCSsettings[14] == false) {
+  $('#logout').remove();
+  $('.nav-right').prepend('<button id="logout">Logout</button>')
+  $('#PlugTheme').remove();
+  $('#logout').click(function() {if (localStorage.authToken !== undefined) {
+   localStorage.removeItem('authToken');
+   location.href = location.href.replace('#', "");
+  }});
+ }
+}
