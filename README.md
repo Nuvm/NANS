@@ -17,7 +17,7 @@ To report an issue or request a feature, please use the Github issues page, foun
 ### Developers & Current Project Statuses
 * Nuvm (Seems to be missing from the internet.)
 * CSxKING
-* Pixel (Seems to not be doing anything for the project anymore.)
+* Pixel (Seems to not be doing as much for the project anymore, but is still active.)
 * WindWalk
 
 ### Contributers
