@@ -1,3 +1,5 @@
+@import url("https://alpha.nightcore-331.net/css/style.css");
+
 /* App has no longer a height so it had to be changed. I'm not sure why it lost it's height suddenly */
 #app {
 	height: 100vh;
@@ -25,10 +27,18 @@ div#showLeft {
   font-size:40px;
   height:52px;
   width:50px;
+  position: relative;
+  top: 2px;
 }
 
 div#profile-settings {
     background: transparent;
+    position: relative;
+    bottom: 4px;
+}
+
+#room-title {
+    content: url("https://i.imgur.com/1YYbTUT.png") !important;
 }
 
 /* Footer Stuff */
@@ -46,7 +56,7 @@ div#profile-settings {
     background:                 #071D34;
     vertical-align:             middle;
     text-align:                 center;
-    
+
 }
 
 .nav-title {
@@ -60,7 +70,19 @@ div#profile-settings {
 
 .experience-box {
     position: relative;
-    bottom: 10px;
+    bottom: 13px;
+}
+
+.exp-meter {
+    border-radius: 7px;
+    background: #0f3f70;
+    padding: 1px;
+}
+
+.uk-progress-bar {
+    border-radius: 7px;
+    background: #1b71ca;
+    padding: 1px;
 }
 
 /* Chat */
@@ -75,7 +97,7 @@ div#profile-settings {
     font:                       14px 'Noto Sans', sans-serif !important;
     background: #030C16;
     /* Experimenting.... */
-    
+
     /* text-shadow: 0 0 0.9px #28C2B9; */
     /* Warning! Don't ever enable the two shadow sets below, they make chat look awful!
     /* box-shadow			10px 10px 5px #888888; */
@@ -267,8 +289,9 @@ div.notification .notif-title {
     display: flex;
     position: absolute;
     height: 80px;
-    bottom: -90px;
-    width: 100%;
+    bottom: 7px;
+    width: 100px;
+    right: 6px;
 }
 #ratingbuttons > div {
     position: absolute;
@@ -283,6 +306,7 @@ div.notification .notif-title {
     height: 30px;
     line-height: 30px;
     font-size: 14px;
+    right: -14px;
 }
 #ratingbuttons > div > button {
     position: relative;
@@ -307,14 +331,14 @@ div.notification .notif-title {
 #ratingbuttons #wootcontainer {
     left: 0;
     z-index: 3;
-    background-color: #263238;
+    background-color: transparent;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
 }
 #ratingbuttons #mehcontainer {
     right: 0;
     z-index: 3;
-    background-color: #263238;
+    background-color: transparent;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 }
@@ -322,32 +346,34 @@ div.notification .notif-title {
     z-index: 2;
     left: 32%;
     width: 36%;
-    background-color: #263238;
+    background-color: transparent;
 }
 #ratingbuttons #btn-woot {
-    border-bottom: 2px solid #4CAF50;
-    border-top: 1px solid #4CAF50;
+    border-bottom: none;
+    border-top: none;
     border-right: none;
     border-left: none;
-
 }
 #ratingbuttons #btn-meh {
-    border-bottom: 2px solid #F44336;
-    border-top: 1px solid #F44336;
+    border-bottom: none;
+    border-top: none;
 	border-right: none;
     border-left: none;
-
 }
 #ratingbuttons #btn-grab {
-    border-bottom: 2px solid #2196F3;
-    border-top: 1px solid #2196F3 !important;
+    border-bottom: none;
+    border-top: none !important;
     border-right: none;
     border-left: none;
+}
 
+#ratingbuttons button {
+    opacity: .5;
 }
 
 #ratingbuttons button.active {
-    background-color: #37474F;
+    background-color: transparent;
+    opacity: 1;
 }
 #ratingbuttons button.active > img {
     opacity: 1;
@@ -355,15 +381,15 @@ div.notification .notif-title {
 #ratingbuttons #grab-playlists {
     display: none;
     position: absolute;
-    top: 50px;
-    left: 5%;
-    width: calc(80% - 4px);
-    background-color: #37474F;
+    top: -35px;
+    left: -225%;
+    width: calc(400% - 4px);
+    background-color: transparent;
     padding: 5px 5%;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     border: 2px solid #2196F3;
-    border-top: none;
+    border-top: 2px solid #2196F3;
 }
 #ratingbuttons #grab-playlists span {
     display: block;
@@ -374,9 +400,14 @@ div.notification .notif-title {
     text-align: left;
     font-size: 16px;
     font-weight: normal;
-    padding-left: 20px;
+    padding-left: 10px;
     cursor: pointer;
 }
+
+#ratingbuttons #grab-playlists span:hover {
+    border: 1px solid lightblue;
+}
+
 #ratingbuttons #grab-playlists span.is-on-playlist::before {
     content: '';
     position: absolute;
@@ -393,4 +424,98 @@ div.notification .notif-title {
 }
 #ratingbuttons #grabcontainer:hover #grab-playlists {
     display: block;
+}
+
+#ratingbuttons img {
+    position: absolute;
+    top: 4px;
+    opacity: 1;
+    height: 40px;
+    width: 40px;
+    right: calc(50% - 20px);
+}
+
+#ratingbuttons #btn-woot.active, #ratingbuttons #btn-meh.active {
+    background-color: transparent;
+}
+
+#ratingbuttons .is-on-playlist {
+    color: #3ca2c3;
+}
+
+/* Fucking finally moved this shit */
+#dj-history-button {
+    right: 200px !important;
+}
+
+#time-left {
+	right: 300px !important;
+}
+
+/* Fade Animations */
+#playlists.hidden {
+ display: block;
+ pointer-events:none;
+ opacity: 0;
+}
+
+#playlists {
+ opacity: 1;
+  transition: opacity .2s ease-in-out;
+ -moz-transition: opacity .2s ease-in-out;
+ -webkit-transition: opacity .2s ease-in-out;
+}
+
+div#djhistory-container.hidden {
+ display: block;
+ pointer-events:none;
+ opacity: 0;
+}
+
+div#djhistory-container {
+  opacity: 1;
+  transition: opacity .2s ease-in-out;
+ -moz-transition: opacity .2s ease-in-out;
+ -webkit-transition: opacity .2s ease-in-out;
+}
+
+/* Modify the Rating buttons positioning slightly */
+#ratingbuttons {
+    right: 30px;
+}
+
+/* Scrollbars */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #135599;
+  border: 0px none #ffffff;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1980eb;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #1c7fe4;
+}
+::-webkit-scrollbar-track {
+  background: #0b2e52;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #124272;
+}
+::-webkit-scrollbar-track:active {
+  background: #124272;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
