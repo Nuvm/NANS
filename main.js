@@ -736,12 +736,12 @@ function trackNewNcsUser() {
 
 //no fucking comment
 $('head').append('<style>#afk-edit {background-image: url("http://i.imgur.com/Zzp8jQC.png");background-size: 15px; background-repeat: no-repeat;height: 15px;width: 15px;position: absolute; margin-left: 215px; }</style>');
-$('#notifications').append('<div id="notif-afk-edit" class="notification" style="display: none;"><div class="notif-title"><span class="notif-title-text">AFK Message</span><i class="fa fa-times notif-close"></i></div><div style="overflow: hidden; height: 140px;" class="notif-content afk-pixel-fuck-up"><p>Set your afk response:</p><input type="text" id="afk-response" style="border:solid white 1px; margin:10px;" maxlength="200" placeholder="Set AFK Message"><button style="border-radius:5px;" onclick="resetinput()">Submit</button></input></div></div>');
+$('#notifications').append('<div id="notif-afk-edit" class="notification" style="display: none;"><div class="notif-title"><span class="notif-title-text">AFK Message</span><i class="fa fa-times notif-close"></i></div><div style="overflow: hidden; height: 140px;" class="notif-content afk-pixel-fuck-up-fix"><p>Set your afk response:</p><input type="text" id="afk-response" style="border:solid white 1px; margin:10px;" maxlength="200" placeholder="Set AFK Message"><button style="border-radius:5px;" onclick="resetinput()">Submit</button></input></div></div>');
 var afkresponse = 'I am currently AFK.'
-$('.afk-pixel-fuck-up').append('<p class="afk-preview">Current message: ' + afkresponse + '</p>');
+$('.afk-pixel-fuck-up-fix').append('<p class="afk-preview">Current message: ' + afkresponse + '</p>');
 function resetinput() {
 afkresponse = $('#afk-response').val();
 $('#afk-response').val('');
 $('.afk-preview').remove();
-$('.afk-pixel-fuck-up').append('<p class="afk-preview">Current message: ' + afkresponse + '</p>');
+$('.afk-pixel-fuck-up-fix').append('<p class="afk-preview">Current message: ' + afkresponse + '</p>');
 }
