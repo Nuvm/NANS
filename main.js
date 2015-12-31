@@ -3,11 +3,11 @@
 
 // Version 0.6.0, temporary method of update. Used it to remove broken features in prep for the new NC331 patch.
  // This update fixes/moves the NCS issue button.
-var version = '1.0.0 | Merry Christmas!';
+var version = '1.0.3 | Happy New Year!';
 var ncApiKey = '6R9fc29cMLw615PBv98u072430tZ3E9c';
 var startUpMsg = "Welcome to NCS version " + version;
 var newFeaturesMsg = "Moved and redesigned rating buttons<br>Fixed new grab buttons having problems<br>Changed NC331 logo header to be our own<br>Moved volume settings<br>Moved logout button<br>Removed the username text that was by the logout button before it was moved as its shown by the exp bar<br>Window Animations<br>Fixed CustomNames.js breaking chat partally (Couldnt click someones username to mention them)<br>Moved RatingButtons slightly to the left to make it look nicer.<br>Moved DJ History button<br>Moved Song Countdown Timer<br>Edited and customized EXP bar<br><a href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
-var alertMsg = "This is a 2-part update and the second part will release at an unannounced date. -- Merry Christmas and may the remainder of the year be a great one! -THe NCS Dev Team!";
+var alertMsg = "This is not part of the 2nd part of the update, we just wanted to add a little timer which took longer then expected. Part 2 is still on the way! Happy New Year! -The NCS Dev Team";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
 var uname, lastSelected, prevObj, unamestuff, unameicon, checkIfReady, ccid, previousBg, ytNextPage, ytPrevPage, ytPage, ytCurrentSearch;
 var ytCurPage = 0,
@@ -128,7 +128,7 @@ function cfnm(data) {
 function NCScommandSorter(msg, user, element) {
   msg = msg.slice(4, 255);
   if (msg === 'update') {
-    if (user.innerHTML === 'Nuvm' || user.innerHTML === 'CSxKING' || user.innerHTML === 'Pixel' || user.innerHTML === 'WindWalk') {
+    if (user.innerHTML === 'Nuvm' || user.innerHTML === 'CSxKING' || user.innerHTML === 'PixelBreeze' || user.innerHTML === 'WindWalk') {
       $('#messages').append('<center class="NCSalert cm log mention" style="color:whitesmoke;text-align:center;font-weight:200;font-size:46;padding:5px;">A new update is available for NCS!<br><span style="font-weight:100;font-size:28">Refresh your page to get the latest update!</span></center>');
       $('#chat-sound-1')[0].play();
       setTimeout(function() {
@@ -668,7 +668,6 @@ function applyPlugTheme() {
      $('#grab-playlists').css({'top': '-' + calculateTPixels + 'px'});
      $("#grab-playlists").css({'height': '+' + calculateHPixels + 'px'});
    }},3000);
-   // end what I was giving a go
    removeThemes();
    $('head').append('<link id="PlugTheme" rel="stylesheet" href="https://rawgit.com/Nuvm/NCS/dev/PlugTheme.css">');
    //function to make the logout button work again as we remove it and then the click listener is removed too
@@ -688,6 +687,7 @@ function plugThemeOff() {
   $('#grab-playlists').removeAttr('height top style');
   $('#NCSdjhistorybtn').remove();
   $('#NCStimeleft').remove();
+  $('#countdown1').remove();
   clearInterval(grabCalc);
   $('#PlugTheme').remove();
   $('#img-ncs').remove();
@@ -734,14 +734,19 @@ function trackNewNcsUser() {
   $.ajax({type: 'POST',url: "https://stg.nightcore-331.net/api/stats/NCSUsageCounter?apiKey=" + ncApiKey + "&action=increment",data: '',error: function(e) {console.log(e);},dataType: "json",contentType: "application/json"});
 }
 
-//no fucking comment
+//AFK response
 $('head').append('<style>#afk-edit {background-image: url("http://i.imgur.com/Zzp8jQC.png");background-size: 15px; background-repeat: no-repeat;height: 15px;width: 15px;position: absolute; margin-left: 215px; }</style>');
-$('#notifications').append('<div id="notif-afk-edit" class="notification" style="display: none;"><div class="notif-title"><span class="notif-title-text">AFK Message</span><i class="fa fa-times notif-close"></i></div><div style="overflow: hidden; height: 140px;" class="notif-content afk-pixel-fuck-up-fix"><p>Set your afk response:</p><input type="text" id="afk-response" style="border:solid white 1px; margin:10px;" maxlength="200" placeholder="Set AFK Message"><button style="border-radius:5px;" onclick="resetinput()">Submit</button></input></div></div>');
+$('#notifications').append('<div id="notif-afk-edit" class="notification" style="display: none;"><div class="notif-title"><span class="notif-title-text">AFK Message</span><i class="fa fa-times notif-close"></i></div><div style="overflow: hidden; height: 140px;" class="notif-content"><p>Set your afk response:</p><input type="text" id="afk-response" style="border:solid white 1px; margin:10px;" maxlength="200" placeholder="Set AFK Message"><button style="border-radius:5px;" onclick="resetinput()">Submit</button></input></div></div>');
 var afkresponse = 'I am currently AFK.'
-$('.afk-pixel-fuck-up-fix').append('<p class="afk-preview">Current message: ' + afkresponse + '</p>');
+$('.notif-content').append('<p class="afk-preview">Current message: ' + afkresponse + '</p>');
 function resetinput() {
 afkresponse = $('#afk-response').val();
 $('#afk-response').val('');
 $('.afk-preview').remove();
-$('.afk-pixel-fuck-up-fix').append('<p class="afk-preview">Current message: ' + afkresponse + '</p>');
+$('.notif-content').append('<p class="afk-preview">Current message: ' + afkresponse + '</p>');
 }
+
+//cuntdown timer
+$("#app-left").append('<div id="countdown">Time Till New Year Event<iframe src="https://freesecure.timeanddate.com/countdown/i505bm49/n602/cf12/cm0/cu4/ct0/cs1/ca0/co0/cr0/ss0/cac000/cpc000/pct/tcfff/fs225/szw320/szh135/iso2016-01-01T00:00:00" allowTransparency="true" frameborder="0" width="237" height="65"></iframe><div>');
+$('head').append('<style>#countdown {background: #313131;width: 250px;margin: 20px;border: 2px solid #00FFF6;border-radius: 10px; z-index: 5;bottom:0;text-align: center;margin-top: 60px;font-size: 17px;font-weight: bold;position:absolute;}</style>');
+
