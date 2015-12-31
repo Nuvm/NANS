@@ -748,5 +748,5 @@ $('.notif-content').append('<p class="afk-preview">Current message: ' + afkrespo
 
 //cuntdown timer
 $("#app-left").append('<div id="countdown">Time Till New Year Event<iframe src="https://freesecure.timeanddate.com/countdown/i505bm49/n602/cf12/cm0/cu4/ct0/cs1/ca0/co0/cr0/ss0/cac000/cpc000/pct/tcfff/fs225/szw320/szh135/iso2016-01-01T00:00:00" allowTransparency="true" frameborder="0" width="237" height="65"></iframe><div>');
-$('head').append('<style>#countdown {background: #313131;width: 250px;margin: 20px;border: 2px solid #00FFF6;border-radius: 10px; z-index: 5;bottom:0;text-align: center;margin-top: 60px;font-size: 17px;font-weight: bold;position:absolute;}</style>');
+$('head').append('<style>#countdown {background: #313131;width: 250px;margin: 20px;border: 2px solid #00FFF6;border-radius: 10px;bottom:0;text-align: center;margin-top: 60px;font-size: 17px;font-weight: bold;position:absolute;}</style>');
 
