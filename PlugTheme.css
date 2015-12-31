@@ -519,3 +519,46 @@ div#djhistory-container {
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
+
+/* Countdown Stuff */
+#countdown.hidden {
+  background: #313131;
+  width: 250px;
+  margin: 20px;
+  border: 2px solid #00FFF6;
+  border-radius: 10px;
+  z-index: 5;
+  bottom: 0;
+  text-align: center;
+  margin-top: 60px;
+  font-size: 17px;
+  font-weight: bold;
+  position: absolute;
+  opacity: .2;
+}
+
+#countdown {
+  background: #313131;
+  width: 250px;
+  margin: 20px;
+  border: 2px solid #00FFF6;
+  border-radius: 10px;
+  z-index: 5;
+  bottom: 0;
+  text-align: center;
+  margin-top: 60px;
+  font-size: 17px;
+  font-weight: bold;
+  position: absolute;
+  opacity: .4;
+  transition: opacity .2s ease-in-out;
+  -moz-transition: opacity .2s ease-in-out;
+  -webkit-transition: opacity .2s ease-in-out;
+}
+
+#countdown:hover {
+  opacity: 1;
+   transition: opacity .2s ease-in-out;
+   -moz-transition: opacity .2s ease-in-out;
+   -webkit-transition: opacity .2s ease-in-out;
+}
