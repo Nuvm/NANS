@@ -3,11 +3,11 @@
 
 // Version 0.6.0, temporary method of update. Used it to remove broken features in prep for the new NC331 patch.
  // This update fixes/moves the NCS issue button.
-var version = '1.0.3 | Happy New Year!';
+var version = '1.0.4 | Happy New Year!';
 var ncApiKey = '6R9fc29cMLw615PBv98u072430tZ3E9c';
 var startUpMsg = "Welcome to NCS version " + version;
-var newFeaturesMsg = "Moved and redesigned rating buttons<br>Fixed new grab buttons having problems<br>Changed NC331 logo header to be our own<br>Moved volume settings<br>Moved logout button<br>Removed the username text that was by the logout button before it was moved as its shown by the exp bar<br>Window Animations<br>Fixed CustomNames.js breaking chat partally (Couldnt click someones username to mention them)<br>Moved RatingButtons slightly to the left to make it look nicer.<br>Moved DJ History button<br>Moved Song Countdown Timer<br>Edited and customized EXP bar<br><a href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
-var alertMsg = "This is not part of the 2nd part of the update, we just wanted to add a little timer which took longer then expected. Part 2 is still on the way! Happy New Year! -The NCS Dev Team";
+var newFeaturesMsg = "Removed New Year Event Countdown Timer<br><a href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
+var alertMsg = "Sorry about the delay on removing the countdown timer! It should be gone now!";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
 var uname, lastSelected, prevObj, unamestuff, unameicon, checkIfReady, ccid, previousBg, ytNextPage, ytPrevPage, ytPage, ytCurrentSearch;
 var ytCurPage = 0,
@@ -745,3 +745,11 @@ $('#afk-response').val('');
 $('.afk-preview').remove();
 $('#notif-afk-edit .notif-content').append('<p class="afk-preview">Current message: ' + afkresponse + '</p>');
 }
+
+//cuntdown timer
+// This is commented out until it is needed for something.
+
+/*
+$("#app-left").append('<div id="countdown">Time Till New Year Event<iframe src="https://freesecure.timeanddate.com/countdown/i505bm49/n602/cf12/cm0/cu4/ct0/cs1/ca0/co0/cr0/ss0/cac000/cpc000/pct/tcfff/fs225/szw320/szh135/iso2016-01-01T00:00:00" allowTransparency="true" frameborder="0" width="237" height="65"></iframe><div>');
+$('head').append('<style>#countdown {background: #313131;width: 250px;margin: 20px;border: 2px solid #00FFF6;border-radius: 10px;bottom:0;text-align: center;margin-top: 60px;font-size: 17px;font-weight: bold;position:absolute;}</style>');
+*/
