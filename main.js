@@ -748,7 +748,7 @@ $('#notif-afk-edit .notif-content').append('<p class="afk-preview">Current messa
 
 //Countdown Timer
 // This is commented out until it is needed for something.
-
+// EDIT: Fixed the timer because it was counting up....
 // The final update to NCS for Alpha. There will be no more updates, but that doesnt mean that it's being abandoned..... ;-;
 $("#app-left").append('<div id="countdown">Aprox. Time Till Musiqpad Alpha Launch<iframe src="https://freesecure.timeanddate.com/countdown/i50xjfyw/cf12/cm0/cu4/ct0/cs1/ca0/co0/cr0/ss0/cac000/cpc000/pct/tcfff/fs150/szw448/szh189/iso2016-01-16T16:00:00" allowTransparency="true" frameborder="0" width="237" height="65"></iframe><div>');
 $('head').append('<style>#countdown {background: #313131;width: 250px;margin: 20px;border: 2px solid #00FFF6;border-radius: 10px;bottom:0;text-align: center;margin-top: 60px;font-size: 17px;font-weight: bold;position:absolute;}</style>');
