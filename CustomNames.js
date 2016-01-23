@@ -83,6 +83,8 @@ function cfun(){
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
       unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
       $(unameicon).before('<i id='+("icon-NCS"+i)+' class="icon icon-rank-2"'/* style="background-image:none"*/+'></i>');
+      i++;
+      $('icon-NCS'+(i-1)).before('<i id='+("icon-NCS"+i)+' class="icon icon-rank-2"'/* style="background-image:none"*/+'></i>');
       //document.getElementById('icon-NCS'+i).style.backgroundImage = "url('https://imgur.com/GT0yJLY.png')";
       $(unamestuff).removeClass('rank-2');
       unamestuff.setAttribute('style', 'color:#FF0000 !important');
