@@ -37,6 +37,7 @@ function cfun(){
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
       unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-4');
       $(unameicon).before('<i id='+("icon-NCS"+i)+' class="icon icon-rank-3"></i>');
+      $(unameicon).after('<b>[PLEBLORD]</b>');
       //document.getElementById('icon-NCS'+i).style.backgroundImage = "url('https://i.imgur.com/Wyh8Mbv.png')";
       //unamestuff.style.color='#EA6900';
       $(unamestuff).removeClass('rank-4');
@@ -82,7 +83,8 @@ function cfun(){
       i++;
       unamestuff = document.getElementById('messages').lastChild.getElementsByClassName('uname')[0];
       unameicon = document.getElementById('messages').lastChild.getElementsByClassName('icon-rank-2');
-      $(unameicon).before('<i id='+("icon-NCS"+i)+' class="icon icon-rank-2"'/* style="background-image:none"*/+'></i>');
+      $(unameicon).before('<i id='+("icon-NCS"+i)+' class="icon icon-rank-2"'/* style="background-image:none"*/+'></i><i id='+("icon-NCS"+(i+1))+' class="icon icon-rank-2"'/* style="background-image:none"*/+'></i>');
+      i++;
       //document.getElementById('icon-NCS'+i).style.backgroundImage = "url('https://imgur.com/GT0yJLY.png')";
       $(unamestuff).removeClass('rank-2');
       unamestuff.setAttribute('style', 'color:#FF0000 !important');
