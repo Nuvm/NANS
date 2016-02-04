@@ -6,7 +6,7 @@
 var version = '1.0.5 | Moving on...';
 var ncApiKey = '6R9fc29cMLw615PBv98u072430tZ3E9c';
 var startUpMsg = "Welcome to NCS version " + version;
-var newFeaturesMsg = "NCS for Musiqpad is out now! Click <a href='https://ncs.electricgaming.ga'>here</a> to install it!<br><a target='_blank' href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
+var newFeaturesMsg = "NCS for Musiqpad is out now! Click <a href='https://ncs.electricgaming.ga' target=_blank>here</a> to install it!<br><a target='_blank' href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
 var alertMsg = "Ok now seriously, the lolis tell me I cant update this anymore else they'll get angry. Meaning this is the final NCS for ANC update. This does not however mean the project is being abandoned. Please click <a target=_blank href='http://electricgaming.ga/en/index.php?u=/topic/6/ggmoving-on'>here</a> for more information.";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
 var uname, lastSelected, prevObj, unamestuff, unameicon, checkIfReady, ccid, previousBg, ytNextPage, ytPrevPage, ytPage, ytCurrentSearch;
