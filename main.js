@@ -6,8 +6,8 @@
 var version = '1.0.5 | Moving on...';
 var ncApiKey = '6R9fc29cMLw615PBv98u072430tZ3E9c';
 var startUpMsg = "Welcome to NCS version " + version;
-var newFeaturesMsg = "Brought back the countdown timer, with it been repurposed.<br><a target='_blank' href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
-var alertMsg = "This will be the last update for NCS for Alpha. This does not however mean the project is being abandoned. Please click <a target=_blank href='http://electricgaming.ga/en/index.php?u=/topic/6/ggmoving-on'>here</a> for more information.";
+var newFeaturesMsg = "Countdown timer now counts down till the source and launch release of NCS for Musiqpad!<br><a target='_blank' href='https://ncs.electricgaming.ga/' target='_blank'>NCS website</a><br><a href='https://github.com/Nuvm/NCS/raw/master/NCS.user.js' target='_blank'>NCS autoloader</a>";
+var alertMsg = "Ok now seriously, the lolis tell me I cant update this anymore else they'll get angry. Meaning this is the final NCS for ANC update. This does not however mean the project is being abandoned. Please click <a target=_blank href='http://electricgaming.ga/en/index.php?u=/topic/6/ggmoving-on'>here</a> for more information.";
 var errorMsg = "It seems that you are already running NCS. If that is not the case, please refresh and try again. If it still doesn't work, please report the issue <a href='https://github.com/Nuvm/NCS/issues/new' target='_blank'>here</a>.";
 var uname, lastSelected, prevObj, unamestuff, unameicon, checkIfReady, ccid, previousBg, ytNextPage, ytPrevPage, ytPage, ytCurrentSearch;
 var ytCurPage = 0,
@@ -750,5 +750,5 @@ $('#notif-afk-edit .notif-content').append('<p class="afk-preview">Current messa
 // This is commented out until it is needed for something.
 // EDIT: Fixed the timer because it was counting up....
 // The final update to NCS for Alpha. There will be no more updates, but that doesnt mean that it's being abandoned..... ;-;
-$("#app-left").append('<div id="countdown">Aprox. Time Till Musiqpad Alpha Launch<iframe src="https://freesecure.timeanddate.com/countdown/i50xjfyw/cf12/cm0/cu4/ct0/cs1/ca0/co0/cr0/ss0/cac000/cpc000/pct/tcfff/fs150/szw448/szh189/iso2016-01-16T16:00:00" allowTransparency="true" frameborder="0" width="237" height="65"></iframe><div>');
+$("#app-left").append('<div id="countdown">Aprox. Time Till NCS for Musiqpad Launch<iframe src="https://freesecure.timeanddate.com/countdown/i51wxclq/n75/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpc000/pct/tcfff/fs150/szw320/szh135/iso2016-02-03T19:30:00" allowTransparency="true" frameborder="0" width="158" height="43"></iframe><div>');
 $('head').append('<style>#countdown {background: #313131;width: 250px;margin: 20px;border: 2px solid #00FFF6;border-radius: 10px;bottom:0;text-align: center;margin-top: 60px;font-size: 17px;font-weight: bold;position:absolute;}</style>');
