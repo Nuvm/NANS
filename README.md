@@ -2,6 +2,8 @@
 
 ### Installation and Activation
 
+#### Note: This version of NCS is no longer in development. The new version can be found here: [https://github.com/bentenz5/NCS](https://github.com/bentenz5/NCS)
+
 NCS can be installed by visiting http://ncs.electricgaming.ga/new/#download and bookmarking the button there.
 
 ### What is NCS
